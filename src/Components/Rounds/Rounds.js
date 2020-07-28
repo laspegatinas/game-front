@@ -166,7 +166,7 @@ class Rounds extends React.Component {
                     */}
                   
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
-                        <div className={pop ? 'hideGame' : ''}> { context.state.spotify_round_one || ''}</div>
+                         <div className={pop ? 'hideGame' : ''}>'total pts: ' { context.state.spotify_round_one || ''}</div>
                         <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
                           <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
                            popButton={'button1'} popText={texts[language].roundOneText}/>

@@ -1,12 +1,17 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import { MyContext } from '../../../../context/MyProvider';
 import './UserProfile.css';
 import  profile  from '../../../../Pictures/user.png'
 import texts from '../../../../texts.json';
+import Api from '../../../../Api/index';
+//import axios from 'axios';
+
 
 const UserPofile = ({language}) => {
 
     const { state, logUserIntoContext } = React.useContext(MyContext);
+
+
     
     const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
@@ -14,15 +19,40 @@ const UserPofile = ({language}) => {
     const [city, setCity] = useState('');
     const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
+    const { state: {accessToken, user}} = React.useContext(MyContext);
 
-    const postChange = (e) => {
+    
+   
+        const submitUpdate =  (e) =>{
 
-        e.preventDefault();
-        console.log(username, phone, region);
+            e.preventDefault();                    
+            Api.update({
+
+                "phone": phone,
+                "city": city,
+                "state": region,         
+            })
+            .then((resp) => {
+            console.log(resp)                    
+            Api.getPoints(resp.data.id)
+            .then((resp2)=>{
+                let user = {...resp['data'], ...resp2['data']};
+                logUserIntoContext(user);
+            })   
+            },(err)=>{
+
+        });
+    };
+
+   
+
+    // const postChange = (e) => {
+
+    //     e.preventDefault();
+    //     console.log(username, phone, region);
         
-    }
+    // }
 
- 
     return (
         <div className="profile-text">
             <MyContext.Consumer>
@@ -42,7 +72,7 @@ const UserPofile = ({language}) => {
 
                         ?
                             <div>
-                                <form onSubmit={postChange}>
+                                <form onSubmit={submitUpdate}>
                                 {/* <input
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -77,7 +107,7 @@ const UserPofile = ({language}) => {
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                     name="City"
-                                    placeholder={texts[language].phone}
+                                    placeholder={texts[language].city}
                                     type="text"
                                     className="input"
                                     id="city"
@@ -92,7 +122,7 @@ const UserPofile = ({language}) => {
                                     className="input"
                                     id="region"
                                 />
-                                <button className="safeBtn" type="submit">Safe</button>
+                                <button className="safeBtn" type="submit">Submit</button>
                                  </form>
                             </div>
                         :

@@ -19,6 +19,7 @@ return Promise.reject(error);
 
 });
 
+
 export default {
 setSessionToken : function(token){
 instance.defaults.headers.common['x-access-token'] = token;
@@ -27,8 +28,6 @@ getSessionToken : function() {
 return instance.defaults.headers.common['x-access-token'];
 },
 
-
-
 signUp : function(user){
     return instance.post('auth/signup/',user);
 },
@@ -36,6 +35,7 @@ signUp : function(user){
 socialSignUp : function(user){
     return instance.post('auth/socialsign/',user);
 },
+
 
 
 logIn : function(credentials){
@@ -48,6 +48,11 @@ getPoints : function(user_id){
 
 setPoints : function(points){
     return instance.post('user/setpoints',points);
-}
+},
+
+update : function(user){
+
+    return instance.post('user/update', user)
+ },
 
 }
