@@ -28,6 +28,7 @@ const UserPofile = ({language}) => {
             e.preventDefault();                    
             Api.update({
 
+                'userid': state.user,
                 "phone": phone,
                 "city": city,
                 "state": region,         
