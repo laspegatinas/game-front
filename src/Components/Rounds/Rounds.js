@@ -208,7 +208,7 @@ class Rounds extends React.Component {
                                     {this.state.accessToken ?
                                         <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
                                             <i class="fab fa-spotify"></i>
-                                            {texts[language].spotifyPlayWithButton}
+                                            {texts[language].keySpotifyBtnSecondClick}
                                         </button>
                                         :
                                         <button className={this.props.tokenButton} onClick={this.getToken}>
