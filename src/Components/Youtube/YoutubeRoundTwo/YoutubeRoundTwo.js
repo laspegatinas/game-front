@@ -1,166 +1,125 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-unescaped-entities */
 import React, { Component } from 'react';
-// import '../YTPlayer/YTPlayer.css';
-import GameEnded from '../../GameEnded/GameEnded';
-import YTGame from '../YTGame/YTGame';
-import videoDataObject from '../VideoDataObject'
-import YouTube from 'react-youtube';
-// import Button from '../Button/Button_YT';
-import Shuffle from '../../Utils/Shuffle';
-// import './YTPlayer.css';
-import QuizYT2 from '../YoutubeRoundTwo/QuizYT2';
+import '../Youtube.css';
+// import { Link } from 'react-router-dom';
+import Register from '../../Register/Register';
 import texts from '../../../texts.json';
-import Confetti from 'react-confetti';
-import Loading from '../../Utils/Loading/Loading';
-
+import YTGame from '../YTGame/YTGame';
+import { MyContext } from '../../../context/MyProvider';
+import UserForm from '../../Register/User/UserForm/UserForm';
+import SocialMedia from '../../SocialMedia/SocialMedia';
+import Navbar from '../../Navbar/Navbar';
+import Rounds from '../../Rounds/Rounds';
+import videoDataObject2 from '../VideoDataObject2';
+import GameEnded from '../../GameEnded/GameEnded';
+import Shuffle from '../../Utils/Shuffle';
 
 class YoutubeRoundTwo extends Component {
-    state = {
+
+    state= {
         gameStatus: 'playing',
-        player: '',
-        giveMeConfetti: false,
-        loadingDisplayClass: 'show',
-        playerDisplayClass: 'hide',
-        videoId: '',
-        data:[],
-        questions:[],
-        videoIndex:''
+        data: {},
+        randomVideoId: '',
+        fourNonShuffledSongsTitles: [],
+        questions: [],
+        currentTitle: '',
+        
     }
 
-    // access to player in all event handlers via event.target
-    VideoOnReady = (event) => {
-    console.log(event.target)
-    // plays the video at 10s, in case the video has the name of the song at the start
-    const {videoId,data } = this.props;
-    
-
-    this.setState({
- 
-        loadingDisplayClass: 'hide',
-        playerDisplayClass: 'show',
-        videoId: this.props.location.state.videoId,
-        data: this.props.location.state.data
-    });
-    // store the array with 3 random titles in a const
-console.log (this.state.data)
-
-    const arrayPlaylist = [];
-    this.state.data.map((element) => {
-    // here be the if statement
-        arrayPlaylist.push(element.videoId);
-        return arrayPlaylist;
-    });
-    this.setState({
-        questions: this.state.data[arrayPlaylist.indexOf(this.state.videoId)].questions,
-        videoIndex:arrayPlaylist.indexOf(this.state.videoId)
-    });
-    console.log (this.state.questions)
-    console.log()
-
-        event.target.seekTo(20);
-        event.target.mute();
-        event.target.playVideo();
+    componentDidMount = () => {
+        const json = JSON.stringify(videoDataObject2);
+        const newdata = JSON.parse(json);
 
         this.setState({
-            player: event.target,
-            giveMeConfetti: false
+            data: newdata,
         });
-    }
-    showConfetti = () => {
+
+        // this is the question
+
+        const arrayPlaylist = [];
+        newdata.map((element) => {
+        // here be the if statement
+            arrayPlaylist.push(element.videoId);
+            return arrayPlaylist;
+            
+        });
+
+        console.log(arrayPlaylist);
+
+        // create the random from one videoid, in Round 2 not random but chosen, push all the concerts in array, but take only ID of chosen one
+         const randomVideoId = localStorage.ConcertId;
+        // const randomVideoId = this.props.videoId;
         this.setState({
-            giveMeConfetti: true,
+            randomVideoId,
+            questions: newdata[arrayPlaylist.indexOf(randomVideoId)].questions,
+            currentTitle: newdata[arrayPlaylist.indexOf(randomVideoId)].title,
+            // currentSongTitle:
+        });
+
+
+        // create the array with the title of the songs for the button shuffle(tu put in other buttons)
+        const arraySongTitles = [];
+        newdata.map((element) => {
+            arraySongTitles.push(element.title);
+            return arraySongTitles;
+        });
+        // removed from the array the title of the song that is playing so it wont dublicate in the buttons
+        arraySongTitles.splice(arrayPlaylist.indexOf(randomVideoId), 1);
+
+        // shuffle function that reorganize the order of the song title
+        const suffledArraySongTitles = Shuffle(arraySongTitles);
+        const fourNonShuffledSongsTitles = suffledArraySongTitles.slice(0, 3); // actually 3
+
+        // fourNonShuffledSongsTitles.push(currentSongName); // now 4
+
+        //  const fourShuffledSongsTitles = Shuffle(fourNonShuffledSongsTitles)
+        // console.log(fourShuffledSongsTitles)
+        // return fourNonShuffledSongsTitles;
+        this.setState({
+            fourNonShuffledSongsTitles,
         });
     }
-    // VideoOnPlay = () => {
 
-    // }
-
-    // when the video end it send you to the endgame screen
-    VideoOnEnd = () => {
-
-        // const { stopPlaying } = this.props;
-
-        this.stopPlaying();
-
-    }
-    // video can't be paused, it automaticlly plays the video
-    VideoOnPause =(event)=>{
-        const { player } = this.state;
-
-        player.playVideo();
-
-    }
 
     stopPlaying = () => {
         this.setState({ gameStatus: 'gameOver' });
     }
-    
-        restartYoutube = () => {
-            this.setState({
-                gameStatus: 'playing',
-            });
+
+    restartYoutube = () => {
+        this.setState({
+            gameStatus: 'playing',
+        });
+    }
+
+    render() {
+
+        const { gameStatus } = this.state;
+
+        const { language } = this.props;
+
+
+
+        if (gameStatus === 'playing') {
+            return (
+                <div>
+                    <YTGame object={videoDataObject2} language={language} stopPlaying={this.stopPlaying}  videoId={this.state.randomVideoId} data={this.state.data}
+                     currentTitle={this.state.currentTitle}
+                    fourNonShuffledSongsTitles={this.state.fourNonShuffledSongsTitles}  language={language} stopPlaying={this.stopPlaying} 
+                    questions={this.state.questions}/>
+                </div>
+            );
         }
 
-        render() {
-
-            const opts = {
-                // height: '315',
-                // width: '560',
-    
-                // default 640 h-390
-                playerVars: { // https://developers.google.com/youtube/player_parameters
-                    autoplay: 1,
-                    playsinline:1,//no full screen on mobile
-                    modestbranding: 1, // not big yt branding
-                    controls: 0, // the control not displayed
-                    loop: 1,
-                    muted:1,
-                    start: 20, // from where the video starts(at 20 s in case the title is at the beginning)
-                    // end: 90,
-                    rel: 0, // getting only related videos from the channel
-                },
-            };
-
-            const { giveMeConfetti, loadingDisplayClass, playerDisplayClass, gameStatus, videoId, questions} = this.state;
-            const { language }=this.props
-    
-            if (gameStatus === 'playing') {
-                return (
-                    <div className="thegame">
-                    <div className={`loading ${loadingDisplayClass}`}>
-                        <Loading />
-                    </div>
-
-                    <div style={{ position: 'relative' }} className={`theYTPlayer ${playerDisplayClass}`}>
-                        <div className="cover-bar"></div>
-                        <YouTube
-                            videoId={videoId}
-                            opts={opts}
-                            onReady={this.VideoOnReady}
-                            // onPlay={this.VideoOnPlay}
-                            onPause={this.VideoOnPause}
-                            onEnd={this.VideoOnEnd}
-                        />
-                    </div>
-                    <div>
-                            <QuizYT2
-                                questions={questions}
-                                stopPlaying={this.stopPlaying}
-                                showConfetti={this.showConfetti}
-                            />
-                    </div>
-                        }
-                        </div>
-                )}
-
-
-            if (gameStatus === 'gameOver') {
-                return (
-                    <div>
-                         <GameEnded currentGame="youtube" language={language}/>
-                    </div>
-                )
-            }
-          }
-          }
+        if (gameStatus === 'gameOver') {
+            return (
+                <div>
+                     <GameEnded currentGame="youtube" language={language}/>
+                </div>
+            )
+        }
+        return null;
+    }
+}
 
 export default YoutubeRoundTwo;

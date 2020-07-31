@@ -68,56 +68,34 @@ const SignUp = ({ language }) => {
         return validates
     }
 
-    //change to axios eventually
-
     const postProfile = (e) => {
         e.preventDefault();
    //test password: no error --> fetch
         if (formValidates())
-        fetch('https://authnodejstest.herokuapp.com/api/auth/signup', {
-            method: 'POST',
-            headers: new Headers({
-                'Content-Type': 'application/json',
-            }),
-            //change data 
-            body: JSON.stringify({ 
-                
+        Api.signUp({
+                         
             "pre_username": username,         
             'username' : username.toLowerCase(),
             "email": email,
             "password": password,
             "roles": ["user"]
-                
-                 }),
+                               
         })
             .then(async (res) => {
-                console.log(res)
+                console.log(res.status)
                 if (res) {
                     setPosted(!posted);
                 }
-                if (res.status === 200){
-                    
-                await fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
-                    method: 'POST',
-                    headers: new Headers({
-                        'Content-Type': 'application/json',
-                    }),
-                    body: JSON.stringify({
-                        "username": username,             
-                        "password": password,
-                        }),
-                        
-                }).then((res) => {
-                    console.log('response', res);
-                    if (res.status === 200) {
-                        // alert('logged in!');
-                        
-                        closeModal();
-                        console.log('logggggged innnn');
-                        return res.json();
-                    }
-                }).then((data) => {
-                    Api.setSessionToken(data.accessToken)
+                if (res.status === 200){                  
+                await  Api.logIn({
+                 
+                    "pre_username": username, 
+                    'username' : username.toLowerCase(),
+                    "password": password,
+                                       
+                     }).then((resp) => {
+                         console.log(resp)
+                    Api.setSessionToken(resp.data.accessToken)
                     Api.setPoints({
                         'spotify_round_one':0,
                         'spotify_round_two':0,
@@ -126,19 +104,20 @@ const SignUp = ({ language }) => {
                         'youtube_round_one':0,
                         'youtube_round_two':0,
                         'total_app_points': 0,
-                        'user':data.id
-                    }).then((resp)=>{
-                        console.log(resp)
-                        Api.getPoints(data.id).then((resp2)=>{
-                            let user = {...data, ...resp2['data']};
+                        'user': resp.data.id
+                    }).then((respo)=>{
+                        console.log(respo)
+                        Api.getPoints(resp.data.id).then((resp2)=>{
+                            let user = {...resp['data'], ...resp2['data']};
                             logUserIntoContext(user);
+                            closeModal();
                             console.log('data you pass to the context', user);
                         })   
                     })
                    
                 });
                 }
-                return res.json();
+                return res;
             })
             .then((dataJSON) => {
                 console.log(dataJSON)
@@ -148,6 +127,85 @@ const SignUp = ({ language }) => {
                 console.log(messages)
             });
     };
+
+//     const postProfile = (e) => {
+//         e.preventDefault();
+//    //test password: no error --> fetch
+//         if (formValidates())
+//         fetch('https://authnodejstest.herokuapp.com/api/auth/signup', {
+//             method: 'POST',
+//             headers: new Headers({
+//                 'Content-Type': 'application/json',
+//             }),
+//             //change data 
+//             body: JSON.stringify({ 
+                
+//             "pre_username": username,         
+//             'username' : username.toLowerCase(),
+//             "email": email,
+//             "password": password,
+//             "roles": ["user"]
+                
+//                  }),
+//         })
+//             .then(async (res) => {
+//                 console.log(res)
+//                 if (res) {
+//                     setPosted(!posted);
+//                 }
+//                 if (res.status === 200){
+                    
+//                 await fetch('https://authnodejstest.herokuapp.com/api/auth/signin', {
+//                     method: 'POST',
+//                     headers: new Headers({
+//                         'Content-Type': 'application/json',
+//                     }),
+//                     body: JSON.stringify({
+//                         "username": username,             
+//                         "password": password,
+//                         }),
+                        
+//                 }).then((res) => {
+//                     console.log('response', res);
+//                     if (res.status === 200) {
+//                         // alert('logged in!');
+                        
+//                         closeModal();
+//                         console.log('logggggged innnn');
+//                         return res.json();
+//                     }
+//                 }).then((data) => {
+//                     Api.setSessionToken(data.accessToken)
+//                     Api.setPoints({
+//                         'spotify_round_one':0,
+//                         'spotify_round_two':0,
+//                         'instagram_round_one':0,
+//                         'instagram_round_two':0,
+//                         'youtube_round_one':0,
+//                         'youtube_round_two':0,
+//                         'total_app_points': 0,
+//                         'user':data.id
+//                     }).then((resp)=>{
+//                         console.log(resp)
+//                         Api.getPoints(data.id).then((resp2)=>{
+//                             let user = {...data, ...resp2['data']};
+//                             logUserIntoContext(user);
+//                             console.log('data you pass to the context', user);
+//                         })   
+//                     })
+                   
+//                 });
+//                 }
+//                 return res.json();
+//             })
+//             .then((dataJSON) => {
+//                 console.log(dataJSON)
+//                 let ret = [dataJSON]
+
+//                 setMessages(ret);
+//                 console.log(messages)
+//             });
+//     };
 
 
     return (

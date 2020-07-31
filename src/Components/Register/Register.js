@@ -26,7 +26,7 @@ class Register extends Component {
         // videoId: '',
         questions:[],
         setSelectedMemberId: '',
-        selectedConcert: '',
+        selectedConcert: localStorage.ConcertId || '',
         picData: []
     };
 
@@ -182,13 +182,12 @@ class Register extends Component {
                                     <h2 className="header">{texts[language].roundTwoYoutube}</h2>
                                     <h2 className="round-first-question">{texts[language].youtubeInstructionsR2}</h2>
                                     <h2 className="round-second-question">{texts[language].chooseConcertText}</h2>
-
-                                     <Concerts />
-
-                                    <Link to={{ pathname: '/youtuberoundtwo', state: { videoId: this.state.videoId,
-                                        data:this.state.data} }}
-                                    >
+                                    <Link to={{ pathname: '/youtuberoundtwo'}}
+                                    >click
                                     </Link>
+                                     <Concerts />
+                                     {/* , state: { videoId: this.state.videoId, data:this.state.data}  */}
+                                   
                                 </div>
                             </div>
                             <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
