@@ -34,10 +34,10 @@ const UserForm = ({ mainpage, language, score, gameIn, nextButton }) => (
                     aria-hidden="true"
                 >
                     <div
-                        className="modal-dialog modal-dialog-center"
+                        className="modal-dialog modal-dialog-centered"
                         role="document"
                     >
-                        <div className=" ">
+                        <div className="modal-content bg-transparent">
                             <div className="modal-header" style={{ width: '29em' }}>
                                 {/* <h5 className="modal-title" id="register">Welcome, keep playing!</h5> */}
                                 <button
