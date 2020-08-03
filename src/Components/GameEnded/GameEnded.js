@@ -18,6 +18,11 @@ const GameEnded = ({ score, currentGame, language, points }) => {
         addPoints(score || points, currentGame, 'two')
     }
 
+    const addPointsToAlbum = () => {
+        
+        addPoints(score || points, currentGame, 'two', localStorage.AlbumId)
+    }
+
     return (
         <div>
             <MyContext.Consumer>
@@ -27,7 +32,7 @@ const GameEnded = ({ score, currentGame, language, points }) => {
                             <div className="game-ended-container">
                                 <h1>{texts[language].score.replace('%points', score)}</h1>
                                 <h3>{texts[language].gameEnded}</h3>
-                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToContext}>{texts[language].keepPointsPlayMoreText}</button></Link>
+                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToAlbum}>{texts[language].keepPointsPlayMoreText}</button></Link>
                             </div>
                         );
                     }

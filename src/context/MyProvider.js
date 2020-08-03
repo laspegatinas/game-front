@@ -18,6 +18,16 @@ export default (props) => {
         state: '',
         spotify_round_one: '',
         spotify_round_two: '',
+        spotify_round_two_extended: {
+                                        alCarrer: "",
+                                        unSecretoAVoces: "",
+                                        ahoraONunca: "",
+                                        laPegatinaLive2016: "",
+                                        revulsiu: "",
+                                        eureka: "",
+                                        xapomelon: "",
+                                        viaMandarina: "",
+                                    },
         instagram_round_one: '',
         instagram_round_two: '',
         youtube_round_one: '',
@@ -79,7 +89,7 @@ export default (props) => {
         <MyContext.Provider value={{
             state: state,
 
-            addPoints: (newPoints, gameName, roundIn) => {
+            addPoints: (newPoints, gameName, roundIn, album) => {
                 console.log('ADD PONITS')
                 console.log(newPoints)
                 console.log(gameName)
@@ -112,6 +122,28 @@ export default (props) => {
                     }).then((resp)=>{
                         console.log(resp)
                     })
+                } if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}_extended`][album])) 
+                || (state[`${gameName}_round_${roundIn}_extended`][album] == undefined)) {
+                    let newIndex = `${gameName}_round_${roundIn}_extended`;
+                   
+                    newState =  {
+                        ...state,
+                        [newIndex]: {[album]: newPoints},
+                    } ;
+                    changeState(newState);
+                
+                    console.log(state)
+                    updateTotalPoints(newState)
+                    console.log(newState)
+                    console.log(newPoints)
+                    Api.setPoints({
+                        
+                        'spotify_round_two_extended': newState.spotify_round_two_extended,
+                        
+                        'user':newState.user
+                    }).then((resp)=>{
+                        console.log(resp)
+                    })
                 }
             },
 
@@ -127,6 +159,14 @@ export default (props) => {
                 state: '',
                 spotify_round_one: '',
                 spotify_round_two: '',
+                spotify_round_two_extended: {alCarrer: "",  
+                                            unSecretoAVoces: "",
+                                            ahoraONunca: "",
+                                            laPegatinaLive2016: "",
+                                            revulsiu: "",
+                                            eureka: "",
+                                            xapomelon: "",
+                                            viaMandarina: ""},
                 instagram_round_one: '',
                 instagram_round_two: '',
                 youtube_round_one: '',
@@ -156,6 +196,7 @@ export default (props) => {
                 state: data.state,
                 spotify_round_one: data.spotify_round_one,
                 spotify_round_two: data.spotify_round_two,
+                spotify_round_two_extended: data.spotify_round_two_extended,
                 instagram_round_one: data.instagram_round_one,
                 instagram_round_two: data.instagram_round_two,
                 youtube_round_one: data.youtube_round_one,

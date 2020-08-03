@@ -34,7 +34,7 @@ const Login = (props) => {
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
-                    let user = {...resp['data'], ...resp2['data']};
+                    let user = {...resp['data'], ...resp2['data'],...{spotify_round_two_extended: {alCarrer: 20}}}
                     logUserIntoContext(user);
                 })   
              },(err)=>{

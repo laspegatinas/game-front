@@ -89,7 +89,8 @@ class Register extends Component {
     setSelectedAlbumId = (id) => {
 
 
-        localStorage.setItem('AlbumId', id)
+        localStorage.setItem('AlbumId', id);
+      //  console.log(context)
 
     }
 
@@ -161,6 +162,7 @@ class Register extends Component {
                                     </div>
                                 </div>
                             </div>
+                            
                             <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {this.props.buttonText}
                             </button>
