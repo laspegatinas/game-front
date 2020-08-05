@@ -19,14 +19,14 @@ export default (props) => {
         spotify_round_one: '',
         spotify_round_two: '',
         spotify_round_two_extended: {
-                                        alCarrer: "",
-                                        unSecretoAVoces: "",
-                                        ahoraONunca: "",
-                                        laPegatinaLive2016: "",
-                                        revulsiu: "",
-                                        eureka: "",
-                                        xapomelon: "",
-                                        viaMandarina: "",
+                                        "Al Carrer!": "",
+                                        "Un secreto a voces": "",
+                                        "Ahora o nunca": "",
+                                        "La Gran Pegatina Live 2016": "",
+                                        "Revulsiu": "",
+                                        "Eureka!": "",
+                                        "Xapomelön": "",
+                                        "Via Mandarina": "",
                                     },
         instagram_round_one: '',
         instagram_round_two: '',
@@ -89,7 +89,7 @@ export default (props) => {
         <MyContext.Provider value={{
             state: state,
 
-            addPoints: (newPoints, gameName, roundIn, album) => {
+            addPoints: (newPoints, gameName, roundIn) => {
                 console.log('ADD PONITS')
                 console.log(newPoints)
                 console.log(gameName)
@@ -118,32 +118,38 @@ export default (props) => {
                         'youtube_round_one': newState.youtube_round_one,
                         'youtube_round_two': newState.youtube_round_two,
                         'total_app_points': newState.total_app_points,
-                        'user':newState.user
+                        'user': newState.user
                     }).then((resp)=>{
                         console.log(resp)
                     })
-                } if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}_extended`][album])) 
+                } 
+            },
+
+            addPointsExtended: (newPoints, gameName, roundIn, album) => {
+
+                if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}_extended`][album])) 
                 || (state[`${gameName}_round_${roundIn}_extended`][album] == undefined)) {
                     let newIndex = `${gameName}_round_${roundIn}_extended`;
-                   
+                    let oldIndex = state.spotify_round_two_extended;
+                    let newState = {}
                     newState =  {
-                        ...state,
-                        [newIndex]: {[album]: newPoints},
+                        ...state, 
+                        [newIndex]: {...oldIndex,[album]: newPoints},
                     } ;
                     changeState(newState);
-                
-                    console.log(state)
+                    console.log(newState);
+                   
                     updateTotalPoints(newState)
                     console.log(newState)
                     console.log(newPoints)
-                    Api.setPoints({
+                    // Api.setPoints({
                         
-                        'spotify_round_two_extended': newState.spotify_round_two_extended,
+                    //     'spotify_round_two_extended': newState.spotify_round_two_extended,
                         
-                        'user':newState.user
-                    }).then((resp)=>{
-                        console.log(resp)
-                    })
+                    //     'user':newState.user
+                    // }).then((resp)=>{
+                    //     console.log(resp)
+                    // })
                 }
             },
 

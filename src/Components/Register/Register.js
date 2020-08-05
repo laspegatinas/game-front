@@ -9,7 +9,8 @@ import Spotify from '../Utils/Spotify';
 //import videoDataObject from '../Youtube/VideoDataObject';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
-import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
+import MemoryGame from '../Instagram/InstagramRoundTwo/MemoryGame/MemoryGame';
+//import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
 //import Rounds from '../Rounds/Rounds';
 
 
@@ -90,7 +91,7 @@ class Register extends Component {
 
 
         localStorage.setItem('AlbumId', id);
-      //  console.log(context)
+        
 
     }
 
@@ -150,7 +151,7 @@ class Register extends Component {
                                                                         })
                                                                     }      
                                                                     }
-                                            >
+                                            ><p>{albumObject.name}</p>
                                                 <img
                                                     src={albumObject.images[0].url}
                                                     alt={albumObject.name}
@@ -181,15 +182,10 @@ class Register extends Component {
                             <div className={link}>
                                 <div className="youtube-game-over">
                                     <h1 className="header">{texts[language].roundTwoText}</h1>
-                                    <h2 className="header">{texts[language].roundTwoYoutube}</h2>
-                                    <h2 className="round-first-question">{texts[language].youtubeInstructionsR2}</h2>
+                                    {/* <h2 className="header">{texts[language].roundTwoYoutube}</h2>
+                                    <h2 className="round-first-question">{texts[language].youtubeInstructionsR2}</h2> */}
                                     <h2 className="round-second-question">{texts[language].chooseConcertText}</h2>
-                                    <Link to={{ pathname: '/youtuberoundtwo'}}
-                                    >click
-                                    </Link>
-                                     <Concerts />
-                                     {/* , state: { videoId: this.state.videoId, data:this.state.data}  */}
-                                   
+                                     <Concerts />                            
                                 </div>
                             </div>
                             <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
@@ -208,12 +204,15 @@ class Register extends Component {
                         <div className="instagram-round">
                             <div className={link}>
                                 <h1 className="header">{texts[language].roundTwoText}</h1>
-                                <div>
+                                {/* <div>
                                     <MembersAccounts
                                         setSelectedMemberId={this.setSelectedMemberId}
                                         language={language}
                                         score={score}
                                     />
+                                </div> */}
+                                <div>
+                                    <MemoryGame/>
                                 </div>
                                 
                             </div>

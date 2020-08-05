@@ -75,6 +75,8 @@ class spotifyRoundTwo extends React.Component {
 
             status: 'playing'
         })
+
+        
     }
 
     /**

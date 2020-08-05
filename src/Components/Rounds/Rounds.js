@@ -29,24 +29,27 @@ class Rounds extends React.Component {
     }
 
 
-    getToken = () => {
+    // getToken = () => {
 
-        this.setState({
+    //     this.setState({
 
-            accessToken: Spotify.getaccessToken()
-        })
+    //         accessToken: Spotify.getaccessToken()
+    //     })
 
-    }
+    // }
 
-    startSpotify = () => {
+    startSpotify = async () => {
 
+        
         const spotStart = true;
         const start = 'screen';
 
         localStorage.setItem('savedState', JSON.stringify(this.context));
 
 
-        this.setState({
+    await  this.setState({
+            
+            accessToken: Spotify.getaccessToken(),
             spotify: spotStart,
             page: start,
             button: 'hideGame',
@@ -91,7 +94,7 @@ class Rounds extends React.Component {
     render() {
 
 
-        const { page, instagram, youtube, spotify, button, pop } = this.state;
+        const { page, instagram, youtube, spotify, pop } = this.state;
 
         const { language, score } = this.props;
 
@@ -155,21 +158,15 @@ class Rounds extends React.Component {
                                     }
                                 </div>
 
-                                {/* displaying the appropriate button depending on user choise
-                    {context.state.spotify_round_one ? context.state.spotify_round_one : texts[language].roundOneText} */}
 
-                                {/* button invokes a method that first shows popup and then with set timeout got to spotifyroundone 
-                    clicked ? <SpotifyRoundone/>
-                    <button className="button1" type="button">
-                        {context.state.spotify_round_one || texts[language].roundOneText}</button>
-                    
+                        {/* button invokes a method that first shows popup and then with set timeout got to spotifyroundon              
                     */}
-                  
+                                    
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                         <div className={pop ? 'hideGame' : ''}>'total pts: ' { context.state.spotify_round_one || ''}</div>
-                        <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
-                        <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
-                        popButton={'button1'} popText={texts[language].roundOneText}/>
+                            <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
+                                <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                                 popButton={'button1'} popText={texts[language].roundOneBtn}/>
                         </DelayLink> 
                     </div>
                     <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
@@ -179,34 +176,36 @@ class Rounds extends React.Component {
                     <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
 
 
-                                <div className={spotify || instagram ? 'hideGame' : 'title'}>
-                                    <div className={pop ? 'hideGame' : ''}> {context.state.youtube_round_one || ''}</div>
-                                    <DelayLink delay={5000} clickAction={this.popStart} to="youtuberoundone" >
-                                        <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
-                                            popButton={'button1'} popText={texts[language].roundOneBtn} />
-                                    </DelayLink>
-                                </div>
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
+                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                        <div className={pop ? 'hideGame' : ''}> {context.state.youtube_round_one || ''}</div>
+                            <DelayLink delay={5000} clickAction={this.popStart} to="youtuberoundone" >
+                                <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
+                                popButton={'button1'} popText={texts[language].roundOneBtn} />
+                            </DelayLink>
+                    </div>
+                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
+                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
 
-                                <div className={spotify || youtube ? 'hideGame' : 'title'}>
-                                    <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
-                                    <DelayLink delay={5000} clickAction={this.popStart} to="instagramroundone" >
-                                        <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
-                                            popText={texts[language].roundOneBtn} />
-                                    </DelayLink>
-                                </div>
+                    <div className={spotify || youtube ? 'hideGame' : 'title'}>
+                        <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
+                            <DelayLink delay={5000} clickAction={this.popStart} to="instagramroundone" >
+                                <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
+                                popText={texts[language].roundOneBtn} />
+                            </DelayLink>
+                    </div>
                                 {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
-                                <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
-                                <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
-                            </div>
+                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
+                    <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
+                   
+                
+                </div>
 
 
                             <div className="home-play-buttons">
 
 
                                 <div>
-                                    {this.state.accessToken ?
+                                    {/* {this.state.accessToken ?
                                         <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
                                             <i class="fab fa-spotify"></i>
                                             {texts[language].keySpotifyBtnSecondClick}
@@ -216,7 +215,11 @@ class Rounds extends React.Component {
                                             <i class="fab fa-spotify"></i>
                                             {texts[language].key}
                                         </button>
-                                    }
+                                    } */}
+                                       <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                                            <i class="fab fa-spotify"></i>
+                                            {texts[language].keySpotifyBtnSecondClick}
+                                        </button>
                                 </div>
 
                                 <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>

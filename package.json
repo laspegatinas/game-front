@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@react-element/bg-music": "0.0.2-alpha.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "font-awesome": "^4.7.0",
+    "lodash.shuffle": "^4.2.0",
+    "node-sass": "^4.14.1",
     "react": "^16.12.0",
+    "react-card-flip": "^1.0.11",
     "react-confetti": "^5.0.1",
     "react-countdown": "^2.2.1",
     "react-countdown-circle-timer": "^1.1.1",
@@ -24,7 +30,8 @@
     "react-share": "^4.1.0",
     "react-sound": "^1.2.0",
     "react-spotify-login": "^0.9.1",
-    "react-youtube": "^7.9.0"
+    "react-youtube": "^7.9.0",
+    "reactstrap": "^8.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

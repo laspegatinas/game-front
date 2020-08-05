@@ -1,17 +1,15 @@
 /* eslint-disable max-len */
 import React, { useEffect, useContext } from 'react';
 import './GameEnded.css';
-//import { Link } from 'react-router-dom';
 import texts from '../../texts.json';
 import { MyContext } from '../../context/MyProvider';
 import { Link } from 'react-router-dom';
-import SocialMedia from '../SocialMedia/SocialMedia';
-import Register from '../Register/Register';
+
 
 
 const GameEnded = ({ score, currentGame, language, points }) => {
 
-    const { addPoints } = useContext(MyContext);
+    const { addPoints, addPointsExtended } = useContext(MyContext);
 
     const addPointsToContext = () => {
         console.log('score i current game', score, currentGame)
@@ -20,7 +18,7 @@ const GameEnded = ({ score, currentGame, language, points }) => {
 
     const addPointsToAlbum = () => {
         
-        addPoints(score || points, currentGame, 'two', localStorage.AlbumId)
+        addPointsExtended(score || points, currentGame, 'two', localStorage.AlbumId)
     }
 
     return (
