@@ -170,11 +170,11 @@ class spotifyRoundTwo extends React.Component {
             correctAnswers: this.coincidence ? correctAnswers + 1 : correctAnswers,
             score: this.coincidence ? score + 20 : score, //
         });
-
+        localStorage.setItem (`${this.state.selectedAlbum}`, this.state.score)
         this.coincidence && this.showConfetti();
     };
 
-    // all the logic concerning a individual user playlist
+    // all the logic concerning the creation a individual user playlist
 
     addTrack = (track) => {
         const { playlistTracks } = this.state;

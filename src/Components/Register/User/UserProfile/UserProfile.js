@@ -139,24 +139,24 @@ const UserPofile = ({language}) => {
 
                                     <h6>
                                         {texts[language].phone}:
-                                        <p className="myprofile-h6"></p>
+                                        <p className="myprofile-h6">{context.state.phone}</p>
                                     </h6>
 
                                     <h6>
                                         {texts[language].city}:
-                                        <p className="myprofile-h6"></p>
+                                        <p className="myprofile-h6">{context.state.city}</p>
                                     </h6>
 
                                     <h6>
                                         {texts[language].state}:
-                                        <p className="myprofile-h6"></p>
+                                        <p className="myprofile-h6">{context.state.state}</p>
                                      </h6>
                                     </div>                      
                         }           
 
                         <h6>
                             {texts[language].pointsComplete}:
-                            <p className="myprofile-h6">{context.state.total_app_points}</p>
+                            <p className="myprofile-h6">{context.state.updateTotalPoints}</p>
                         </h6>
 
                         <h4 className="myprofile-h4">

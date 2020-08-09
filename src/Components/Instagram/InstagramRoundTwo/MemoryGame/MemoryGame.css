@@ -1,8 +1,9 @@
 .memory-body {
-    background-image: url('../sharedImages/memoryBackground.jpg');
+    background-image: url('../../../../Pictures/background_img_left.png');
     background-size: cover;
     display : flex;
     flex-direction: column;
+    margin-bottom: 5vh;
   }
 
 

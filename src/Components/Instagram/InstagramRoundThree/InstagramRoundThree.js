@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Confetti from 'react-confetti';
 import Shuffle from '../../Utils/Shuffle';
-import ButtonIgRoundTwo from './ButtonIgRoundTwo';
+import ButtonIgRoundThree from './ButtonIgRoundThree';
 import texts from '../../../texts.json';
 import Loading from '../../Utils/Loading/Loading';
 import GameEnded from '../../GameEnded/GameEnded';
@@ -10,7 +10,7 @@ import Navbar from '../../Navbar/Navbar';
 import '../Instagram.css';
 
 
-class InstagramRoundTwo extends Component {
+class InstagramRoundThree extends Component {
 
     NUMBER_OF_ATTEMPTS = 4
 
@@ -173,7 +173,7 @@ class InstagramRoundTwo extends Component {
                                         />
                                     )
                                     }
-                                    <ButtonIgRoundTwo
+                                    <ButtonIgRoundThree
                                         value={option}
                                         currentLocation={randomImageLocation}
                                         addToCounter={this.addOneToCounter}
@@ -209,4 +209,4 @@ class InstagramRoundTwo extends Component {
 
 }
 
-export default InstagramRoundTwo;
+export default InstagramRoundThree;

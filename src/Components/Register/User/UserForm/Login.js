@@ -34,13 +34,13 @@ const Login = (props) => {
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
-                    let user = {...resp['data'], ...resp2['data'],...{spotify_round_two_extended: {"Al Carrer!": 0,
-                    "Un secreto a voces": 0,  "Ahora o nunca": 0,
-                    "La Gran Pegatina Live 2016": 0,
-                    "Revulsiu": 0,
-                    "Eureka!": 0,
-                    "Xapomelön": 0,
-                    "Via Mandarina": 0,}}}
+                    let user = {...resp['data'], ...resp2['data'],...{spotify_round_two_extended: {"Al Carrer!": 20,
+                    "Un secreto a voces": 30,  "Ahora o nunca": 40,
+                    "La Gran Pegatina Live 2016": 30,
+                    "Revulsiu": 50,
+                    "Eureka!": 20,
+                    "Xapomelön": 59,
+                    "Via Mandarina": 22,}}}
                     logUserIntoContext(user);
                 })   
              },(err)=>{

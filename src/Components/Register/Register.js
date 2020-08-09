@@ -9,8 +9,8 @@ import Spotify from '../Utils/Spotify';
 //import videoDataObject from '../Youtube/VideoDataObject';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
-import MemoryGame from '../Instagram/InstagramRoundTwo/MemoryGame/MemoryGame';
-//import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
+//import InstagramRoundTwo from '../Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo';
+import MembersAccounts from '../Instagram/InstagramRoundThree/MembersAccounts';
 //import Rounds from '../Rounds/Rounds';
 
 
@@ -30,7 +30,6 @@ class Register extends Component {
         selectedConcert: localStorage.ConcertId || '',
         picData: []
     };
-
 
 
     async getSpotifyAlbums() {
@@ -78,27 +77,18 @@ class Register extends Component {
 
 
     showLink = (context, newPoints, gameName, roundIn) => {
-
         context.addPoints(newPoints, gameName, roundIn);
-
         this.setState({
-
             link: 'screen',
         });
     }
 
+
     setSelectedAlbumId = (id) => {
-
-
-        localStorage.setItem('AlbumId', id);
-        
-
+        localStorage.setItem('AlbumId', id);       
     }
 
-  
-
     componentDidMount() {
-
         const { currentGame } = this.props;
         console.log('Register.js',currentGame)
         if (currentGame === 'spotify') {
@@ -143,15 +133,14 @@ class Register extends Component {
                                                 onClick={  (event) => {
                                                                      
                                                                         this.showLink(context,score, 'spotify', 'one');
-                                                                        this.setSelectedAlbumId(event.target.alt)
-                                                                   
+                                                                        this.setSelectedAlbumId(event.target.alt)                                                                   
                                                                         this.setState({ 
-
                                                                          selectedAlbum: event.target.alt                                                                   
                                                                         })
                                                                     }      
-                                                                    }
-                                            ><p>{albumObject.name}</p>
+                                                                    }>
+                                               <button className="albumPoints">{context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>
+                                               <br/>
                                                 <img
                                                     src={albumObject.images[0].url}
                                                     alt={albumObject.name}
@@ -188,8 +177,8 @@ class Register extends Component {
                                      <Concerts />                            
                                 </div>
                             </div>
-                            <button className="suma-puntos-button" type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
-                                {texts[language].keepPointsPlayMoreText}
+                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
+                                {this.props.buttonText}
                             </button>
                         </div>
                     )}
@@ -202,22 +191,37 @@ class Register extends Component {
                 <MyContext.Consumer>
                     {(context) => (
                         <div className="instagram-round">
+                            <div className={link}>                            
+                            </div>
+                            <div>
+                             <Link to="instagramroundtwo"><button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                                {this.props.buttonText}
+                                </button></Link> 
+                            </div>
+
+                        </div>
+                    )}
+                </MyContext.Consumer>
+            );
+        }
+
+        if (currentGame === 'instagram2') {
+            return (
+                <MyContext.Consumer>
+                    {(context) => (
+                        <div className="instagram-round">
                             <div className={link}>
                                 <h1 className="header">{texts[language].roundTwoText}</h1>
-                                {/* <div>
+                             <div>
                                     <MembersAccounts
                                         setSelectedMemberId={this.setSelectedMemberId}
                                         language={language}
                                         score={score}
                                     />
-                                </div> */}
-                                <div>
-                                    <MemoryGame/>
-                                </div>
-                                
+                                </div>                               
                             </div>
                             <div>
-                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'two')}>
                                 {this.props.buttonText}
                                 </button>
                             </div>

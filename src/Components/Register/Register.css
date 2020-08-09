@@ -37,6 +37,12 @@ display: flex;
 
 */
 
+.albumPoints {
+
+    border-radius: 80%;
+    /* padding: 0.4em; */
+}
+
 .header {
     font-family: 'Teko', sans-serif;
 }

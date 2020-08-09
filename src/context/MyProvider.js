@@ -58,6 +58,35 @@ export default (props) => {
         console.log('STATE', state)
     }
 
+    const updateSpotifyPoints = (newState) => {
+        const keysArray = [
+        "Al Carrer!",
+        "Un secreto a voces",
+        "Ahora o nunca",
+        "La Gran Pegatina Live 2016",
+        "Revulsiu",
+        "Eureka!",
+        "Xapomelön",
+        "Via Mandarina",
+        ];
+        
+        let total = 0;
+
+        keysArray.forEach((key) => {
+            total += parseInt(newState[key]);
+        });
+
+        changeState({
+            ...state,
+            spotify_round_two: total,
+        });
+
+        console.log(state.spotify_round_two)
+
+    }
+
+    
+
     const updateTotalPoints = (newState) => {
         const keysArray = [
             'spotify_round_one',
@@ -137,11 +166,13 @@ export default (props) => {
                         [newIndex]: {...oldIndex,[album]: newPoints},
                     } ;
                     changeState(newState);
-                    console.log(newState);
+                    console.log(newState[newIndex]);
                    
-                    updateTotalPoints(newState)
+                    updateTotalPoints(newState);
+                    updateSpotifyPoints(newState[newIndex]);
                     console.log(newState)
                     console.log(newPoints)
+                    
                     // Api.setPoints({
                         
                     //     'spotify_round_two_extended': newState.spotify_round_two_extended,

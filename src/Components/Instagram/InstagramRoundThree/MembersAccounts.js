@@ -116,7 +116,7 @@ class members extends Component {
                         <div className="band-members">
                             {this.membersaccounts.map((memberaccount) => (
                                 <div className="band-member">
-                                    <Link to="instagramroundtwo">
+                                    <Link to="instagramroundthree">
                                         <button
                                             className=""
                                             type="button"

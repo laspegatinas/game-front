@@ -1,3 +1,8 @@
+.coverConcerts {
+
+    display: none;
+}
+
 .concerts-pictures {
     display: flex;
     flex-wrap: wrap;

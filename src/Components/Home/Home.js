@@ -13,15 +13,17 @@ import Rounds from '../Rounds/Rounds';
 
 const Home = ({ language }) => {
 
-   // const { state:  { addPoints }} = React.useContext(MyContext);
+//      const { state:  { spotify_round_two_extended }} = React.useContext(MyContext);
 
-    //   const { addPointsExtended } = useContext(MyContext);
+//       const { addPointsExtended } = useContext(MyContext);
 
-    // const clicked = () => {
+//     const clicked = () => {
         
-    //     addPointsExtended(44, 'spotify', 'two', localStorage.AlbumId)
-    //     console.log(localStorage.AlbumId)
-    // }
+//        addPointsExtended('60', 'spotify', 'two', localStorage.AlbumId)
+//        // console.log(localStorage)
+//     }
+
+   
 
     return(
 

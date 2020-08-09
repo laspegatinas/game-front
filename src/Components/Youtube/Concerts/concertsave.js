@@ -33,7 +33,7 @@ class Concerts extends Component {
                 place: 'Arenal Sound',
                 year: '2019',
                 videoURL: 'https://www.youtube.com/watch?v=QDHlpJogBwc',
-               // frame: arenal19
+                frame: arenal19
             },
             {
                 id: "wFC_Ot6m_Qk",
@@ -54,6 +54,7 @@ class Concerts extends Component {
     }
 
     popIt = () =>  {
+
         this.setState({
             popUpHidden: false
         })
@@ -61,11 +62,8 @@ class Concerts extends Component {
 
     render() {
 
-        const { popUpHidden } = this.state;
-        const { language } = this.props;
-
         return (
-            <div className={'concerts-pictures'}>
+            <div className={this.state.popUpHidden ? 'concerts-pictures' : "cover"}>
                 {this.state.concertList.map((concert) => (
                     
                     <div className="concert-picture">
@@ -78,7 +76,7 @@ class Concerts extends Component {
                         <PopUp src={concert.frame}
                                 id={concert.id}
                                 videoId={concert.videoId}
-                                className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'} place={concert.place} year={concert.year}
+                                className="concert-picture-detail" place={concert.place} year={concert.year}
                                  todo={texts['spanish'].popUp} instruct={texts['spanish'].popUpSpotify} popButton={'buttonConcert'}>
                              {/* <h6>place={concert.place}</h6>
                              <h6>{concert.year}</h6> */}

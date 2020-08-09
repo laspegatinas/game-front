@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ButtonIgRoundTwo = (props) => {
+const ButtonIgRoundThree = (props) => {
 
     const [colorClass, setColorClass] = useState('gray');
 
@@ -49,4 +49,4 @@ const ButtonIgRoundTwo = (props) => {
     );
 };
 
-export default ButtonIgRoundTwo;
+export default ButtonIgRoundThree;

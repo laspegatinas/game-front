@@ -5,7 +5,6 @@ import PrivateRoute from './Components/PrivateRoute';
 import SpotifyRoundOne from './Components/Spotify/SpotifyRoundOne/SpotifyRoundOne';
 import SpotifyRoundTwo from './Components/Spotify/SpotifyRoundTwo/SpotifyRoundTwo';
 import Home from './Components/Home/Home';
-//import InstagramRoundTwo from './Components/Instagram/InstagramRoundTwo/InstagramRoundTwo';
 import InstagramRoundOne from './Components/Instagram/InstagramRoundOne/InstagramRoundOne';
 import SocialMedia from './Components/SocialMedia/SocialMedia';
 import Team from './Components/Team/Team';
@@ -14,9 +13,10 @@ import YoutubeRoundOne from './Components/Youtube/YoutubeRoundOne/YoutubeRoundOn
 import YoutubeRoundTwo from './Components/Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
 import User from './Components/Register/User/User';
 import MyProvider, { MyContext } from './context/MyProvider';
-//import MembersAccounts from './Components/Instagram/InstagramRoundTwo/MembersAccounts';
-import MemoryGame from './Components/Instagram/InstagramRoundTwo/MemoryGame/MemoryGame.js';
+import MembersAccounts from './Components/Instagram/InstagramRoundThree/MembersAccounts';
 import './App.css';
+import InstagramRoundThree from './Components/Instagram/InstagramRoundThree/InstagramRoundThree';
+import InstagramRoundTwo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
 
 // Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect"
 //  title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
@@ -81,16 +81,6 @@ render() {
                                 )}
                             />
 
-                            <Route
-                                path="/memory"
-                                render={(props) => (
-                                    <div>
-                                        <Navbar pagein="game" />
-                                        <MemoryGame language={selectedLanguage} {...props} />
-                                    </div>
-                                )}
-                            />
-
                          
 
                             <PrivateRoute
@@ -105,16 +95,6 @@ render() {
                             />
 
                             <Route
-                                path="/team"
-                                render={(props) => (
-                                    <div>
-                                        <Navbar />
-                                        <Team language={selectedLanguage} {...props} />
-                                    </div>
-                                )}
-                            />
-
-                            <Route
                                 path="/instagramroundone"
                                 render={(props) => (
                                     <div>
@@ -124,16 +104,28 @@ render() {
                                 )}
                             />
 
-                            {/* <PrivateRoute
+                            <PrivateRoute
                                 authed={context.state.authed}
                                 path="/instagramroundtwo"
                                 component={(props) => (
                                     <div>
-                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
-                                        <InstagramRoundTwo {...props} language={selectedLanguage} />
+                                        <Navbar pagein="game" />
+                                        <InstagramRoundTwo language={selectedLanguage} {...props} />
                                     </div>
                                 )}
-                            /> */}
+                            />
+
+
+                            <PrivateRoute
+                                authed={context.state.authed}
+                                path="/instagramroundthree"
+                                component={(props) => (
+                                    <div>
+                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
+                                        <InstagramRoundThree {...props} language={selectedLanguage} />
+                                    </div>
+                                )}
+                            /> 
 
                             {/* explanation video here https://www.youtube.com/watch?v=By7vJuSPaYo */}
                             {/* explanation code here https://stackoverflow.com/questions/43164554/how-to-implement-authenticated-routes-in-react-router-4 */}
@@ -159,7 +151,7 @@ render() {
                                 )}
                             />
 
-                            {/* <Route
+                            <Route
                                 path="/members"
                                 render={(props) => (
                                     <div>
@@ -167,7 +159,7 @@ render() {
                                         <MembersAccounts language={selectedLanguage} {...props} />
                                     </div>
                                 )}
-                            /> */}
+                            /> 
 
                             <Route
                                 path="/user"

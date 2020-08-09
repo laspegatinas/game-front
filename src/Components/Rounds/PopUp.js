@@ -4,7 +4,7 @@ import texts from '../../texts.json';
 
 
 
-const PopUp = ({popButton, popText, todo, instruct }) => {
+const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className }) => {
 
     const [timeLeft, setTimeLeft] = useState(5);
     const [popUpClass, setPopUp] = useState('none')
@@ -38,10 +38,16 @@ const PopUp = ({popButton, popText, todo, instruct }) => {
     return (  
 
     <div >
+        
         <button className={ popUpClass == 'popUp' ? 'none' : popButton}
-           
+         
             onClick={() => closeModal()}
         >
+            <img   src={src}
+                   id={id}
+                   videoId={videoId}
+                   className={className}>
+            </img>
             {popText}
         </button>
 
