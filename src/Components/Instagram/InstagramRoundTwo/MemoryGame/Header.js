@@ -5,9 +5,9 @@ class Header extends React.Component {
     render() {
         return(
             <header className="memory-header">
-                <div className="title">
+                {/* <div className="title">
                     Memory
-                </div>
+                </div> */}
 
                 <div>
                 {this.props.gameFinished 

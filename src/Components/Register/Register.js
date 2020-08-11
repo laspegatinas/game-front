@@ -28,7 +28,8 @@ class Register extends Component {
         questions:[],
         setSelectedMemberId: '',
         selectedConcert: localStorage.ConcertId || '',
-        picData: []
+        picData: [],
+        choseConcert: false
     };
 
 
@@ -139,7 +140,7 @@ class Register extends Component {
                                                                         })
                                                                     }      
                                                                     }>
-                                               <button className="albumPoints">{context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>
+                                              { <button className="albumPoints">{context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>}
                                                <br/>
                                                 <img
                                                     src={albumObject.images[0].url}
@@ -170,11 +171,13 @@ class Register extends Component {
                         <div>
                             <div className={link}>
                                 <div className="youtube-game-over">
-                                    <h1 className="header">{texts[language].roundTwoText}</h1>
+                                    <h1 className={this.state.choseConcert ? 'hide' : "header"}>{texts[language].roundTwoText}</h1>
                                     {/* <h2 className="header">{texts[language].roundTwoYoutube}</h2>
                                     <h2 className="round-first-question">{texts[language].youtubeInstructionsR2}</h2> */}
-                                    <h2 className="round-second-question">{texts[language].chooseConcertText}</h2>
-                                     <Concerts />                            
+                                    <h2 className={this.state.choseConcert ? 'hide' :"round-second-question"}>{texts[language].chooseConcertText}</h2>
+                                    <button className={'concertButton'} onClick={() => this.setState({choseConcert: true})}>
+                                     <Concerts language={language} /> 
+                                     </button>                           
                                 </div>
                             </div>
                             <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
@@ -211,7 +214,7 @@ class Register extends Component {
                     {(context) => (
                         <div className="instagram-round">
                             <div className={link}>
-                                <h1 className="header">{texts[language].roundTwoText}</h1>
+                                <h1 className="header">{texts[language].roundThreeText}</h1>
                              <div>
                                     <MembersAccounts
                                         setSelectedMemberId={this.setSelectedMemberId}

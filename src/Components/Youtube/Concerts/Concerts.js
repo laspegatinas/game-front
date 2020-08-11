@@ -79,7 +79,7 @@ class Concerts extends Component {
                                 id={concert.id}
                                 videoId={concert.videoId}
                                 className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'} place={concert.place} year={concert.year}
-                                 todo={texts['spanish'].popUp} instruct={texts['spanish'].popUpSpotify} popButton={'buttonConcert'}>
+                                 todo={texts[language].popUp} instruct={texts[language].popUpConcerts} popButton={'buttonConcert'}>
                              {/* <h6>place={concert.place}</h6>
                              <h6>{concert.year}</h6> */}
                             <button 

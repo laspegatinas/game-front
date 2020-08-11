@@ -13,11 +13,11 @@ const UserPofile = ({language}) => {
 
 
     
-    const [username, setUsername] = useState('');
+   // const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [region, setRegion] = useState('');
     const [city, setCity] = useState('');
-    const [email, setEmail] = useState('');
+    //const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
     const { state: {accessToken, user}} = React.useContext(MyContext);
 

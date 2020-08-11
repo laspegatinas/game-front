@@ -38,7 +38,7 @@ const GameEnded = ({ score, currentGame, language, points }) => {
                     if (currentGame === 'youtube') {
                         return (
                             <div className="game-ended-container">
-                                {/* <h1>{texts[language].score.replace('%points', points)}</h1> */}
+                                 <h1>{texts[language].score.replace('%points', points)}</h1> 
                                 <h3>{texts[language].gameEnded}</h3>
                                 <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToContext}>{texts[language].keepPointsPlayMoreText}</button></Link>
                             </div>

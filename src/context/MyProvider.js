@@ -172,15 +172,17 @@ export default (props) => {
                     updateSpotifyPoints(newState[newIndex]);
                     console.log(newState)
                     console.log(newPoints)
+                    console.log(JSON.stringify(state.spotify_round_two_extended));
+                    console.log(JSON.stringify(newState.spotify_round_two_extended));
                     
-                    // Api.setPoints({
+                    Api.setPoints({
                         
-                    //     'spotify_round_two_extended': newState.spotify_round_two_extended,
+                        'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
                         
-                    //     'user':newState.user
-                    // }).then((resp)=>{
-                    //     console.log(resp)
-                    // })
+                        'user':newState.user
+                    }).then((resp)=>{
+                        console.log(resp)
+                    })
                 }
             },
 
@@ -233,7 +235,7 @@ export default (props) => {
                 state: data.state,
                 spotify_round_one: data.spotify_round_one,
                 spotify_round_two: data.spotify_round_two,
-                spotify_round_two_extended: data.spotify_round_two_extended,
+                spotify_round_two_extended: JSON.parse(data.spotify_round_two_extended),
                 instagram_round_one: data.instagram_round_one,
                 instagram_round_two: data.instagram_round_two,
                 youtube_round_one: data.youtube_round_one,

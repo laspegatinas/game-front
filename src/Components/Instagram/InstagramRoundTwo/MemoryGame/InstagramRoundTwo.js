@@ -57,8 +57,8 @@ class InstagramRoundTwo extends React.Component {
           
             <div className="instagram-game-over youtube-game-over">
                 <h3>{`Has hecho ${ points } puntos`}</h3>
-                    <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'hideGame'}
-                    instagramButton={'btn-game'}/> 
+                    <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
+                    instagramButton={'hideGame'}/> 
                     {/* <button onClick={this.logScore}>logScore</button> */}
                     {/*score={ Math.round(10 / tryes * 100)} ${ Math.round(10 / tryes * 100) }*/}               
                 {/* <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button>  */}

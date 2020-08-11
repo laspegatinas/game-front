@@ -37,6 +37,11 @@ display: flex;
 
 */
 
+.concertButton {
+
+    border: none;
+}
+
 .albumPoints {
 
     border-radius: 80%;

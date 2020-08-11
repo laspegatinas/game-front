@@ -34,13 +34,7 @@ const Login = (props) => {
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
-                    let user = {...resp['data'], ...resp2['data'],...{spotify_round_two_extended: {"Al Carrer!": 20,
-                    "Un secreto a voces": 30,  "Ahora o nunca": 40,
-                    "La Gran Pegatina Live 2016": 30,
-                    "Revulsiu": 50,
-                    "Eureka!": 20,
-                    "Xapomelön": 59,
-                    "Via Mandarina": 22,}}}
+                    let user = {...resp['data'], ...resp2['data']}
                     logUserIntoContext(user);
                 })   
              },(err)=>{

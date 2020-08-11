@@ -166,7 +166,7 @@ class Rounds extends React.Component {
 
 
                         
-                    <Link className={'title'} to="/"><button onClick={this.backToHome} className="button1"
+                    <Link className={pop ? 'hideGame' : 'title'} to="/"><button onClick={this.backToHome} className="button1"
                     type="button">{texts[language].home}</button></Link>
                                     
                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
@@ -203,7 +203,7 @@ class Rounds extends React.Component {
                     </div>
                                 {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
                     <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
-                    <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
+                    <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
                    
                 
                 </div>
@@ -213,21 +213,18 @@ class Rounds extends React.Component {
 
 
                                     <div>
-                                        {/* {this.state.accessToken ?
+                                     {this.state.accessToken 
+                                     ?
                                             <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                                                <i class="fab fa-spotify"></i>
-                                                {texts[language].keySpotifyBtnSecondClick}
-                                            </button>
-                                            :
-                                            <button className={this.props.tokenButton} onClick={this.getToken}>
                                                 <i class="fab fa-spotify"></i>
                                                 {texts[language].key}
                                             </button>
-                                        } */}
+                                            :
+                                    
                                         <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
                                                 <i class="fab fa-spotify"></i>
                                                 {texts[language].keySpotifyBtnSecondClick}
-                                        </button>
+                                     </button> }
                                     </div>
 
                                     <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
