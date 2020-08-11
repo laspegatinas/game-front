@@ -6,7 +6,10 @@ import texts from '../../texts.json';
 import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
-import homebtn from '../../Pictures/home45.png';
+import homebtn from '../../Pictures/home1.png';
+import ronda1 from '../../Pictures/ronda1.png';
+import ronda2 from '../../Pictures/ronda2.png';
+import ronda3 from '../../Pictures/ronda3.png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
@@ -175,7 +178,7 @@ class Rounds extends React.Component {
                                 <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
                                     {context.state.spotify_round_two || ''}
                                     {loginComp(context)}</div>
-                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
+                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
 
 
                                 <div className={spotify || instagram ? 'hideGame' : 'title'}>
@@ -185,8 +188,10 @@ class Rounds extends React.Component {
                                             popButton={'button1'} popText={texts[language].roundOneBtn} />
                                     </DelayLink>
                                 </div>
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound2Youtube}</button></Link>
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
+
+                                {/* Esto son botones ronda 2 y 3 de youtube */}
+                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda2} /></Link>
+                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
 
                                 <div className={spotify || youtube ? 'hideGame' : 'title'}>
                                     <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
@@ -197,7 +202,8 @@ class Rounds extends React.Component {
                                 </div>
                                 {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
                                 <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
-                                <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
+                                {/* Esto es Instagram ronda 3 */}
+                                <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
                             </div>
 
 

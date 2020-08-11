@@ -9,22 +9,23 @@ import Spotify from '../Utils/Spotify';
 //import videoDataObject from '../Youtube/VideoDataObject';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
+import ronda2 from '../../Pictures/ronda2.png';
 import MembersAccounts from '../Instagram/InstagramRoundTwo/MembersAccounts';
 //import Rounds from '../Rounds/Rounds';
 
 
 
 class Register extends Component {
-    
+
     state = {
-        
+
         link: 'hide',
         loading: true,
         albums: [],
         selectedAlbum: '',
         videoData: [],
         // videoId: '',
-        questions:[],
+        questions: [],
         setSelectedMemberId: '',
         selectedConcert: '',
         picData: []
@@ -93,12 +94,12 @@ class Register extends Component {
 
     }
 
-  
+
 
     componentDidMount() {
 
         const { currentGame } = this.props;
-        console.log('Register.js',currentGame)
+        console.log('Register.js', currentGame)
         if (currentGame === 'spotify') {
             this.getSpotifyAlbums();
         }
@@ -114,7 +115,7 @@ class Register extends Component {
 
     render() {
         const { currentGame, score, language } = this.props;
-        
+
         const { link, albums } = this.state;
 
         if (currentGame === 'spotify') {
@@ -132,42 +133,47 @@ class Register extends Component {
                                     </div>
                                     <div className="allAlbumsDiv">
                                         {albums.map((albumObject) => (
-                                             
-                                                    
-                                <Link to={{ pathname: '/spotifyRoundTwo' }}> 
-                                     <button
-                                                type="button"
-                                                className="buttonAlbum"
-                                                onClick={  (event) => {
-                                                                     
-                                                                        this.showLink(context,score, 'spotify', 'one');
-                                                                        this.setSelectedAlbumId(event.target.alt)
-                                                                   
-                                                                        this.setState({ 
 
-                                                                         selectedAlbum: event.target.alt                                                                   
-                                                                        })
-                                                                    }      
-                                                                    }
-                                            >
-                                                <img
-                                                    src={albumObject.images[0].url}
-                                                    alt={albumObject.name}
-                                                    className="blackBorder album"
-                                                />
-                                            </button>
-                                        </Link> 
+
+                                            <Link to={{ pathname: '/spotifyRoundTwo' }}>
+                                                <button
+                                                    type="button"
+                                                    className="buttonAlbum"
+                                                    onClick={(event) => {
+
+                                                        this.showLink(context, score, 'spotify', 'one');
+                                                        this.setSelectedAlbumId(event.target.alt)
+
+                                                        this.setState({
+
+                                                            selectedAlbum: event.target.alt
+                                                        })
+                                                    }
+                                                    }
+                                                >
+                                                    <img
+                                                        src={albumObject.images[0].url}
+                                                        alt={albumObject.name}
+                                                        className="blackBorder album"
+                                                    />
+                                                </button>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
                             </div>
-                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
+                            <img
+                                className={this.props.buttonStyle} src={ronda2}
+                                onClick={() => this.showLink(context, score, 'spotify', 'one')}
+                            />
+                            {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {this.props.buttonText}
-                            </button>
-                          
+                            </button> */}
+
                         </div>
-                    )}
-                </MyContext.Consumer>
+                    )
+                    }
+                </MyContext.Consumer >
             );
         }
 
@@ -183,10 +189,14 @@ class Register extends Component {
                                     <h2 className="round-first-question">{texts[language].youtubeInstructionsR2}</h2>
                                     <h2 className="round-second-question">{texts[language].chooseConcertText}</h2>
 
-                                     <Concerts />
+                                    <Concerts />
 
-                                    <Link to={{ pathname: '/youtuberoundtwo', state: { videoId: this.state.videoId,
-                                        data:this.state.data} }}
+                                    <Link to={{
+                                        pathname: '/youtuberoundtwo', state: {
+                                            videoId: this.state.videoId,
+                                            data: this.state.data
+                                        }
+                                    }}
                                     >
                                     </Link>
                                 </div>
@@ -214,12 +224,16 @@ class Register extends Component {
                                         score={score}
                                     />
                                 </div>
-                                
+
                             </div>
                             <div>
-                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
-                                {this.props.buttonText}
-                                </button>
+                                <img
+                                    className={this.props.buttonStyle} src={ronda2}
+                                    onClick={() => this.showLink(context, score, 'instagram', 'one')}
+                                />
+                                {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                                    {this.props.buttonText}
+                                </button> */}
                             </div>
 
                         </div>

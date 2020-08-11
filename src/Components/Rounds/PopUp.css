@@ -1,36 +1,35 @@
+.btnRonda1 {
+	position: relative;
+	left: 25vw;
+	top: 35vh;
+}
 
 .timer2 {
-
-    color: white;
-    font-size: 2em;
-    margin-top: 30%;
-   
+	color: white;
+	font-size: 2em;
+	margin-top: 30%;
 }
 
 .popUp {
-
-    /* position: absolute; */
-    width: 15em;
-    height: 15em;
-    margin: auto;
-    box-shadow:inset 0px 0px 15px 3px #9fb4f2; 
+	/* position: absolute; */
+	width: 15em;
+	height: 15em;
+	margin: auto;
+	box-shadow: inset 0px 0px 15px 3px #9fb4f2;
 	/* background:linear-gradient(to bottom, #302c71 5%, #2b2761 100%); */
-	background-color:#3F3E3F;
+	background-color: #3f3e3f;
 	/* border:1px solid #545180; */
-    color: white;
-    /* z-index: 4; */
-    border-radius: 2em;
-    padding: 2em;
-} 
+	color: white;
+	/* z-index: 4; */
+	border-radius: 2em;
+	padding: 2em;
+}
 
 .popHead {
-
-    /* margin-top: 5%; */
-    font-size: 1.5em;
+	/* margin-top: 5%; */
+	font-size: 1.5em;
 }
 
 .none {
-
-    display: none;
+	display: none;
 }
-
