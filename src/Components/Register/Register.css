@@ -40,7 +40,20 @@ display: flex;
 .header {
     font-family: 'Teko', sans-serif;
 }
+.btnRonda2 {
 
+    position: relative;
+
+    top: -3rem;
+    left: 4rem;
+}
+.btnRonda3 {
+
+    position: relative;
+
+    top: 3rem;
+    left: 4rem;
+}
 /* JAIMES CSS */
 .screenDiv {
      display: flex;
@@ -71,6 +84,18 @@ display: flex;
 
 }
 
+.btnRonda2{
+    position: absolute;
+	left: 50vw;
+	top: 50vh;
+}
+
+.instruccionesRounds{
+    position: absolute;
+    top:1vh;
+    margin-left:auto;
+    margin-right:auto;
+}
 .screenDiv__firstDiv {
     display: flex;
     justify-content: center;

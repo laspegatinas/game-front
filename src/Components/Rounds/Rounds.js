@@ -134,30 +134,33 @@ class Rounds extends React.Component {
                 {(context) => (
                     <>
                         <div>
-
+                       
+                            
                             {/* displaying the appropriate introduction, depending on chosen game */}
-                            <div className={page}>
-                                <div className={pop ? 'hideGame' : "title"}>
-                                    <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
-                                    {spotify ?
-                                        (
-                                            <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                        )
-                                        : instagram ?
+                            <div className={page} >
+                                    <div className={pop ? 'hideGame' : "title"}>
+                                       <div style={{position:'absolute',top:'2vh',left:'0vw',width:'100%'}}>
+                                       <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
+                                        {spotify ?
                                             (
                                                 <h4>{texts[language].youtubeInstructionsR1}</h4>
                                             )
-                                            : youtube ?
+                                            : instagram ?
                                                 (
-                                                    <div>
-                                                        <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                                        <h5>{texts[language].youtubeAddition}</h5>
-                                                    </div>
+                                                    <h4>{texts[language].youtubeInstructionsR1}</h4>
                                                 )
-                                                : null
-                                    }
-                                </div>
-
+                                                : youtube ?
+                                                    (
+                                                        <div>
+                                                            <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                                            <h5>{texts[language].youtubeAddition}</h5>
+                                                        </div>
+                                                    )
+                                                    : null
+                                        }
+                                       </div>
+                                    </div>
+                                
                                 {/* displaying the appropriate button depending on user choise
                     {context.state.spotify_round_one ? context.state.spotify_round_one : texts[language].roundOneText} */}
 
@@ -178,7 +181,7 @@ class Rounds extends React.Component {
                                 <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
                                     {context.state.spotify_round_two || ''}
                                     {loginComp(context)}</div>
-                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
+                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img  className={'btnRonda2'} src={ronda3} /></Link>
 
 
                                 <div className={spotify || instagram ? 'hideGame' : 'title'}>
@@ -190,8 +193,8 @@ class Rounds extends React.Component {
                                 </div>
 
                                 {/* Esto son botones ronda 2 y 3 de youtube */}
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda2} /></Link>
-                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
+                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className={'btnRonda2'} src={ronda2} /></Link>
+                                <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className={'btnRonda3'} src={ronda3} /></Link>
 
                                 <div className={spotify || youtube ? 'hideGame' : 'title'}>
                                     <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
@@ -203,7 +206,7 @@ class Rounds extends React.Component {
                                 {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
                                 <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
                                 {/* Esto es Instagram ronda 3 */}
-                                <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><img src={ronda3} /></Link>
+                                <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="/"><img  className={'btnRonda3'} src={ronda3} /></Link>
                             </div>
 
 

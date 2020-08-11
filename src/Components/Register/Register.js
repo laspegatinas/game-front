@@ -163,7 +163,7 @@ class Register extends Component {
                                 </div>
                             </div>
                             <img
-                                className={this.props.buttonStyle} src={ronda2}
+                                className={'btnRonda2'} src={ronda2}
                                 onClick={() => this.showLink(context, score, 'spotify', 'one')}
                             />
                             {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
@@ -228,7 +228,7 @@ class Register extends Component {
                             </div>
                             <div>
                                 <img
-                                    className={this.props.buttonStyle} src={ronda2}
+                                    className={'btnRonda2'} src={ronda2}
                                     onClick={() => this.showLink(context, score, 'instagram', 'one')}
                                 />
                                 {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>

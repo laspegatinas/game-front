@@ -1,8 +1,11 @@
 .btnRonda1 {
-	position: relative;
-	left: 25vw;
-	top: 35vh;
+
+    position: relative;
+
+    top: -5rem;
+    left: -7rem;
 }
+
 
 .timer2 {
 	color: white;
