@@ -9,7 +9,7 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import texts from '../../texts.json';
 import './Navbar.css';
-import homebtn from '../../Pictures/home45.png';
+import homebtn from '../../Pictures/home1.png';
 import catalan from '../../Pictures/bandera_catalan_small.png';
 import spanish from '../../Pictures/bandera_spanish_small.png';
 import english from '../../Pictures/bandera_english_small.png';
@@ -64,100 +64,100 @@ class Navbar extends React.Component {
 
         return (
             <MyContext.Consumer>
-            {(context) => (
-            <nav className={`${navbarClass} ${addedClass}`} id="topnavbar">
-                <div>
-                    {pagein === 'home'
-                        ? <div />
-                        : (
-                            <Link className="backToStart" to="/">
-                                <img src={homebtn} alt="home button" />
-                            </Link>
-                        )}
-                </div>
-                <div>
-                    {pagein !== 'home'
-                        ? <div />
-                        : (
-                            <div className="language-dropdown">
-                                <button
-                                    type="button"
-                                    className="dropbtn"
-                                >
-                                    <img src={selectedFlag} alt="language flag" />
-                                </button>
+                {(context) => (
+                    <nav className={`${navbarClass} ${addedClass}`} id="topnavbar">
+                        <div>
+                            {pagein === 'home'
+                                ? <div />
+                                : (
+                                    <Link className="backToStart" to="/">
+                                        <img src={homebtn} alt="home button" />
+                                    </Link>
+                                )}
+                        </div>
+                        <div>
+                            {pagein !== 'home'
+                                ? <div />
+                                : (
+                                    <div className="language-dropdown">
+                                        <button
+                                            type="button"
+                                            className="dropbtn"
+                                        >
+                                            <img src={selectedFlag} alt="language flag" />
+                                        </button>
 
-                                <div className="dropdown-content">
-                                    {languagesAvailable.map((lang) => (
-                                        <img
-                                            key={lang.language}
-                                            src={lang.flag}
-                                            onClick={() => this.setLanguage(lang.language, lang.flag)}
-                                            alt={lang.language}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-                </div>
-                <div>
-                {/* <SocialLogin/> */}
-                </div>
-                <div className="space" />
-                <div>
-                    {pagein === 'game'
-                        ? <div />
-                        : (
-                            <div className="profile">
-                                <div className="user-dropdown">
-                                    <button type="button" className="user-dropdown-btn" style={{ float: 'right' }}>
-                                        <div className="picture-points">
-                                            <div className="user-profile">
-                                                <img src={context.state.picture || userbtn} alt="user profile" />
-                                            </div>
-                                            <div className="nav-username">
-                                                <MyContext.Consumer>
-                                                    {(context) => (   
-                                                        context.state.username || context.state.email
-                                                            ? (
-                                                                <div className="user-points">
-                                                                   <Link to="/user">
-                                                                     <p>
-                                                                        {context.state.username ? context.state.username : context.state.email }
-                                                                        
-                                                                        {' '}
-                                                                    </p>
-                                                                    </Link>
-                                                                    {/* <p>
+                                        <div className="dropdown-content">
+                                            {languagesAvailable.map((lang) => (
+                                                <img
+                                                    key={lang.language}
+                                                    src={lang.flag}
+                                                    onClick={() => this.setLanguage(lang.language, lang.flag)}
+                                                    alt={lang.language}
+                                                />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                        </div>
+                        <div>
+                            {/* <SocialLogin/> */}
+                        </div>
+                        <div className="space" />
+                        <div>
+                            {pagein === 'game'
+                                ? <div />
+                                : (
+                                    <div className="profile">
+                                        <div className="user-dropdown">
+                                            <button type="button" className="user-dropdown-btn" style={{ float: 'right' }}>
+                                                <div className="picture-points">
+                                                    <div className="user-profile">
+                                                        <img src={context.state.picture || userbtn} alt="user profile" />
+                                                    </div>
+                                                    <div className="nav-username">
+                                                        <MyContext.Consumer>
+                                                            {(context) => (
+                                                                context.state.username || context.state.email
+                                                                    ? (
+                                                                        <div className="user-points">
+                                                                            <Link to="/user">
+                                                                                <p>
+                                                                                    {context.state.username ? context.state.username : context.state.email}
+
+                                                                                    {' '}
+                                                                                </p>
+                                                                            </Link>
+                                                                            {/* <p>
                                                                         {context.state.total_app_points || 0}
                                                                         {' '}
                                                                         {texts[userLanguage].pointsText}
                                                                     </p> */}
-                                                                </div>
-                                                            )
-                                                            : <UserForm mainpage="navbar" language={language} />
+                                                                        </div>
+                                                                    )
+                                                                    : <UserForm mainpage="navbar" language={language} />
+                                                            )}
+                                                        </MyContext.Consumer>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <div className="user-dropdown-content">
+                                                <MyContext.Consumer>
+                                                    {(context) => (
+                                                        <div>
+                                                            <Link to="/user">{texts[userLanguage].profileButton}</Link>
+                                                            <a onClick={() => { context.clearUser(); console.log('clicked'); }}>{texts[userLanguage].logOutButton}</a>
+                                                        </div>
                                                     )}
                                                 </MyContext.Consumer>
                                             </div>
                                         </div>
-                                    </button>
-                                    <div className="user-dropdown-content">
-                                        <MyContext.Consumer>
-                                            {(context) => (
-                                                <div>
-                                                    <Link to="/user">{texts[userLanguage].profileButton}</Link>
-                                                    <a onClick={() => { context.clearUser(); console.log('clicked'); }}>{texts[userLanguage].logOutButton}</a>
-                                                </div>
-                                            )}
-                                        </MyContext.Consumer>
                                     </div>
-                                </div>
-                            </div>
-                        )}
-                </div>
-            </nav>
-             )}
-             </MyContext.Consumer>
+                                )}
+                        </div>
+                    </nav>
+                )}
+            </MyContext.Consumer>
         );
     }
 }
