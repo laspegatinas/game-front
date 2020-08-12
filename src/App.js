@@ -7,7 +7,6 @@ import SpotifyRoundTwo from './Components/Spotify/SpotifyRoundTwo/SpotifyRoundTw
 import Home from './Components/Home/Home';
 import InstagramRoundOne from './Components/Instagram/InstagramRoundOne/InstagramRoundOne';
 import SocialMedia from './Components/SocialMedia/SocialMedia';
-import Team from './Components/Team/Team';
 import Navbar from './Components/Navbar/Navbar';
 import YoutubeRoundOne from './Components/Youtube/YoutubeRoundOne/YoutubeRoundOne';
 import YoutubeRoundTwo from './Components/Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
@@ -17,6 +16,7 @@ import MembersAccounts from './Components/Instagram/InstagramRoundThree/MembersA
 import './App.css';
 import InstagramRoundThree from './Components/Instagram/InstagramRoundThree/InstagramRoundThree';
 import InstagramRoundTwo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
+import Voucher from './Components/Voucher/Voucher';
 
 // Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect"
 //  title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
@@ -150,6 +150,17 @@ render() {
                                     </div>
                                 )}
                             />
+
+                            <PrivateRoute
+                                authed={context.state.authed}
+                                path="/vouchers"
+                                component={(props) => (
+                                    <div>
+                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
+                                        <Voucher {...props}  />
+                                    </div>
+                                )}
+                            />  
 
                             <Route
                                 path="/members"

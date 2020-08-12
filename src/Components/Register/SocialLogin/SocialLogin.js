@@ -8,12 +8,11 @@ import './SocialLogin.css';
 const SocialLogin = (props) => {
 
     const { logUserIntoContext } = React.useContext(MyContext);
-
+    const { state:  { spotify_round_two_extended }} = React.useContext(MyContext);
     const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
+   // const [username, setUsername] = useState('');
     const [id, setId] = useState('');
-    const [picture, setPicture] = useState('');
-    const [posted, setPosted] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     const postProfile = (user) => {
@@ -30,6 +29,7 @@ const SocialLogin = (props) => {
                                              'spotify_round_two':0,
                                              'instagram_round_one':0,
                                              'instagram_round_two':0,
+                                             'spotify_round_two_extended': JSON.stringify(spotify_round_two_extended),
                                              'youtube_round_one':0,
                                              'youtube_round_two':0,
                                              'total_app_points': 0,
@@ -41,6 +41,8 @@ const SocialLogin = (props) => {
                                                 let user = {...data.data, ...resp2['data']};
                                                 logUserIntoContext(user);
                                                 window.location.reload(true);
+                                                setLoading(false);
+                                                
                                                 console.log('data you pass to the context', user);
                                             })   
                                         }) 
@@ -69,7 +71,8 @@ const SocialLogin = (props) => {
         // setId(response.id);
         // setPicture(response.picture.data.url);
         // postProfile(response)
-        postProfile(user)
+        postProfile(user);
+        setLoading(true);
       }
     
       const responseGoogle =  (response) => {
@@ -91,7 +94,8 @@ const SocialLogin = (props) => {
         // setUsername(response.profileObj.givenName);
         // setId(response.profileObj.googleId);
         // setPicture(response.profileObj.imageUrl);
-        postProfile(user)
+        postProfile(user);
+        setLoading(true);
       }
 
       const responseGoogleFail = (response) => {
@@ -112,9 +116,9 @@ const SocialLogin = (props) => {
             
             />
             
-             {id
+             {loading
             ?
-            <button onClick={postProfile}>sign</button>
+            <h2>Loading...</h2>
             :
             <p></p>
         } 

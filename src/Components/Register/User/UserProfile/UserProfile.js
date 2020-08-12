@@ -4,7 +4,7 @@ import './UserProfile.css';
 import  profile  from '../../../../Pictures/user.png'
 import texts from '../../../../texts.json';
 import Api from '../../../../Api/index';
-//import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 const UserPofile = ({language}) => {
@@ -44,8 +44,6 @@ const UserPofile = ({language}) => {
 
         });
     };
-
-   
 
     // const postChange = (e) => {
 
@@ -164,6 +162,7 @@ const UserPofile = ({language}) => {
                         </h4>
 
                         <hr />
+                       <Link to="vouchers"> <button>Get Voucher</button></Link>
                         <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
                         {editing
                         ?
