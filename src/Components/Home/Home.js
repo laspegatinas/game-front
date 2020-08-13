@@ -4,7 +4,7 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-//import { MyContext } from '../../context/MyProvider';
+import { MyContext } from '../../context/MyProvider';
 //import Spotify from '../Utils/Spotify';
 //import PopUp from '../Rounds/PopUp';
 
@@ -14,15 +14,15 @@ import Rounds from '../Rounds/Rounds';
 
     const Home = ({ language }) => {
 
-    //  const { state:  { spotify_round_two_extended, spotify_round_one }} = React.useContext(MyContext);
+     const { state:  { spotify_round_two_extended }} = React.useContext(MyContext);
 
-    //   const { addPointsExtended } = useContext(MyContext);
+      const { addPointsExtended } = useContext(MyContext);
 
-    // const clicked = () => {
+    const clicked = () => {
         
-    //   //  addPointsExtended('90', 'spotify', 'two', localStorage.AlbumId)
-    //      console.log((localStorage.AlbumId))
-    // }
+         addPointsExtended( 33, 'spotify', 'two', localStorage.AlbumId)
+        // console.log((localStorage.AlbumId))
+    }
 
    
 
@@ -40,7 +40,7 @@ import Rounds from '../Rounds/Rounds';
                     instagramButton={'btn-game'} homeButton={'hideGame'}
                 />
                 
-                {/* <button onClick={clicked}>CLIIIIIIIIIICK</button> */}
+                <button onClick={clicked}>CLIIIIIIIIIICK</button>
             </div>
         </div>
     </div>
