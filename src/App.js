@@ -16,7 +16,7 @@ import MembersAccounts from './Components/Instagram/InstagramRoundThree/MembersA
 import './App.css';
 import InstagramRoundThree from './Components/Instagram/InstagramRoundThree/InstagramRoundThree';
 import InstagramRoundTwo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
-import Voucher from './Components/Voucher/Voucher';
+import Voucher from './Components/Voucher/VoucherPage/Voucher';
 
 // Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect"
 //  title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
