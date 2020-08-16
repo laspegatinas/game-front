@@ -8,6 +8,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import './PlayerCountdown.css';
 // import texts from '../../../texts.json';
 import next2 from '../../../Pictures/next2.gif';
+import Button from '../Button/Button';
 
 //copy playmusicstartTimer in spotifyroundone add a set timeout like in "rendertime" for the case of the last question
 
@@ -22,7 +23,7 @@ class PlayerCountdown extends Component {
         uniqueKey: Date.now(),
     }
 
-    //
+    // if clicked = "false show arrow"
 
     countdownIsDisplayed = false
 
@@ -33,9 +34,40 @@ class PlayerCountdown extends Component {
         this.playMusicStartTimer();
     }
 
+    playMusicStartTimerClick = () => {
+
+        const { showAnswerCount, setNewRandomSong, coincidence,  } = this.props;
+
+        this.stopMusic();
+
+        coincidence();
+
+        this.countdownIsDisplayed = true;
+
+        // This makes the answer counter appear only when you've started playing the game and not before
+
+        setTimeout(() => {
+
+            showAnswerCount();
+
+            setNewRandomSong();
+    
+            this.setState({
+                // This makes the countdown start counting when the new state is set (on play clicked) instead of when
+                // the page is loaded
+                uniqueKey: Date.now(),
+                playStatus: Sound.status.PLAYING,
+                isPlaying: true,
+                // This makes the 'play' button disappear once you click on it
+            });
+            
+        }, 3000);   
+    }
+
     playMusicStartTimer = () => {
 
-        const { showAnswerCount, setNewRandomSong, coincidence } = this.props;
+        const { showAnswerCount, setNewRandomSong, coincidence,  } = this.props;
+
 
         this.countdownIsDisplayed = true;
 
@@ -55,13 +87,13 @@ class PlayerCountdown extends Component {
 
         // sets the length and specifics of the timer
 
-        setTimeout(() => {
+        // setTimeout(() => {
 
-            this.stopMusic();
+        //     this.stopMusic();
 
-            coincidence();
+        //     coincidence();
 
-        }, SONG_TIMER_DURATION * 1000);
+        // }, SONG_TIMER_DURATION * 1000);
     }
 
     renderTime = (value) => {
@@ -104,7 +136,7 @@ class PlayerCountdown extends Component {
 
     render() {
 
-        const { songURL } = this.props;
+        const { songURL, printedSong, currentSong, onClick, hidden, songs, } = this.props;
 
         const { playStatus, uniqueKey, isPlaying } = this.state;
 
@@ -125,6 +157,16 @@ class PlayerCountdown extends Component {
                         renderTime={this.renderTime}
                         size={90}
                     />
+                </div>
+                <div className={`FourButtons ${hidden ? 'forceGrayColor' : ''}`}>
+                {songs.map((songName) => (
+                <Button     action={this.playMusicStartTimerClick}
+                            key={songName}
+                            printedSong={songName}
+                            currentSong={currentSong.name}
+                
+                />
+                ))}
                 </div>
             </div>
         );
