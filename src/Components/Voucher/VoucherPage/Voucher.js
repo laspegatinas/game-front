@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import VoucherCard from '../VoucherCard/VoucherCard';
 import Vouchers from '../Vouchers.json';
 import VoucherHeader from '../Header/VoucherHeader';
-import VoucherPopUp from '../VoucherPopUp/VoucherPopUp';
+import VoucherCards from '../VoucherCards/VoucherCards';
+import './Voucher.css';
 
 
     const Voucher = () => {
@@ -16,6 +16,7 @@ import VoucherPopUp from '../VoucherPopUp/VoucherPopUp';
             setVouchers(Vouchers['vouchers']);
           }, []); 
 
+
         const selectVoucher = (event) => {
             event.preventDefault();
             const voucherIndex = event.target.id;
@@ -26,28 +27,37 @@ import VoucherPopUp from '../VoucherPopUp/VoucherPopUp';
              console.log(myVoucher);
              setToChosen(true);
            
-        };  
-       
-        //different hidden fields with all existing vouchers, only selected gets shown
+        }; 
+         
     return(
  
     <React.Fragment> 
         <VoucherHeader/>
-            <div>          
-                {
-                vouchers.map((vouch, index) => 
-                <VoucherPopUp  key={index} id={index} image={vouch.image} title={vouch.title} text={vouch.text}                                        
-                                action={selectVoucher}/>)               
-                }           
-            </div>                   
-                <div>                      
-                    {chosenVoucher.map((voucher, index) => 
-                    <section>
-                        <h2 key={index} >{voucher.title} {voucher.text} </h2>
-                        <img src={voucher.image}></img>
-                    </section>)
-                    }                  
-                </div>        
+            <div className="wrapper">
+                <div>          
+                    {
+                    vouchers.map((vouch, index) => 
+                <VoucherCards       key={index} 
+                                    id={index} 
+                                    imageClass={'voucherImage'}
+                                    image={vouch.image} 
+                                    title={vouch.title} 
+                                    text={vouch.text}                                        
+                                    action={selectVoucher} 
+                                    buttonPrint={vouch.button}/>)               
+                    }           
+                </div>                   
+                    <div >                      
+                        {chosenVoucher.map((voucher, index) => 
+                        <section className="popUpWindow" >
+                            <h2 key={index} >{voucher.title}</h2>
+                            <p>{voucher.text}</p>
+                            <img src={voucher.image}></img>
+                            <button>{voucher.button}</button>
+                        </section>)
+                        }                  
+                    </div> 
+            </div>
     </React.Fragment> 
                   
 )};

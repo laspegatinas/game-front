@@ -6,7 +6,8 @@
             "image": "https://via.placeholder.com/100",
             "title": "First Title",
             "text": "This is the first text",
-            "points": 400
+            "points": 400,
+            "button": "Download Voucher"
 
         },
 
@@ -15,8 +16,17 @@
             "image": "https://via.placeholder.com/100",
             "title": "Second Title",
             "text": "This is the second text",
-            "points": 500
+            "points": 500,
+            "button": "CLick"
+        },
 
+        {
+            "id": 2,
+            "image": "https://via.placeholder.com/100",
+            "title": "Third Title",
+            "text": "This is the Third text",
+            "points": 600,
+            "button": "CLick"
         }
 
      

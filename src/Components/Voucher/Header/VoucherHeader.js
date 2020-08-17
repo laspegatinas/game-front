@@ -8,7 +8,8 @@ import React from 'react';
     return(
 
     <div >
-      <h1>This is my Header</h1>
+      <h1>CANJEÁ TUS PUNTOS</h1>
+      <p>Canjea tus puntos acumulados por increibles premios</p>
     </div>
 )};
 

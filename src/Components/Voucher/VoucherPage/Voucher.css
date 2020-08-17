@@ -1,0 +1,25 @@
+.wrapper {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.voucherImage:hover {
+
+    cursor: pointer;
+}
+
+.popUpWindow {
+
+    border: 2px solid black;
+    width: 40vh;
+    height: 40vh;
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    background-color: cyan;
+    
+}
+
