@@ -34,12 +34,12 @@ class PlayerCountdown extends Component {
         this.playMusicStartTimer();
     }
 
-    playMusicStartTimerClick = () => {
+    playMusicStartTimerClick = (event) => {
 
-        const { showAnswerCount, setNewRandomSong, coincidence,  } = this.props;
+        const { showAnswerCount, setNewRandomSong, currentSong, coincidence, writeSong  } = this.props;
 
+        writeSong(event.target.id);
         this.stopMusic();
-
         coincidence();
 
         this.countdownIsDisplayed = true;
@@ -61,7 +61,7 @@ class PlayerCountdown extends Component {
                 // This makes the 'play' button disappear once you click on it
             });
             
-        }, 3000);   
+        }, 2000);   
     }
 
     playMusicStartTimer = () => {
@@ -162,8 +162,9 @@ class PlayerCountdown extends Component {
                 {songs.map((songName) => (
                 <Button     action={this.playMusicStartTimerClick}
                             key={songName}
+                            songName={songName}
                             printedSong={songName}
-                            currentSong={currentSong.name}
+                            currentSong={currentSong}
                 
                 />
                 ))}

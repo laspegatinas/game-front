@@ -14,7 +14,7 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
 import { MyContext } from '../../../context/MyProvider';
-import Userform from '../../Register/User/UserForm/UserForm';
+import Confetti from 'react-confetti';
 
 
 class SpotifyRoundOne extends React.Component {
@@ -150,6 +150,7 @@ class SpotifyRoundOne extends React.Component {
 
     writeChosenSong = (songName) => {
         this.chosenSong = songName;
+        console.log(this.chosenSong)
     }
 
     checkCoincidence = () => {
@@ -283,15 +284,7 @@ class SpotifyRoundOne extends React.Component {
         });
     }
 
-    someMethod = () => {
-        // Force a render with a simulated state change
-         this.setState({ 
-            name: 'heeeeey'
-         });
 
-        //this.forceUpdate();
-       
-    }
 
 
     render() {
@@ -322,7 +315,8 @@ class SpotifyRoundOne extends React.Component {
                                             totalAttempts={this.NUMBER_OF_SONGS_TO_PLAY_WITH}
                                             songs={songNames}
                                             hidden={hideResults}
-                                            currentSong={currentSong}
+                                            currentSong={currentSong.name}
+                                            writeSong={this.writeChosenSong}
                                         />
                                     </div>
                                     <div className="spotify-game-question">
@@ -331,7 +325,14 @@ class SpotifyRoundOne extends React.Component {
                                     {/* <div className={`FourButtons ${hideResults ? 'forceGrayColor' : ''}`}>
                                         {songNames.map((songName) => ( */}
                                             <div>
-                                            
+                                            {giveMeConfetti &&
+                                            <Confetti
+                                                width={window.innerWidth}
+                                                height={window.innerHeight}
+                                                recycle={false}
+                                                gravity={0.6}
+                                            />
+                                        } 
                                                 {/* <Button
                                                     key={songName}
                                                     printedSong={songName}
