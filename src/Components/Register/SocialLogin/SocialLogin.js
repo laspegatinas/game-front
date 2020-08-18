@@ -40,8 +40,8 @@ const SocialLogin = (props) => {
                                             .then((resp2)=>{
                                                 let user = {...data.data, ...resp2['data']};
                                                 logUserIntoContext(user);
-                                                window.location.reload(true);
-                                                setLoading(false);
+                                            //    window.location.reload(true);
+                                             //   setLoading(false);
                                                 
                                                 console.log('data you pass to the context', user);
                                             })   

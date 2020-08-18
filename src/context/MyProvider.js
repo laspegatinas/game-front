@@ -198,14 +198,16 @@ export default (props) => {
                 state: '',
                 spotify_round_one: '',
                 spotify_round_two: '',
-                spotify_round_two_extended: {alCarrer: "",  
-                                            unSecretoAVoces: "",
-                                            ahoraONunca: "",
-                                            laPegatinaLive2016: "",
-                                            revulsiu: "",
-                                            eureka: "",
-                                            xapomelon: "",
-                                            viaMandarina: ""},
+                spotify_round_two_extended: {
+                                        "Al Carrer!": '',
+                                        "Un secreto a voces": '',
+                                        "Ahora o nunca": '',
+                                        "La Gran Pegatina Live 2016": '',
+                                        "Revulsiu": '',
+                                        "Eureka!": '',
+                                        "Xapomelön": '',
+                                        "Via Mandarina": '',
+                                    },
                 instagram_round_one: '',
                 instagram_round_two: '',
                 youtube_round_one: '',
@@ -216,13 +218,33 @@ export default (props) => {
                 authed: false,
             }),
 
-            addPicture: (newPicture) => changeState({
 
+            resetState : () => {
+                let newState ={}
+               newState = {
                 ...state,
-                picture : newPicture
+                spotify_round_two_extended: {
+                    "Al Carrer!": 0,
+                    "Un secreto a voces": 0,
+                    "Ahora o nunca": 0,
+                    "La Gran Pegatina Live 2016": 0,
+                    "Revulsiu": 0,
+                    "Eureka!": 0,
+                    "Xapomelön": 0,
+                    "Via Mandarina": 0,
+                }};
 
-            }),
+                changeState(newState);
 
+                Api.setPoints({
+                        
+                    'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),                   
+                    'user':newState.user
+                }).then((resp)=>{
+                    console.log(resp)
+                })
+            },
+ 
             logUserIntoContext: (data) => changeState({
                 accessToken: data.accessToken,
                 username: data.username,
