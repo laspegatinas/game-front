@@ -95,3 +95,7 @@ a{
     width: 6rem;
     border-radius: 5px;
 }
+
+.voucherBtn{
+    display: flex;
+}

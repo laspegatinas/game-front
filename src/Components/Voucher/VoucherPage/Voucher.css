@@ -1,9 +1,19 @@
-.wrapper {
 
+.voucherBtn{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.wrapper {
     position: relative;
-    width: 100%;
+    width: 70%;
     height: 100%;
-    
+    border: 5px solid white;
+    display: inline-block;
+    text-align: center;
+    top: 3rem;
+    left: 13vw;    
 }
 
 .voucherImage:hover {
@@ -14,12 +24,26 @@
 .popUpWindow {
 
     border: 2px solid black;
-    width: 40vh;
-    height: 40vh;
+    width: 30vw;
+    height: 50vh;
     position: absolute;
     top: 25%;
-    left: 40%;
-    background-color: rgb(95, 40, 95);
+    left: 30%;
+    background-color: #302C71;
     
 }
 
+.popUpWindow h2{
+    margin-top: 1rem;
+}
+
+.popUpWindow button{
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.popUpWindow img{
+    margin-top: 2rem;
+}
