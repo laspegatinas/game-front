@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Vouchers from '../Vouchers.json';
 import VoucherHeader from '../Header/VoucherHeader';
 import VoucherCards from '../VoucherCards/VoucherCards';
+import { MyContext } from '../../../context/MyProvider';
 import './Voucher.css';
 
 
@@ -10,6 +11,9 @@ import './Voucher.css';
         const [vouchers, setVouchers] = useState([]);
         const [chosenVoucher, setChosenVoucher] = useState([]);
         const [choseVoucher, setToChosen] = useState(false);
+        // const { usedVouchers } = React.useContext(MyContext);
+        const { updateVoucherHistory } = React.useContext(MyContext);
+        
 
             
         useEffect( () => {
@@ -17,17 +21,19 @@ import './Voucher.css';
           }, []); 
 
 
-        const selectVoucher = (event) => {
-            event.preventDefault();
+        const selectVoucher = (event) => {        
             const voucherIndex = event.target.id;
             const selectedVoucher = vouchers[voucherIndex];
             let myVoucher = [...chosenVoucher];
              myVoucher.push(selectedVoucher);
              setChosenVoucher(myVoucher);
              console.log(myVoucher);
-             setToChosen(true);
-           
+             setToChosen(true);         
         }; 
+
+       const pushToVoucherHistory = () => {          
+            updateVoucherHistory(chosenVoucher[0].title);               
+        }
          
     return(
  
@@ -50,10 +56,10 @@ import './Voucher.css';
                     <div >                      
                         {chosenVoucher.map((voucher, index) => 
                         <section className="popUpWindow" >
-                            <h2 key={index} >{voucher.title}</h2>
+                            <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
                             <p>{voucher.text}</p>
                             <img src={voucher.image}></img>
-                            <button>{voucher.button}</button>
+                            <button onClick={pushToVoucherHistory}>{voucher.button}</button>
                         </section>)
                         }                  
                     </div> 

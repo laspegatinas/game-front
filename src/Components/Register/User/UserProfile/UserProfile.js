@@ -156,6 +156,12 @@ const UserPofile = ({language}) => {
                             {texts[language].pointsComplete}:
                             <p className="myprofile-h6">{context.state.updateTotalPoints}</p>
                         </h6>
+                        <h6>
+                             Voucher History:
+                             {context.state.usedVouchers &&
+                                context.state.usedVouchers.map((voucher)=> 
+                                <p className="myprofile-h6">{voucher}</p>)}
+                        </h6>
 
                         <h4 className="myprofile-h4">
                             {texts[language].profileMessage}
@@ -170,6 +176,8 @@ const UserPofile = ({language}) => {
                         :
                         <p></p>
                         }
+                     
+                        
                      
                     </div>
                 )}

@@ -33,11 +33,14 @@ export default (props) => {
         youtube_round_one: '',
         youtube_round_two: '',
         total_app_points: '',
+        usedVouchers: [],
         activePanel: 'signup',
         language: 'spanish',
         authed: true,
         
-    })
+    });
+
+    // const [usedVouchers, setUsedVouchers] = useState([]);
 
 
 
@@ -218,6 +221,20 @@ export default (props) => {
                 authed: false,
             }),
 
+            updateVoucherHistory : (newHistory) => {
+                
+                let newState = {};
+                let history = state.usedVouchers;                 
+                    
+                        newState = {
+                            ...state,
+                            usedVouchers:  history ? history.concat(newHistory) : newHistory
+                            };
+                changeState(newState)
+
+                
+            },
+
 
             resetState : () => {
                 let newState ={}
@@ -263,6 +280,7 @@ export default (props) => {
                 youtube_round_one: data.youtube_round_one,
                 youtube_round_two: data.youtube_round_two,
                 updateTotalPoints: data.total_app_points,
+                usedVouchers: data.usedVouchers,
                 activePanel: 'login',
                 language: 'spanish',
                 authed: true,
