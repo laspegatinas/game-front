@@ -7,13 +7,13 @@
 
 .wrapper {
     position: relative;
-    width: 70%;
-    height: 100%;
+    width: 97%;
+    height: 80%;
     border: 5px solid white;
     display: inline-block;
     text-align: center;
-    top: 3rem;
-    left: 13vw;    
+    top: 1rem;
+    left: 1vw;   
 }
 
 .voucherImage:hover {
