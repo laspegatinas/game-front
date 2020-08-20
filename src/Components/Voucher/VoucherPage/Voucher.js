@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Vouchers from '../Vouchers.json';
 import VoucherHeader from '../Header/VoucherHeader';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { MyContext } from '../../../context/MyProvider';
 import './Voucher.css';
 
 
-    const Voucher = () => {
+const Voucher = () => {
 
         const [vouchers, setVouchers] = useState([]);
         const [chosenVoucher, setChosenVoucher] = useState([]);
@@ -39,7 +39,8 @@ import './Voucher.css';
     <React.Fragment> 
         <VoucherHeader/>
             <div className="wrapper">
-                <div>          
+                <VoucherHeader />
+                <div>
                     {
                     vouchers.map((vouch, index) => 
                 <VoucherCards       key={index} 
@@ -64,8 +65,9 @@ import './Voucher.css';
                 </div> 
              
             </div>
-    </React.Fragment> 
-                  
-)};
+        </React.Fragment>
+
+    )
+};
 
 export default Voucher;

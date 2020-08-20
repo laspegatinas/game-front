@@ -1,56 +1,60 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { MyContext } from '../../../../context/MyProvider';
 import './UserProfile.css';
-import  profile  from '../../../../Pictures/user.png'
+import profile from '../../../../Pictures/user.png'
 import texts from '../../../../texts.json';
 import Api from '../../../../Api/index';
 import { Link } from 'react-router-dom';
 
 
-const UserPofile = ({language}) => {
+const UserPofile = ({ language }) => {
 
     const { state, logUserIntoContext } = React.useContext(MyContext);
 
 
-    
-   // const [username, setUsername] = useState('');
+
+    // const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [region, setRegion] = useState('');
     const [city, setCity] = useState('');
     //const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
+<<<<<<< HEAD
     const [showVouchers, setShowVouchers] = useState(false);
     const { state: {accessToken, user}} = React.useContext(MyContext);
+=======
+    const { state: { accessToken, user } } = React.useContext(MyContext);
 
-    
-   
-        const submitUpdate =  (e) =>{
 
-            e.preventDefault();                    
-            Api.update({
+>>>>>>> 8a9968c8d6625b5799573c15326fdcc4d3159e2f
 
-                'userid': state.user,
-                "phone": phone,
-                "city": city,
-                "state": region,         
-            })
+    const submitUpdate = (e) => {
+
+        e.preventDefault();
+        Api.update({
+
+            'userid': state.user,
+            "phone": phone,
+            "city": city,
+            "state": region,
+        })
             .then((resp) => {
-            console.log(resp)                    
-            Api.getPoints(resp.data.id)
-            .then((resp2)=>{
-                let user = {...resp['data'], ...resp2['data']};
-                logUserIntoContext(user);
-            })   
-            },(err)=>{
+                console.log(resp)
+                Api.getPoints(resp.data.id)
+                    .then((resp2) => {
+                        let user = { ...resp['data'], ...resp2['data'] };
+                        logUserIntoContext(user);
+                    })
+            }, (err) => {
 
-        });
+            });
     };
 
     // const postChange = (e) => {
 
     //     e.preventDefault();
     //     console.log(username, phone, region);
-        
+
     // }
 
     return (
@@ -60,20 +64,20 @@ const UserPofile = ({language}) => {
                     <div className='profile-content'>
                         <hr />
                         <div className='myprofile-title'>
-                        <img src={context.state.picture || profile} alt="profile icon" className= 'profile-icon-user'/>                    
-                       
-                        <h1>{context.state.username}</h1>    
-                                                                         
+                            <img src={context.state.picture || profile} alt="profile icon" className='profile-icon-user' />
+
+                            <h1>{context.state.username}</h1>
+
                         </div>
                         <a onClick={() => { context.clearUser(); console.log('clicked'); }}>Salir</a>
                         <hr />
-                        
-                          {editing
 
-                        ?
+                        {editing
+
+                            ?
                             <div>
                                 <form onSubmit={submitUpdate}>
-                                {/* <input
+                                    {/* <input
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     name="mail"
@@ -83,7 +87,7 @@ const UserPofile = ({language}) => {
                                     id="user_email"
                                 /> */}
 
-                                {/* <input
+                                    {/* <input
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
                                     name="username"
@@ -93,38 +97,39 @@ const UserPofile = ({language}) => {
                                     id="user_name"
                                 /> */}
 
-                                <input
-                                    value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    name="phone"
-                                    placeholder={texts[language].phone}
-                                    type="text"
-                                    className="input"
-                                    id="phone_number"
-                                />
+                                    <input
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        name="phone"
+                                        placeholder={texts[language].phone}
+                                        type="text"
+                                        className="input"
+                                        id="phone_number"
+                                    />
 
-                                <input
-                                    value={city}
-                                    onChange={(e) => setCity(e.target.value)}
-                                    name="City"
-                                    placeholder={texts[language].city}
-                                    type="text"
-                                    className="input"
-                                    id="city"
-                                />
+                                    <input
+                                        value={city}
+                                        onChange={(e) => setCity(e.target.value)}
+                                        name="City"
+                                        placeholder={texts[language].city}
+                                        type="text"
+                                        className="input"
+                                        id="city"
+                                    />
 
-                                <input
-                                    value={region}
-                                    onChange={(e) => setRegion(e.target.value)}
-                                    name="region"
-                                    placeholder={texts[language].state}
-                                    type="text"
-                                    className="input"
-                                    id="region"
-                                />
-                                <button className="safeBtn" type="submit">Submit</button>
-                                 </form>
+                                    <input
+                                        value={region}
+                                        onChange={(e) => setRegion(e.target.value)}
+                                        name="region"
+                                        placeholder={texts[language].state}
+                                        type="text"
+                                        className="input"
+                                        id="region"
+                                    />
+                                    <button className="safeBtn" type="submit">Submit</button>
+                                </form>
                             </div>
+<<<<<<< HEAD
                         : showVouchers ? 
 
                              <div>
@@ -141,47 +146,66 @@ const UserPofile = ({language}) => {
 
                              :
 
+=======
+                            :
+>>>>>>> 8a9968c8d6625b5799573c15326fdcc4d3159e2f
                             <div>
-                                    <h6> {texts[language].mail}:
+                                <h6> {texts[language].mail}:
                                     <p className="myprofile-h6">{context.state.email}</p>
-                                    </h6>
+                                </h6>
 
-                                    <h6>
-                                     {texts[language].username}:
+                                <h6>
+                                    {texts[language].username}:
                                     <p className="myprofile-h6">{context.state.username}</p>
-                                    </h6>
+                                </h6>
 
-                                    <h6>
-                                        {texts[language].phone}:
+                                <h6>
+                                    {texts[language].phone}:
                                         <p className="myprofile-h6">{context.state.phone}</p>
-                                    </h6>
+                                </h6>
 
-                                    <h6>
-                                        {texts[language].city}:
+                                <h6>
+                                    {texts[language].city}:
                                         <p className="myprofile-h6">{context.state.city}</p>
-                                    </h6>
+                                </h6>
 
-                                    <h6>
-                                        {texts[language].state}:
+                                <h6>
+                                    {texts[language].state}:
                                         <p className="myprofile-h6">{context.state.state}</p>
+<<<<<<< HEAD
                                      </h6>
+=======
+                                </h6>
+                            </div>
+                        }
+>>>>>>> 8a9968c8d6625b5799573c15326fdcc4d3159e2f
 
                                      <h6>
                             {texts[language].pointsComplete}:
                             <p className="myprofile-h6">{context.state.updateTotalPoints}</p>
                         </h6>
+<<<<<<< HEAD
                         {/* <h6>
                              Voucher History:
                              {context.state.usedVouchers &&
                                 context.state.usedVouchers.map((voucher)=> 
                                 <p className="myprofile-h6">{voucher}</p>)}
                         </h6> */}
+=======
+                        <h6>
+                            Voucher History:
+                             {context.state.usedVouchers &&
+                                context.state.usedVouchers.map((voucher) =>
+                                    <p className="myprofile-h6">{voucher}</p>)}
+                        </h6>
+>>>>>>> 8a9968c8d6625b5799573c15326fdcc4d3159e2f
 
                         <h4 className="myprofile-h4">
                             {texts[language].profileMessage}
                         </h4>
 
                         <hr />
+<<<<<<< HEAD
                        <Link to="vouchers"> <button>Get Voucher</button></Link> <br></br> 
                        <button onClick={() => setShowVouchers(true)}>Show Vouchers</button>
                         <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
@@ -198,6 +222,19 @@ const UserPofile = ({language}) => {
                      
                         
                      
+=======
+                        <Link className='voucherBtn' to="vouchers"> <button className="voucherBtn">Get Voucher</button></Link>
+                        <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
+                        {editing
+                            ?
+                            <button className="cancelBtn" onClick={() => setEdit(false)}>{texts[language].cancel}</button>
+                            :
+                            <p></p>
+                        }
+
+
+
+>>>>>>> 8a9968c8d6625b5799573c15326fdcc4d3159e2f
                     </div>
                 )}
             </MyContext.Consumer>

@@ -1,16 +1,18 @@
 import React from 'react';
+import Header from './Header.css'
 
 
 
-    const VoucherHeader = () => {
+const VoucherHeader = () => {
 
 
-    return(
+  return (
 
-    <div >
-      <h1>CANJEÁ TUS PUNTOS</h1>
-      <p>Canjea tus puntos acumulados por increibles premios</p>
+    <div>
+      <h1 className='headersTxt'>CANJEÁ TUS PUNTOS</h1>
+      <p className='headersTxt'>Canjea tus puntos acumulados por increibles premios</p>
     </div>
-)};
+  )
+};
 
 export default VoucherHeader;
