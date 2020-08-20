@@ -79,6 +79,23 @@ a{
     border-radius: 5px;
 }
 
+/* .bottomButtons{
+
+   
+} */
+
+.getVoucher {
+
+    display: block;
+    margin: 0.4em auto;
+}
+
+.showVouchers {
+
+    display: block;
+    margin: 0.4em auto;
+}
+
 .safeBtn{
     display: block;
     margin: auto;

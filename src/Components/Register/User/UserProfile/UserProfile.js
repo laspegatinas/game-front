@@ -123,13 +123,14 @@ const UserPofile = ({ language }) => {
                              <div>
                                 <h6>
                                     Voucher History:
-                                    {context.state.usedVouchers &&
-                                        context.state.usedVouchers.map((voucher)=> 
-                                        <ul>
-                                        <li className="myprofile-h6">{voucher}</li>
-                                        </ul>)}
-                        </h6>
-                        <button onClick={() => setShowVouchers(false)}>Back</button>
+                                        {context.state.usedVouchers &&
+                                            context.state.usedVouchers.map((voucher)=> 
+                                            <ul>
+                                                <li className="myprofile-h6">{voucher}</li>
+                                            </ul>)
+                                        }
+                                </h6>
+                                <button onClick={() => setShowVouchers(false)}>Back</button>
                              </div>
 
                              :
@@ -169,9 +170,11 @@ const UserPofile = ({ language }) => {
                         </h4>
 
                         <hr />
-                       <Link to="vouchers"> <button>Get Voucher</button></Link> <br></br> 
-                       <button onClick={() => setShowVouchers(true)}>Show Vouchers</button>
-                        <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
+                        <div className="bottomButtons">
+                            <Link to="vouchers"> <button className="getVoucher">Get Voucher</button></Link> 
+                            <button className="showVouchers" onClick={() => setShowVouchers(true)}>Show Vouchers</button>
+                            <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
+                        </div>
                        </div>                      
                         }           
 
