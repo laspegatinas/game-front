@@ -181,7 +181,7 @@ class Rounds extends React.Component {
                                 <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
                                     {context.state.spotify_round_two || ''}
                                     {loginComp(context)}</div>
-                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img  className={'btnRonda2'} src={ronda3} /></Link>
+                                <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img  className={'btnRonda3'} src={ronda3} /></Link>
 
 
                                 <div className={spotify || instagram ? 'hideGame' : 'title'}>
