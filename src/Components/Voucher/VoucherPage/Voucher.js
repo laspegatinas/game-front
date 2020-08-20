@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Vouchers from '../Vouchers.json';
 import VoucherHeader from '../Header/VoucherHeader';
+import { Link } from 'react-router-dom';
 import VoucherCards from '../VoucherCards/VoucherCards';
 import { MyContext } from '../../../context/MyProvider';
 import './Voucher.css';
@@ -10,12 +11,9 @@ import './Voucher.css';
 
         const [vouchers, setVouchers] = useState([]);
         const [chosenVoucher, setChosenVoucher] = useState([]);
-        const [choseVoucher, setToChosen] = useState(false);
-        // const { usedVouchers } = React.useContext(MyContext);
+      //  const [choseVoucher, setToChosen] = useState(false);
         const { updateVoucherHistory } = React.useContext(MyContext);
-        
-
-            
+         
         useEffect( () => {
             setVouchers(Vouchers['vouchers']);
           }, []); 
@@ -27,12 +25,13 @@ import './Voucher.css';
             let myVoucher = [...chosenVoucher];
              myVoucher.push(selectedVoucher);
              setChosenVoucher(myVoucher);
-             console.log(myVoucher);
-             setToChosen(true);         
+             console.log(myVoucher);                   
         }; 
 
-       const pushToVoucherHistory = () => {          
-            updateVoucherHistory(chosenVoucher[0].title);               
+       const pushToVoucherHistory =  () => {             
+                  
+            updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${chosenVoucher[0].text} code :${chosenVoucher[0].code}`);
+                                       
         }
          
     return(
@@ -53,16 +52,17 @@ import './Voucher.css';
                                     buttonPrint={vouch.button}/>)               
                     }           
                 </div>                   
-                    <div >                      
-                        {chosenVoucher.map((voucher, index) => 
-                        <section className="popUpWindow" >
-                            <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
-                            <p>{voucher.text}</p>
-                            <img src={voucher.image}></img>
-                            <button onClick={pushToVoucherHistory}>{voucher.button}</button>
-                        </section>)
-                        }                  
-                    </div> 
+                <div >                      
+                    {chosenVoucher.map((voucher, index) => 
+                    <section className="popUpWindow" >
+                        <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
+                        <p>{voucher.text}</p>
+                        <img src={voucher.image}></img>
+                        <Link to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
+                    </section>)
+                    }                  
+                </div> 
+             
             </div>
     </React.Fragment> 
                   

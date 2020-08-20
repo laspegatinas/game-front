@@ -140,7 +140,7 @@ class Register extends Component {
                                                                         })
                                                                     }      
                                                                     }>
-                                              { <button className="albumPoints">{context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>}
+                                              { <button className="albumPoints">{context.state.spotify_round_two_extended && context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>}
                                                <br/>
                                                 <img
                                                     src={albumObject.images[0].url}

@@ -19,6 +19,7 @@ const UserPofile = ({language}) => {
     const [city, setCity] = useState('');
     //const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
+    const [showVouchers, setShowVouchers] = useState(false);
     const { state: {accessToken, user}} = React.useContext(MyContext);
 
     
@@ -124,7 +125,22 @@ const UserPofile = ({language}) => {
                                 <button className="safeBtn" type="submit">Submit</button>
                                  </form>
                             </div>
-                        :
+                        : showVouchers ? 
+
+                             <div>
+                                    <h6>
+                             Voucher History:
+                             {context.state.usedVouchers &&
+                                context.state.usedVouchers.map((voucher)=> 
+                                <ul>
+                                <li className="myprofile-h6">{voucher}</li>
+                                </ul>)}
+                        </h6>
+                        <button onClick={() => setShowVouchers(false)}>Back</button>
+                             </div>
+
+                             :
+
                             <div>
                                     <h6> {texts[language].mail}:
                                     <p className="myprofile-h6">{context.state.email}</p>
@@ -149,33 +165,36 @@ const UserPofile = ({language}) => {
                                         {texts[language].state}:
                                         <p className="myprofile-h6">{context.state.state}</p>
                                      </h6>
-                                    </div>                      
-                        }           
 
-                        <h6>
+                                     <h6>
                             {texts[language].pointsComplete}:
                             <p className="myprofile-h6">{context.state.updateTotalPoints}</p>
                         </h6>
-                        <h6>
+                        {/* <h6>
                              Voucher History:
                              {context.state.usedVouchers &&
                                 context.state.usedVouchers.map((voucher)=> 
                                 <p className="myprofile-h6">{voucher}</p>)}
-                        </h6>
+                        </h6> */}
 
                         <h4 className="myprofile-h4">
                             {texts[language].profileMessage}
                         </h4>
 
                         <hr />
-                       <Link to="vouchers"> <button>Get Voucher</button></Link>
+                       <Link to="vouchers"> <button>Get Voucher</button></Link> <br></br> 
+                       <button onClick={() => setShowVouchers(true)}>Show Vouchers</button>
                         <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
-                        {editing
+                        {editing 
                         ?
                         <button className="cancelBtn" onClick={() => setEdit(false)}>{texts[language].cancel}</button>
                         :
                         <p></p>
                         }
+                       </div>                      
+                        }           
+
+                    
                      
                         
                      
