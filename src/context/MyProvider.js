@@ -224,15 +224,12 @@ export default (props) => {
             updateVoucherHistory : (newHistory) => {
                 
                 let newState = {};
-                let history = state.usedVouchers;                 
-                    
+                let history = state.usedVouchers;                                   
                         newState = {
                             ...state,
                             usedVouchers:  history ? history.concat(newHistory) : newHistory
                             };
-                changeState(newState)
-
-                
+                changeState(newState)               
             },
 
 

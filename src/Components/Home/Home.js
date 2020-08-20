@@ -23,12 +23,13 @@ import Rounds from '../Rounds/Rounds';
 
     // const clicked = () => {
         
-    //         //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId)
-    //         console.log(usedVouchers)
-    //      //  resetState()
-    //      updateVoucherHistory('hooo')
-       
-        
+            //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) QDHlpJogBwc
+           // console.log(localStorage.ConcertId)
+           
+    //            // localStorage.setItem('ConcertId', 'QDHlpJogBwc');
+    //             console.log(localStorage.ConcertId)
+            
+    //      //  resetState()   
     // }
 
    

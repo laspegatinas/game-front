@@ -26,8 +26,8 @@ const initialState = () => {
     selectedCouple: [],
     itsComparing: false,
     tryes: 0,
-    winner: false,
-    points: '0'
+    winner: true,
+    points: ''
   };
 }
 
@@ -64,7 +64,7 @@ class InstagramRoundTwo extends React.Component {
                 {/* <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button>  */}
                 {context.state.username
                     ? <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
-                    buttonStyle={'suma-puntos-button'} score={points} currentGame="instagram2" roundIn= 'two'/>
+                    buttonStyle={'suma-puntos-button'} score="" currentGame={"instagram2"} />
                     
                     : <UserForm nextButton={'navbar-btn'} language={'spanish'} />}
             </div>

@@ -13,11 +13,13 @@ import { Link } from 'react-router-dom';
     <React.Fragment> 
         
            <div className="downloadedVoucher">
-               <h3>Felicitaciones! Seguí jugando para acumular más puntos y canjearlos por más premios!</h3>
-               <Link to="/">SEGUIR JUGANDO</Link>          
-               <Link to="vouchers">SEGUIR CANJEANDO</Link>          
-               <button>VER MI HISTORIAL</button>          
-               </div>       
+               <h3 className="congrats"> Felicitaciones! Seguí jugando para acumular más puntos y canjearlos por más premios!</h3>
+               <div className="goNextButtons">
+                <Link to="/"><button> SEGUIR JUGANDO</button></Link>          
+                <Link to="vouchers"><button> SEGUIR Canjeando</button></Link>          
+                <Link to ="/user"><button>Ver historial</button></Link>  
+               </div>        
+            </div>       
           
             
     </React.Fragment> 

@@ -12,7 +12,7 @@ import '../Instagram.css';
 
 class InstagramRoundThree extends Component {
 
-    NUMBER_OF_ATTEMPTS = 4
+    NUMBER_OF_ATTEMPTS = 3
 
     OFICIAL_NUMBER_OF_ATTEMPTS = this.NUMBER_OF_ATTEMPTS - 1
 
@@ -188,7 +188,7 @@ class InstagramRoundThree extends Component {
                         </div>
                         <p className="score">
                             {texts[language].correctAnswers}
-                            {`${this.counter} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
+                            {`${this.attempts} / ${this.OFICIAL_NUMBER_OF_ATTEMPTS}`}
                         </p>
                     </div>
                 </div>

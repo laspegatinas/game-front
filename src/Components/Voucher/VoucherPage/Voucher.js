@@ -11,7 +11,7 @@ const Voucher = () => {
 
         const [vouchers, setVouchers] = useState([]);
         const [chosenVoucher, setChosenVoucher] = useState([]);
-      //  const [choseVoucher, setToChosen] = useState(false);
+        const [choseVoucher, setToChosen] = useState(false);
         const { updateVoucherHistory } = React.useContext(MyContext);
          
         useEffect( () => {
@@ -25,19 +25,27 @@ const Voucher = () => {
             let myVoucher = [...chosenVoucher];
              myVoucher.push(selectedVoucher);
              setChosenVoucher(myVoucher);
-             console.log(myVoucher);                   
+            // console.log(myVoucher);  
+             setToChosen(true);   
+             let d = new Date();
+             let m = d.getMonth() + 1;
+             let day = d.getDate();
+             let y = d.getFullYear();
+             console.log(`${m}/${day}/${y}`)    
         }; 
 
-       const pushToVoucherHistory =  () => {             
-                  
-            updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${chosenVoucher[0].text} code :${chosenVoucher[0].code}`);
-                                       
+       const pushToVoucherHistory =  () => {         
+            let d = new Date();
+            let m = d.getMonth() + 1;
+            let day = d.getDate();
+            let y = d.getFullYear();                 
+            updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${`${m}/${day}/${y}`} code :${chosenVoucher[0].code}`);                                     
         }
          
     return(
  
     <React.Fragment> 
-        <VoucherHeader/>
+        
             <div className="wrapper">
                 <VoucherHeader />
                 <div>
@@ -52,17 +60,20 @@ const Voucher = () => {
                                     action={selectVoucher} 
                                     buttonPrint={vouch.button}/>)               
                     }           
-                </div>                   
+                </div>   
+                {choseVoucher &&           
                 <div >                      
                     {chosenVoucher.map((voucher, index) => 
                     <section className="popUpWindow" >
                         <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
                         <p>{voucher.text}</p>
                         <img src={voucher.image}></img>
+                        <button onClick={() => setToChosen(false)}>Cancel</button>
                         <Link to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
                     </section>)
                     }                  
                 </div> 
+                }  
              
             </div>
         </React.Fragment>
