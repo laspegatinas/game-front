@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import { MyContext } from '../../../context/MyProvider';
+import { MyContext } from '../../../context/MyProvider';
 import texts from '../../../texts.json';
 import './MembersAccounts.css';
 import adria from '../../../Pictures/gif/Adria.gif';
@@ -94,20 +94,23 @@ class members extends Component {
         },
     ]
 
-    setSelectedMemberId = (id) => {
-
+    setSelectedMemberId = (context, id) => {
         const { score } = this.props;
+        localStorage.setItem('memberId', id);
+        this.instagramPoints(context, score, 'instagram', 'two')
+    }
 
-        localStorage.setItem('memberId', id)
-
+    instagramPoints = (context, newPoints, gameName, roundIn) => {
+        context.addPoints(newPoints, gameName, roundIn);
+      
     }
 
 
     render() {
         const { language } = this.props;
         return (
-            // <MyContext.Consumer>
-            //     {(context) => (
+            <MyContext.Consumer>
+                {(context) => (
                     <div className="instagram-container">
                         <div className="round-questions">
                             <h2>{texts[language].instagramRoundTwoQuestion}</h2>
@@ -121,7 +124,7 @@ class members extends Component {
                                             className=""
                                             type="button"
                                             key={memberaccount.name}
-                                            onClick={() => this.setSelectedMemberId(memberaccount.id)}
+                                            onClick={() => this.setSelectedMemberId(context, memberaccount.id)}
                                         >
                                             <img src={memberaccount.gif} alt="member profile pic" />
                                         </button>
@@ -132,8 +135,8 @@ class members extends Component {
                             ))}
                         </div>
                     </div>
-            //     )}
-            // </MyContext.Consumer>
+                )}
+            </MyContext.Consumer>
         );
     }
 }
