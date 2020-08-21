@@ -114,7 +114,7 @@ class YoutubeRoundTwo extends Component {
         if (gameStatus === 'gameOver') {
             return (
                 <div>
-                     <GameEnded currentGame="youtube" language={language}/>
+                     <GameEnded currentGame="youtube" points={localStorage.yt_points_1} language={language}/>
                 </div>
             )
         }

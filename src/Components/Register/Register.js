@@ -95,14 +95,6 @@ class Register extends Component {
         if (currentGame === 'spotify') {
             this.getSpotifyAlbums();
         }
-        // if (currentGame === 'youtube') {
-        //     const json = JSON.stringify(Concerts);
-        //     const newdata = JSON.parse(json);
-
-        //     this.setState({
-        //         videoData: newdata,
-        //     });
-        // }
     }
 
     render() {
