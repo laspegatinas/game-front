@@ -27,8 +27,8 @@ const initialState = () => {
     selectedCouple: [],
     itsComparing: false,
     tryes: 0,
-    winner: true,
-    points: 30
+    winner: false,
+    points: ''
   };
 }
 
