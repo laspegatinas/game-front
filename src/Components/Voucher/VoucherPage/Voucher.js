@@ -15,6 +15,7 @@ const Voucher = () => {
         const { updateVoucherHistory } = React.useContext(MyContext);
          
         useEffect( () => {
+            
             setVouchers(Vouchers['vouchers']);
           }, []); 
 
@@ -38,9 +39,13 @@ const Voucher = () => {
             let d = new Date();
             let m = d.getMonth() + 1;
             let day = d.getDate();
-            let y = d.getFullYear();                 
-            updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${`${m}/${day}/${y}`} code :${chosenVoucher[0].code}`);                                     
+            let y = d.getFullYear();           
+            localStorage.setItem('code', chosenVoucher[0].code);  
+            updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${`${m}/${day}/${y}`} code :${chosenVoucher[0].code}`);
+                                               
         }
+
+     
          
     return(
  
@@ -60,15 +65,17 @@ const Voucher = () => {
                                     action={selectVoucher} 
                                     buttonPrint={vouch.button}/>)               
                     }           
-                </div>   
+                </div>  
                 {choseVoucher &&           
                 <div >                      
                     {chosenVoucher.map((voucher, index) => 
                     <section className="popUpWindow" >
-                        <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
+                        <h2 key={index} >{voucher.title} ({voucher.quantity})  {voucher.points} puntos</h2>
                         <p>{voucher.text}</p>
+                        <p>{voucher.code}</p>
+                        {/* <p>cuesta {voucher.points} puntos</p> */}
                         <img src={voucher.image}></img>                        
-                        <Link to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
+                        <Link code={voucher.code} to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
                         <button onClick={() => setToChosen(false)}>Cancel</button>
                     </section>)
                     }                  

@@ -36,8 +36,6 @@ socialSignUp : function(user){
     return instance.post('auth/socialsign/',user);
 },
 
-
-
 logIn : function(credentials){
     return instance.post('auth/signin/',credentials);
 },

@@ -85,10 +85,7 @@ export default (props) => {
         });
 
         console.log(state.spotify_round_two)
-
     }
-
-    
 
     const updateTotalPoints = (newState) => {
         const keysArray = [

@@ -4,7 +4,8 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-//import { MyContext } from '../../context/MyProvider';
+import { MyContext } from '../../context/MyProvider';
+import Api from '../../Api/index';
 //import PopUp from '../Rounds/PopUp';
 
 
@@ -13,24 +14,27 @@ import Rounds from '../Rounds/Rounds';
 
       const Home = ({ language }) => {
 
-    //  const { state:  { spotify_round_two_extended }} = React.useContext(MyContext);
-    //   const { state: {usedVouchers} } = React.useContext(MyContext);
-    //   const { state } = React.useContext(MyContext);
+     const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
+      const { state: {usedVouchers} } = React.useContext(MyContext);
+      const { state } = React.useContext(MyContext);
 
-    //   const { addPointsExtended, resetState, updateVoucherHistory  } = React.useContext(MyContext);
-    //  // const { usedVouchers } = React.useContext(MyContext);
+      const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
+     // const { usedVouchers } = React.useContext(MyContext);
      
 
-    // const clicked = () => {
+    const clicked = () => {
         
-            //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) QDHlpJogBwc
-           // console.log(localStorage.ConcertId)
+            //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) 
+             addPoints(60, 'youtube', 'two')
+            // console.log(user)
+            //  Api.getPoints(user)
+           // console.log(state)
            
-    //            // localStorage.setItem('ConcertId', 'QDHlpJogBwc');
-    //             console.log(localStorage.ConcertId)
+              
+               // console.log(state)
             
-    //      //  resetState()   
-    // }
+         //  resetState()   
+    }
 
    
 
@@ -48,7 +52,7 @@ import Rounds from '../Rounds/Rounds';
                     instagramButton={'btn-game'} homeButton={'hideGame'}
                 />
                 
-                {/* <button onClick={clicked}>CLIIIIIIIIIICK</button> */}
+                <button onClick={clicked}>CLIIIIIIIIIICK</button>
             </div>
         </div>
     </div>

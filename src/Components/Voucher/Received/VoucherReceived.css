@@ -1,13 +1,20 @@
 .downloadedVoucher {
 
     /* border: 2px solid black; */
-    width: 50h;
+    width: 50vh;
     height: 50vh;
     position: absolute;
     top: 25%;
     left: 20%;
     background-color: #302C71;
     
+}
+
+.pdf {
+
+    width: '30vh';
+    height: '30vh';
+    background: #302C71;
 }
 
 .goNextButtons{
