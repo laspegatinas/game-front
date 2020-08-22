@@ -330,6 +330,10 @@ class spotifyRoundTwo extends React.Component {
                                     showAnswerCount={this.showAnswerCount}
                                     currentAttempt={currentAttempt}
                                     totalAttempts={this.NUMBER_OF_SONGS_TO_PLAY_WITH}
+                                    songs={songNames}
+                                    hidden={hideResults}
+                                    currentSong={currentSong.name}
+                                    writeSong={this.writeChosenSong}
                                 />
                             </div>
                             <div className="spotify-game-question">
@@ -349,7 +353,7 @@ class spotifyRoundTwo extends React.Component {
                                                 />
                                             )
                                         }
-                                        <Button
+                                        {/* <Button
                                             key={songName}
                                             printedSong={songName}
                                             // We write it like this so the function writeChoosenSong isn't executed when the button is
@@ -357,7 +361,7 @@ class spotifyRoundTwo extends React.Component {
                                             // above in the onMusicPlays, setNewRandomSong or songURL
                                             onClick={() => this.writeChosenSong(songName)}
                                             currentSong={currentSong.name}
-                                        />
+                                        /> */}
                                     </div>
                                 ))}
                             </div>
