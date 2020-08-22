@@ -23,11 +23,12 @@ import ReactToPdf from 'react-to-pdf';
     return(
  
     <React.Fragment> 
-        
+
+            <div className="voucherWrapper">
            <div  className="downloadedVoucher">    
                 <div className="pdf" ref={ref}>        
-                    {/* <h3 className="congrats"> Felicitaciones! Seguí jugando para acumular más puntos y canjearlos por más premios!</h3> */}
-                    <h2  className="congrats">Tú código para canjear: {localStorage.code}</h2>   
+                    <h3 className="congrats"> Felicitaciones! Seguí jugando para acumular más puntos y canjearlos por más premios!</h3>
+                    <h3  className="yourCode">Tú código para canjear: {localStorage.code}</h3>   
                 </div>  
                 <div className="goNextButtons">
                 <Link to="/"><button>Seguir jugando</button></Link>          
@@ -39,7 +40,8 @@ import ReactToPdf from 'react-to-pdf';
                     )}
                 </ReactToPdf>
                 </div>        
-            </div>                  
+            </div> 
+            </div>                 
     </React.Fragment> 
                   
 )};

@@ -72,8 +72,6 @@ const Voucher = () => {
                     <section className="popUpWindow" >
                         <h2 key={index} >{voucher.title} ({voucher.quantity})  {voucher.points} puntos</h2>
                         <p>{voucher.text}</p>
-                        <p>{voucher.code}</p>
-                        {/* <p>cuesta {voucher.points} puntos</p> */}
                         <img src={voucher.image}></img>                        
                         <Link code={voucher.code} to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
                         <button onClick={() => setToChosen(false)}>Cancel</button>
