@@ -32,6 +32,18 @@ signUp : function(user){
     return instance.post('auth/signup/',user);
 },
 
+getProducts : function(){
+    return instance.get('store/getproducts');
+},
+
+buyProduct : function(product){
+    return instance.post('store/buyproduct', product);
+},
+
+getHistory : function(user){
+    return instance.post('store/history', user);
+},
+
 socialSignUp : function(user){
     return instance.post('auth/socialsign/',user);
 },
@@ -49,7 +61,6 @@ setPoints : function(points){
 },
 
 update : function(user){
-
     return instance.post('user/update', user)
  },
 
