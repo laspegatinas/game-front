@@ -21,6 +21,7 @@ class PlayerCountdown extends Component {
         playStatus: Sound.status.STOPPED,
         isPlaying: false,
         uniqueKey: Date.now(),
+        notChosen: true
     }
 
     // if clicked = "false show arrow"
@@ -58,6 +59,7 @@ class PlayerCountdown extends Component {
                 uniqueKey: Date.now(),
                 playStatus: Sound.status.PLAYING,
                 isPlaying: true,
+                notChosen: false
                 // This makes the 'play' button disappear once you click on it
             });
             
@@ -86,14 +88,16 @@ class PlayerCountdown extends Component {
         });
 
         // sets the length and specifics of the timer
+        if(this.state.notChosen){
+            setTimeout(() => {
 
-        // setTimeout(() => {
-
-        //     this.stopMusic();
-
-        //     coincidence();
-
-        // }, SONG_TIMER_DURATION * 1000);
+                this.stopMusic();
+    
+                coincidence();
+    
+            }, SONG_TIMER_DURATION * 1000);
+        }
+      
     }
 
     renderTime = (value) => {

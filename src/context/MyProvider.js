@@ -29,8 +29,6 @@ export default (props) => {
         
     })
 
-
-
     useEffect(() => {
         let session = localStorage.getItem('session')
         if (session){
