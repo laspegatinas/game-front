@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Vouchers from '../Vouchers.json';
 import VoucherHeader from '../Header/VoucherHeader';
 import { Link } from 'react-router-dom';
 import VoucherCards from '../VoucherCards/VoucherCards';
@@ -26,9 +25,9 @@ const Voucher = () => {
         //         myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
         //         myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
         //         setVouchers(myVouchers);
-        //         setTimeout(() => {
+        //       
         //             setLoaded(true);   
-        //         }, 2000);
+        //        
                                                       
         //     });
             
@@ -64,20 +63,19 @@ const Voucher = () => {
              console.log(`${m}/${day}/${y}`)    
         }; 
 
-       const pushToVoucherHistory =  () => {         
-            // let d = new Date();
-            // let m = d.getMonth() + 1;
-            // let day = d.getDate();
-            // let y = d.getFullYear();           
-            // localStorage.setItem('code', chosenVoucher[0].code);  
-            // updateVoucherHistory(`Name: ${chosenVoucher[0].title} date: ${`${m}/${day}/${y}`} code :${chosenVoucher[0].code}`);
-       //   console.log(chosenVoucher['_id'])
-            Api.buyProduct({
+       const pushToVoucherHistory = async  () => {         
+            let d = new Date();
+            let m = d.getMonth() + 1;
+            let day = d.getDate();
+            let y = d.getFullYear();           
+        await    Api.buyProduct({
                 'reference' : chosenVoucher.reference,
-                 'qty': 1,
-                 'user': user,
-            }).then((resp) =>{
-            console.log(resp)
+                'qty': 1,
+                'user': user,
+            }).then( (resp) =>{
+            console.log(resp.data.voucher.code);
+            localStorage.setItem('code', resp.data.voucher.code);
+            updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`);
         })                                            
          }
 
@@ -106,24 +104,12 @@ const Voucher = () => {
                 )}
             </div>
 
-            : <p>loading</p>
+            : <p></p>
              
             }
             </div>
-            <button onClick={getMyProducts}>get Vouchers</button>
-                {/* <div>
-                    {
-                    vouchers.map((vouch, index) => 
-                <VoucherCards       key={index} 
-                                    id={index} 
-                                    imageClass={'voucherImage'}
-                                    image={vouch.image} 
-                                    title={vouch.title} 
-                                    text={vouch.text}                                        
-                                    action={selectVoucher} 
-                                    buttonPrint={vouch.button}/>)               
-                    }           
-                </div>   */}
+            <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>
+        
                        {choseVoucher &&           
                 <div >                      
                     {/* {chosenVoucher.map((voucher, index) =>  */}
@@ -131,7 +117,8 @@ const Voucher = () => {
                         <h2 >{chosenVoucher.reference}</h2>
                         <p>{chosenVoucher.description}</p>
                         <img width='80vh' height="80vh" src={chosenVoucher.image}></img> 
-                        <button onClick={pushToVoucherHistory}>select Voucher</button>                                           
+                        <Link  to="/voucherreceived"><button onClick={pushToVoucherHistory}>Canjear</button></Link>
+                        {/* <button onClick={pushToVoucherHistory}>select Voucher</button>                                            */}
                         <button onClick={() => setToChosen(false)}>Cancel</button>
                     </section>)
                     {/* }                   */}
