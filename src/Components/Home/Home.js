@@ -21,34 +21,33 @@ import Api from '../../Api/index';
     //   const { state } = React.useContext(MyContext);
     //   const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
     //  // const { usedVouchers } = React.useContext(MyContext); ,5f401d0f39c180001777b4be ...resp.data['5f401d1639c180001777b4bf'], ...resp.data['5f401d2739c180001777b4c0']];
-    const [vouchersEx, setVouchersEx] = useState([]);
-    const [loaded, setLoaded] = useState(false);
+  
      
 
-    const clicked = async () => {
+    // const clicked = async () => {
         
-            //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) 
-             //addPoints(60, 'youtube', 'two')
-            // console.log(user)
-           await   Api.getProducts().then( async (resp) => {
+    //         //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) 
+    //          //addPoints(60, 'youtube', 'two')
+    //         // console.log(user)
+    //        await   Api.getProducts().then( async (resp) => {
                   
-                console.log(resp.data);
-                let myVouchers = [...vouchersEx];
-                myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
-                myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
-                myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
-                setVouchersEx(myVouchers);
-                setLoaded(true);
+    //             console.log(resp.data);
+    //             let myVouchers = [...vouchersEx];
+    //             myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
+    //             myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
+    //             myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
+    //             setVouchersEx(myVouchers);
+    //             setLoaded(true);
             
                    
                                              
-            });
+    //         });
                
 
            // console.log(state)           
                // console.log(state)       
          //  resetState()   
-    }
+    // }
 
    
 
@@ -57,14 +56,7 @@ import Api from '../../Api/index';
     <div className="container">
         <div className="main">
             <p className="playWith">{texts[language].playwithTitle}</p>
-            {loaded &&
-            <div>
-                {vouchersEx.map((voucher)=> 
-            <h2>{voucher.reference}</h2>
-            )}
-            </div>
-             
-            }
+         
             
             <img src={logo} alt="la pegatina logo" className="laPegatina" />          
             <div className="home-play-buttons">
@@ -73,7 +65,7 @@ import Api from '../../Api/index';
                     instagramButton={'btn-game'} homeButton={'hideGame'}
                 />
                 
-                <button onClick={clicked}>CLIIIIIIIIIICK</button>
+                {/* <button onClick={clicked}>CLIIIIIIIIIICK</button> */}
             </div>
         </div>
     </div>

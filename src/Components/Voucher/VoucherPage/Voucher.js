@@ -68,15 +68,17 @@ const Voucher = () => {
             let m = d.getMonth() + 1;
             let day = d.getDate();
             let y = d.getFullYear();           
-        await    Api.buyProduct({
-                'reference' : chosenVoucher.reference,
-                'qty': 1,
-                'user': user,
-            }).then( (resp) =>{
-            console.log(resp.data.voucher.code);
-            localStorage.setItem('code', resp.data.voucher.code);
-            updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`);
-        })                                            
+        // await    Api.buyProduct({
+        //         'reference' : chosenVoucher.reference,
+        //         'qty': 1,
+        //         'user': user,
+        //     }).then( (resp) =>{
+        //     console.log(resp.data.voucher.code);
+        //     localStorage.setItem('code', resp.data.voucher.code);
+        //    // updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`)   
+        //     ;
+        // }) 
+        updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${localStorage.code}`)                                           
          }
 
      
