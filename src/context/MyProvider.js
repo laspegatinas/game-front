@@ -42,8 +42,6 @@ export default (props) => {
 
     // const [usedVouchers, setUsedVouchers] = useState([]);
 
-
-
     useEffect(() => {
         let session = localStorage.getItem('session')
         if (session){

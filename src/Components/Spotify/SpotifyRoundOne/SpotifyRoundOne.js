@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 import React from 'react';
-import Confetti from 'react-confetti';
+// import Confetti from 'react-confetti';
 import '../../../App.css';
 import '../Spotify.css';
 import Sound from 'react-sound';
@@ -14,7 +14,7 @@ import texts from '../../../texts.json';
 import SocialMedia from '../../SocialMedia/SocialMedia';
 import Navbar from '../../Navbar/Navbar';
 import { MyContext } from '../../../context/MyProvider';
-import Userform from '../../Register/User/UserForm/UserForm';
+import Confetti from 'react-confetti';
 
 
 class SpotifyRoundOne extends React.Component {
@@ -150,6 +150,7 @@ class SpotifyRoundOne extends React.Component {
 
     writeChosenSong = (songName) => {
         this.chosenSong = songName;
+        console.log(this.chosenSong)
     }
 
     checkCoincidence = () => {
@@ -283,15 +284,7 @@ class SpotifyRoundOne extends React.Component {
         });
     }
 
-    someMethod = () => {
-        // Force a render with a simulated state change
-         this.setState({ 
-            name: 'heeeeey'
-         });
 
-        //this.forceUpdate();
-       
-    }
 
 
     render() {
@@ -320,28 +313,27 @@ class SpotifyRoundOne extends React.Component {
                                             showAnswerCount={this.showAnswerCount}
                                             currentAttempt={currentAttempt}
                                             totalAttempts={this.NUMBER_OF_SONGS_TO_PLAY_WITH}
+                                            songs={songNames}
+                                            hidden={hideResults}
+                                            currentSong={currentSong.name}
+                                            writeSong={this.writeChosenSong}
                                         />
                                     </div>
                                     <div className="spotify-game-question">
                                         <p>{texts[language].spotifyRoundOneQuestion}</p>
                                     </div>
-                                    <div className={`FourButtons ${hideResults ? 'forceGrayColor' : ''}`}>
-                                        {songNames.map((songName) => (
+                                    {/* <div className={`FourButtons ${hideResults ? 'forceGrayColor' : ''}`}>
+                                        {songNames.map((songName) => ( */}
                                             <div>
-                                                {
-                                                // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
-                                                // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
-                                                    giveMeConfetti
-                                                    && (
-                                                        <Confetti
-                                                            width={window.innerWidth}
-                                                            height={window.innerHeight}
-                                                            recycle={false}
-                                                            gravity={0.6}
-                                                        />
-                                                    )
-                                                }
-                                                <Button
+                                            {giveMeConfetti &&
+                                            <Confetti
+                                                width={window.innerWidth}
+                                                height={window.innerHeight}
+                                                recycle={false}
+                                                gravity={0.6}
+                                            />
+                                        } 
+                                                {/* <Button
                                                     key={songName}
                                                     printedSong={songName}
                                                     // We write it like this so the function writeChoosenSong isn't executed when the button is
@@ -349,10 +341,10 @@ class SpotifyRoundOne extends React.Component {
                                                     // above in the onMusicPlays, setNewRandomSong or songURL
                                                     onClick={() => this.writeChosenSong(songName)}
                                                     currentSong={currentSong.name}
-                                                />
+                                                /> */}
                                             </div>
-                                        ))}
-                                    </div>
+                                        {/* ))}
+                                    </div> */}
                                     <div id="counter" className="instruct">
                                         <p className={this.answerCountShow ? 'show counting' : 'hide'}>
                                             {texts[language].correctAnswers}
