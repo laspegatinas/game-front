@@ -32,11 +32,16 @@
     padding: 7vh;
 }
 
+.gameButtons {
+
+    padding: 4em;
+}
+
 .button1 {
     font-family: 'Teko', sans-serif;
     padding: 1.5vh;
     width: 25vh;
-    border-radius: 4em;
+    border-radius: 8em;
     font-weight: 700;
 }
 
@@ -58,7 +63,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: #302C71;
     z-index: 1;
     align-items: center;
     justify-content: center;

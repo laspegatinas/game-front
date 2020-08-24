@@ -9,16 +9,6 @@ import ReactToPdf from 'react-to-pdf';
 
         const ref = React.createRef();
  
-{/* <div>
-    <ReactToPdf targetRef={ref} filename="div-blue.pdf">
-        {({toPdf}) => (
-            <button onClick={toPdf}>Generate pdf</button>
-        )}
-    </ReactToPdf>
-    <div style={{width: 500, height: 500, background: 'blue'}} ref={ref}/>
-</div> */}
-
- //    style={{width: '30vh', height: '30vh', background: '#302C71'}
          
     return(
  
@@ -34,9 +24,9 @@ import ReactToPdf from 'react-to-pdf';
                 <Link to="/"><button>Seguir jugando</button></Link>          
                 <Link to="vouchers"><button>Seguir Canjeando</button></Link>          
                 <Link to ="/user"><button>Ver historial</button></Link>  
-                <ReactToPdf targetRef={ref} filename="voucher.pdf">
+                <ReactToPdf targetRef={ref} filename="voucher_pegatina.pdf">
                     {({toPdf}) => (
-                    <button onClick={toPdf}>Generate pdf</button>
+                    <button onClick={toPdf}>Descargar pdf</button>
                     )}
                 </ReactToPdf>
                 </div>        

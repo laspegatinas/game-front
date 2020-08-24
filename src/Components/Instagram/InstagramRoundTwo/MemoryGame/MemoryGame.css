@@ -1,5 +1,5 @@
 .memory-body {
-    background-image: url('../../../../Pictures/background_img_left.png');
+    /* background-image: url('../../../../Pictures/background_img_left.png'); */
     background-size: cover;
     display : flex;
     flex-direction: column;

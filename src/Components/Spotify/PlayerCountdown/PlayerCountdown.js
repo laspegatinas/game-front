@@ -88,15 +88,15 @@ class PlayerCountdown extends Component {
         });
 
         // sets the length and specifics of the timer
-        if(this.state.notChosen){
-            setTimeout(() => {
+        // if(this.state.notChosen){
+        //     setTimeout(() => {
 
-                this.stopMusic();
+        //         this.stopMusic();
     
-                coincidence();
+        //         coincidence();
     
-            }, SONG_TIMER_DURATION * 1000);
-        }
+        //     }, SONG_TIMER_DURATION * 1000);
+        // }
       
     }
 

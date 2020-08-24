@@ -20,6 +20,7 @@ const UserPofile = ({ language }) => {
     //const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
     const [showVouchers, setShowVouchers] = useState(false);
+    const [voucherHistory, setVoucherHistory] = useState([]);
     const { state: {accessToken, user}} = React.useContext(MyContext);
 
     const submitUpdate = (e) => {
@@ -44,6 +45,11 @@ const UserPofile = ({ language }) => {
             });
     };
 
+    // const myHistory = () => {
+
+    //     Api.getHistory(user).then((resp) => console.log(resp))
+    // }
+ 
 
     return (
         <div className="profile-text">
@@ -122,7 +128,7 @@ const UserPofile = ({ language }) => {
 
                              <div>
                                 <h6>
-                                    Voucher History:
+                                        Historial de Canjes:
                                         {context.state.usedVouchers &&
                                             context.state.usedVouchers.map((voucher)=> 
                                             <ul>
@@ -130,7 +136,7 @@ const UserPofile = ({ language }) => {
                                             </ul>)
                                         }
                                 </h6>
-                                <button onClick={() => setShowVouchers(false)}>Back</button>
+                                <button onClick={() => setShowVouchers(false)}>Atrás</button>
                              </div>
 
                              :
@@ -171,8 +177,9 @@ const UserPofile = ({ language }) => {
 
                         <hr />
                         <div className="bottomButtons">
-                            <Link to="vouchers"> <button className="getVoucher">Get Voucher</button></Link> 
-                            <button className="showVouchers" onClick={() => setShowVouchers(true)}>Show Vouchers</button>
+                            <Link to="vouchers"> <button className="getVoucher">Canjear puntos</button></Link> 
+                            <button className="showVouchers" onClick={() => setShowVouchers(true)}>Ver Canjes</button>
+                            {/* <button className="showVouchers" onClick={myHistory}>Show Vouchers</button> */}
                             <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
                         </div>
                        </div>                      
