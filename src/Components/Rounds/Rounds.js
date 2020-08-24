@@ -85,87 +85,83 @@ class Rounds extends React.Component {
 
 
         const { page, instagram, youtube, spotify, pop } = this.state;
-
         const { language, score } = this.props;
 
         const loginComp = (context) => {
-
             const { state: { username, email } } = context;
-
             if (username || email) {
-
                 return (
                     <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Spotify}
                     score={score} currentGame="spotify" language={language} />
                 );
-            }
-
+            };
             return <UserForm nextButton={'button1'} language={language} score={score} gameIn="spotify" />;
         };
 
         const loginComp2 = (context) => {
-
             const { state: { username, email } } = context;
-
             if (username || email) {
-
                 return (
-
                     <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram}
                     score={score} currentGame="instagram" language={language} />
                 );
-            }
-
+            };
                 return <UserForm nextButton={'button1'} language={language} score={score} gameIn="instagram" />;
         };
 
         const loginComp3 = (context) => {
-
             const { state: { username, email } } = context;
-
             if (username || email) {
-
                 return (
-
                     <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram}
                     score={score} currentGame="youtube" language={language} />
                 );
-            }
-
+            };
                 return <UserForm nextButton={'button1'} language={language} score={score} gameIn="youtube" />;
         };
 
-        return (
-            <MyContext.Consumer>
-                {(context) => (
-                    <>
-                    <div>
+        const loginComp4 = (context) => {
+            const { state: { username, email } } = context;
+            if (username || email) {
+                return (
+                    <Link to="/members" language={language} score={score}><button className="button1">
+                      {texts[language].startRound3Instagram}
+                      </button>
+                    </Link>
+                );
+            };
+                return <UserForm nextButton={'button1'} language={language} score={score} gameIn="instagram" />;
+        };
 
-                            {/* displaying the appropriate introduction, depending on chosen game */}
-                        <div className={page}>
-                                <div className={pop ? 'hideGame' : "title"}>
-                                    <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
-                                    {spotify ?
+    return (
+    <MyContext.Consumer>
+        {(context) => (
+            <>
+            <div>
+                    {/* displaying the appropriate introduction, depending on chosen game */}
+                <div className={page}>
+                        <div className={pop ? 'hideGame' : "title"}>
+                            <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
+                            {spotify ?
+                                (
+                                    <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                )
+                                : instagram ?
+                                    (
+                                        <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                    )
+                                    : youtube ?
                                         (
-                                            <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                        )
-                                        : instagram ?
-                                            (
+                                            <div>
                                                 <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                            )
-                                            : youtube ?
-                                                (
-                                                    <div>
-                                                        <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                                        <h5>{texts[language].youtubeAddition}</h5>
-                                                    </div>
-                                                )
-                                                : null
-                                    }
-                                </div>
+                                                <h5>{texts[language].youtubeAddition}</h5>
+                                            </div>
+                                        )
+                                        : null
+                            }
+                        </div>
 
-
-                        
+                <div className="gameButtons">                      
                     <Link className={pop ? 'hideGame' : 'title'} to="/"><button onClick={this.backToHome} className="button1"
                     type="button">{texts[language].home}</button></Link>
                                     
@@ -202,48 +198,40 @@ class Rounds extends React.Component {
                             </DelayLink>
                     </div>
                                 {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
-                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{context.state.instagram_round_two || ''}{loginComp2(context)}</div>
-                    <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link>
-                   
-                
+                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
+                    {/* <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link> */}
+                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp4(context)}</div>               
                 </div>
-
-
-                            <div className="home-play-buttons">
-
-
-                                    <div>
-                                     {this.state.accessToken 
-                                     ?
-                                            <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                                                <i class="fab fa-spotify"></i>
-                                                {texts[language].key}
-                                            </button>
-                                            :
-                                    
-                                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                                                <i class="fab fa-spotify"></i>
-                                                {texts[language].keySpotifyBtnSecondClick}
-                                     </button> }
-                                    </div>
-
-                                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
-                                        <i class="fab fa-youtube"></i>
-                                        {texts[language].youtubePlayWithButton}
-                                    </button>
-                                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
-                                        <i class="fab fa-instagram"></i>
-                                        {texts[language].instagramPlayWithButton}
-                                    </button>
-                                    <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
-                                        {texts[language].home}</Link>
-                            </div>
-
-
-                        </div>
+            </div> 
+                <div className="home-play-buttons">
+                    <div>
+                        {this.state.accessToken 
+                    ?
+                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                            <i class="fab fa-spotify"></i>
+                            {texts[language].key}
+                        </button>
+                    :                                  
+                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                            <i class="fab fa-spotify"></i>
+                            {texts[language].keySpotifyBtnSecondClick}
+                        </button> }
+                    </div>
+                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
+                        <i class="fab fa-youtube"></i>
+                        {texts[language].youtubePlayWithButton}
+                    </button>
+                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
+                        <i class="fab fa-instagram"></i>
+                        {texts[language].instagramPlayWithButton}
+                    </button>
+                    <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
+                        {texts[language].home}</Link>
+                </div>
+            </div>
                     </>
                 )}
-            </MyContext.Consumer>
+        </MyContext.Consumer>
         );
     }
 }

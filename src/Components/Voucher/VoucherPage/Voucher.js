@@ -47,20 +47,11 @@ const Voucher = () => {
             });
           }; 
 
-
         const selectVoucher = (event) => {        
             const voucherIndex = event.target.id;
             const selectedVoucher = vouchers[voucherIndex];
-            // let myVoucher = [...chosenVoucher];
-            //  myVoucher.push(selectedVoucher);
-             setChosenVoucher(selectedVoucher);
-            // console.log(myVoucher);  
-             setToChosen(true);   
-             let d = new Date();
-             let m = d.getMonth() + 1;
-             let day = d.getDate();
-             let y = d.getFullYear();
-             console.log(`${m}/${day}/${y}`)    
+            setChosenVoucher(selectedVoucher);  
+            setToChosen(true);    
         }; 
 
        const pushToVoucherHistory = async  () => {         
@@ -78,7 +69,7 @@ const Voucher = () => {
         //    // updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`)   
         //     ;
         // }) 
-        updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${localStorage.code}`)                                           
+        updateVoucherHistory(`Nombre ${chosenVoucher.reference} fecha: ${`${m}/${day}/${y}`} código :${localStorage.code}`)                                           
          }
 
      
@@ -100,46 +91,25 @@ const Voucher = () => {
                                 title={voucher.reference}
                                 text= {voucher.description}
                                 image= {voucher.image}
-                                action={selectVoucher} 
-                                
+                                action={selectVoucher}                               
                                 />
                 )}
             </div>
-
-            : <p></p>
-             
+            : <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>            
             }
-            </div>
-            <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>
-        
+            </div>       
                        {choseVoucher &&           
                 <div >                      
-                    {/* {chosenVoucher.map((voucher, index) =>  */}
                     <section className="popUpWindow" >
-                        <h2 >{chosenVoucher.reference}</h2>
-                        <p>{chosenVoucher.description}</p>
-                        <img width='80vh' height="80vh" src={chosenVoucher.image}></img> 
+                        <h2 >{chosenVoucher.reference}</h2>                       
+                        <h4>Cuesta {chosenVoucher.price} puntos - Queadan {chosenVoucher.qty} disponibles!</h4>
+                        <img width='75vh' height="75vh" src={chosenVoucher.image}></img> 
+                        <p>{chosenVoucher.description}</p>                     
                         <Link  to="/voucherreceived"><button onClick={pushToVoucherHistory}>Canjear</button></Link>
-                        {/* <button onClick={pushToVoucherHistory}>select Voucher</button>                                            */}
                         <button onClick={() => setToChosen(false)}>Cancel</button>
-                    </section>)
-                    {/* }                   */}
+                    </section>
                 </div> 
-                }  
-                {/* {choseVoucher &&           
-                <div >                      
-                    {chosenVoucher.map((voucher, index) => 
-                    <section className="popUpWindow" >
-                        <h2 key={index} >{voucher.title} ({voucher.quantity})  {voucher.points} puntos</h2>
-                        <p>{voucher.text}</p>
-                        <img src={voucher.image}></img>                        
-                        <Link code={voucher.code} to="/voucherreceived"><button onClick={pushToVoucherHistory}>{voucher.button}</button></Link>
-                        <button onClick={() => setToChosen(false)}>Cancel</button>
-                    </section>)
-                    }                  
-                </div> 
-                }   */}
-             
+                }         
             </div>
         </React.Fragment>
 

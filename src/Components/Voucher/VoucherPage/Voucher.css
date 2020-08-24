@@ -10,7 +10,7 @@
     width: 97%;
     height: 80%;
     border: 5px solid white;
-    display: inline-block;
+    /* display: inline-block; */
     text-align: center;
     top: 1rem;
     left: 1vw;   
@@ -25,10 +25,13 @@
 
     border: 2px solid black;
     width: 30vw;
-    height: 50vh;
+    height: 30vw;
     position: absolute;
-    top: 25%;
-    left: 30%;
+    top: 20%;
+    left: 35%;
+    
+    
+    
     background-color: #302C71;
     
 }
