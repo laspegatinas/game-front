@@ -33,16 +33,13 @@ const Voucher = () => {
             
         //    // setVouchers(Vouchers['vouchers']);
         //   }, []); 
+     
 
         const getMyProducts = async () => {
-            await   Api.getProducts().then((resp) => {
-                  
-                console.log(resp.data);
-                let myVouchers = [...vouchers];
-                myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
-                myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
-                myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
-                setVouchers(myVouchers);               
+            await   Api.getProducts().then((resp) => {                
+                let response = resp.data;
+                let allVouchers = Object.values(response);
+                setVouchers(allVouchers);               
                     setLoaded(true);                                                                  
             });
           }; 
@@ -54,25 +51,22 @@ const Voucher = () => {
             setToChosen(true);    
         }; 
 
-       const pushToVoucherHistory = async  () => {         
+       const chooseProduct = async  () => {         
             let d = new Date();
             let m = d.getMonth() + 1;
             let day = d.getDate();
             let y = d.getFullYear();           
-        // await    Api.buyProduct({
+        // await   Api.buyProduct({
         //         'reference' : chosenVoucher.reference,
         //         'qty': 1,
         //         'user': user,
         //     }).then( (resp) =>{
-        //     console.log(resp.data.voucher.code);
-        //     localStorage.setItem('code', resp.data.voucher.code);
-        //    // updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`)   
+        //         console.log(resp)
+        //     localStorage.setItem('code', resp.data.voucher.code);  
         //     ;
-        // }) 
-        updateVoucherHistory(`Nombre ${chosenVoucher.reference} fecha: ${`${m}/${day}/${y}`} código :${localStorage.code}`)                                           
-         }
-
-     
+        // });
+         updateVoucherHistory(`fecha: ${`${m}/${day}/${y}`}`)                                           
+         };
          
     return(
  
@@ -105,7 +99,7 @@ const Voucher = () => {
                         <h4>Cuesta {chosenVoucher.price} puntos - Queadan {chosenVoucher.qty} disponibles!</h4>
                         <img width='75vh' height="75vh" src={chosenVoucher.image}></img> 
                         <p>{chosenVoucher.description}</p>                     
-                        <Link  to="/voucherreceived"><button onClick={pushToVoucherHistory}>Canjear</button></Link>
+                        <Link  to="/voucherreceived"><button onClick={chooseProduct}>Canjear</button></Link>
                         <button onClick={() => setToChosen(false)}>Cancel</button>
                     </section>
                 </div> 
