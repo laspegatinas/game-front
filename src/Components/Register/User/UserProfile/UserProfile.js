@@ -27,14 +27,12 @@ const UserPofile = ({ language }) => {
 
         e.preventDefault();
         Api.update({
-
             'userid': state.user,
             "phone": phone,
             "city": city,
             "state": region,
         })
             .then((resp) => {
-                console.log(resp)
                 Api.getPoints(resp.data.id)
                     .then((resp2) => {
                         let user = { ...resp['data'], ...resp2['data'] };
@@ -45,10 +43,15 @@ const UserPofile = ({ language }) => {
             });
     };
 
-    // const myHistory = () => {
-
-    //     Api.getHistory(user).then((resp) => console.log(resp))
-    // }
+    const myHistory = async () => {
+       await Api.getHistory(user)
+        .then((resp) => {
+            let response = resp.data.vouchersMap;
+            let userHistory = Object.values(response);
+            setVoucherHistory(userHistory);      
+        }); 
+        setShowVouchers(true);
+    }
  
 
     return (
@@ -129,12 +132,13 @@ const UserPofile = ({ language }) => {
                              <div>
                                 <h6>
                                         Historial de Canjes:
-                                        {context.state.usedVouchers &&
-                                            context.state.usedVouchers.map((voucher)=> 
-                                            <ul>
-                                                <li className="myprofile-h6">{voucher}</li>
-                                            </ul>)
-                                        }
+                                           <div>
+                                                {voucherHistory.map((historyElement, index)=>                                                                                                   
+                                                <div> 
+                                                    <p key={index} className="myprofile-h6">{historyElement.name} {historyElement.code}</p>                                                                                                   
+                                                 </div>               
+                                                )}
+                                            </div>
                                 </h6>
                                 <button onClick={() => setShowVouchers(false)}>Atrás</button>
                              </div>
@@ -178,8 +182,8 @@ const UserPofile = ({ language }) => {
                         <hr />
                         <div className="bottomButtons">
                             <Link to="vouchers"> <button className="getVoucher">Canjear puntos</button></Link> 
-                            <button className="showVouchers" onClick={() => setShowVouchers(true)}>Ver Canjes</button>
-                            {/* <button className="showVouchers" onClick={myHistory}>Show Vouchers</button> */}
+                            {/* <button className="showVouchers" onClick={() => setShowVouchers(true)}>Ver Canjes</button> */}
+                            <button className="showVouchers" onClick={myHistory}>Show Vouchers</button>
                             <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
                         </div>
                        </div>                      

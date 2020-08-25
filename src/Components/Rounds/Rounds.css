@@ -2,12 +2,10 @@
     color: white;
     text-decoration: none;
     font-family: sans-serif;
-    margin-top: 9vh;
+    /* margin-top: 9vh; */
     padding: 0vh;
     font-size: 3vh;
 }
-
-
 
 .fab {
     margin-right: 1rem;
@@ -24,6 +22,8 @@
     font-size: 2.25rem;
     max-width: 50rem;
     font-family: 'Teko', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .instructions {
@@ -72,6 +72,24 @@
 .btns {
     display: flex;
     border-radius: 30%;
+}
+
+.btnRonda3 {
+
+    position: relative;
+    top: 10rem;
+    left: 3rem;
+    
+}
+
+
+
+.backToHome {
+
+    position: relative;
+    top: 2rem;
+    left: -18rem;
+
 }
 
 .home-btn-image {

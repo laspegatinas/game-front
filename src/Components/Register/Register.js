@@ -9,6 +9,7 @@ import Spotify from '../Utils/Spotify';
 //import videoDataObject from '../Youtube/VideoDataObject';
 import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
+import ronda2 from '../../Pictures/ronda2.png';
 //import InstagramRoundTwo from '../Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo';
 import MembersAccounts from '../Instagram/InstagramRoundThree/MembersAccounts';
 //import Rounds from '../Rounds/Rounds';
@@ -132,7 +133,7 @@ class Register extends Component {
                                                                         })
                                                                     }      
                                                                     }>
-                                              { <button className="albumPoints">{context.state.spotify_round_two_extended && context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>}
+                                              {/* { <button className="albumPoints">{context.state.spotify_round_two_extended && context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>} */}
                                                <br/>
                                                 <img
                                                     src={albumObject.images[0].url}
@@ -145,10 +146,14 @@ class Register extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <img type="button"
+                                className={'btnRonda2'} src={ronda2}
+                                onClick={() => this.showLink(context, score, 'spotify', 'one')}
+                            />
                             
-                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
+                            {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {this.props.buttonText}
-                            </button>
+                            </button> */}
                           
                         </div>
                     )}
@@ -172,9 +177,13 @@ class Register extends Component {
                                      </button>                           
                                 </div>
                             </div>
-                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
+                            <img type="button"
+                                className={'btnRonda2'} src={ronda2}
+                                onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}
+                            />
+                            {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
                                 {this.props.buttonText}
-                            </button>
+                            </button> */}
                         </div>
                     )}
                 </MyContext.Consumer>
@@ -189,9 +198,15 @@ class Register extends Component {
                             <div className={link}>                            
                             </div>
                             <div>
-                             <Link to="instagramroundtwo"><button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                            <Link to="instagramroundtwo">
+                            <img type="button"
+                                className={'btnRonda2'} src={ronda2}
+                                onClick={() => this.showLink(context, score, 'instagram', 'one')}
+                            />
+                                 {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
                                 {this.props.buttonText}
-                                </button></Link> 
+                                </button> */}
+                            </Link> 
                             </div>
 
                         </div>
@@ -200,32 +215,32 @@ class Register extends Component {
             );
         }
 
-        if (currentGame === 'instagram2') {
-            return (
-                <MyContext.Consumer>
-                    {(context) => (
-                        <div className="instagram-round">
-                            <div className={link}>
-                                <h1 className="header">{texts[language].roundThreeText}</h1>
-                             <div>
-                                    <MembersAccounts
-                                        setSelectedMemberId={this.setSelectedMemberId}
-                                        language={language}
-                                        score={score}
-                                    />
-                                </div>                               
-                            </div>
-                            <div>
-                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'two')}>
-                                {this.props.buttonText}
-                                </button>
-                            </div>
+        // if (currentGame === 'instagram2') {
+        //     return (
+        //         <MyContext.Consumer>
+        //             {(context) => (
+        //                 <div className="instagram-round">
+        //                     <div className={link}>
+        //                         <h1 className="header">{texts[language].roundThreeText}</h1>
+        //                      <div>
+        //                             <MembersAccounts
+        //                                 setSelectedMemberId={this.setSelectedMemberId}
+        //                                 language={language}
+        //                                 score={score}
+        //                             />
+        //                         </div>                               
+        //                     </div>
+        //                     <div>
+        //                         <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'two')}>
+        //                         {this.props.buttonText}
+        //                         </button>
+        //                     </div>
 
-                        </div>
-                    )}
-                </MyContext.Consumer>
-            );
-        }
+        //                 </div>
+        //             )}
+        //         </MyContext.Consumer>
+        //     );
+        // }
 
         return null;
     }

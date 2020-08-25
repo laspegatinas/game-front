@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './PopUp.css';
-import texts from '../../texts.json';
-
+//import texts from '../../texts.json';
+import ronda1 from '../../Pictures/ronda1.png';
 
 
 const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className }) => {
@@ -18,7 +18,7 @@ const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className 
 
     useEffect(() => {
         if(timeLeft===0){
-           console.log("TIME LEFT IS 0");
+          // console.log("TIME LEFT IS 0");
            setTimeLeft(null)
         }     
         if (!timeLeft) return;      
@@ -32,18 +32,24 @@ const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className 
 
     <div >
         
-        <button className={ popUpClass == 'popUp' ? 'none' : popButton}       
+        {/* <button className={ popUpClass == 'popUp' ? 'none' : popButton}       
             onClick={() => closeModal()}
-        >
-            <img   src={src}
+        ></button> */}
+          <img
+                className={popUpClass == 'popUp' ? 'none' : 'btnRonda1'}
+                src={ronda1}
+                type="button"
+                onClick={() => closeModal()}
+            />
+            {/* <img   src={src}
                    id={id}
                    videoId={videoId}
                    className={className}>
-            </img>
-            {popText}
-        </button>
-
+            </img> */}
+            {/* {popText} */}
       
+
+
         <div className={popUpClass}>
             <div >
                 <h2 className={'popHead'}> {todo} <br/> {instruct}</h2>
