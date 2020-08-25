@@ -118,34 +118,8 @@ class Register extends Component {
                                     </div>
                                     <div className="allAlbumsDiv">
                                         {albums.map((albumObject) => (
-<<<<<<< HEAD
 
 
-                                            <Link to={{ pathname: '/spotifyRoundTwo' }}>
-                                                <button
-                                                    type="button"
-                                                    className="buttonAlbum"
-                                                    onClick={(event) => {
-
-                                                        this.showLink(context, score, 'spotify', 'one');
-                                                        this.setSelectedAlbumId(event.target.alt)
-                                                        this.setState({
-                                                            selectedAlbum: event.target.alt
-                                                        })
-                                                    }
-                                                    }>
-                                                    {/* { <button className="albumPoints">{context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>} */}
-                                                    <br />
-                                                    <img
-                                                        src={albumObject.images[0].url}
-                                                        alt={albumObject.name}
-                                                        className="blackBorder album"
-                                                    />
-                                                </button>
-                                            </Link>
-=======
-                                             
-                                                    
                                 <Link to={{ pathname: '/spotifyRoundTwo' }}> 
                                      <button
                                                 type="button"
@@ -168,18 +142,10 @@ class Register extends Component {
                                                 />
                                             </button>
                                         </Link> 
->>>>>>> fe1a2090f57b5a8178096f958d7c07a15f668b8a
                                         ))}
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-
-                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
-                                {this.props.buttonText}
-                            </button>
-
-=======
                             <img type="button"
                                 className={'btnRonda2'} src={ronda2}
                                 onClick={() => this.showLink(context, score, 'spotify', 'one')}
@@ -189,7 +155,6 @@ class Register extends Component {
                                 {this.props.buttonText}
                             </button> */}
                           
->>>>>>> fe1a2090f57b5a8178096f958d7c07a15f668b8a
                         </div>
                     )}
                 </MyContext.Consumer>
@@ -233,11 +198,6 @@ class Register extends Component {
                             <div className={link}>
                             </div>
                             <div>
-<<<<<<< HEAD
-                                <Link to="instagramroundtwo"><button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
-                                    {this.props.buttonText}
-                                </button></Link>
-=======
                             <Link to="instagramroundtwo">
                             <img type="button"
                                 className={'btnRonda2'} src={ronda2}
@@ -247,7 +207,6 @@ class Register extends Component {
                                 {this.props.buttonText}
                                 </button> */}
                             </Link> 
->>>>>>> fe1a2090f57b5a8178096f958d7c07a15f668b8a
                             </div>
 
                         </div>
@@ -256,34 +215,6 @@ class Register extends Component {
             );
         }
 
-<<<<<<< HEAD
-        if (currentGame === 'instagram2') {
-            return (
-                <MyContext.Consumer>
-                    {(context) => (
-                        <div className="instagram-round">
-                            <div className={link}>
-                                <h1 className="header">{texts[language].roundThreeText}</h1>
-                                <div>
-                                    <MembersAccounts
-                                        setSelectedMemberId={this.setSelectedMemberId}
-                                        language={language}
-                                        score={score}
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'two')}>
-                                    {this.props.buttonText}
-                                </button>
-                            </div>
-
-                        </div>
-                    )}
-                </MyContext.Consumer>
-            );
-        }
-=======
         // if (currentGame === 'instagram2') {
         //     return (
         //         <MyContext.Consumer>
@@ -310,7 +241,6 @@ class Register extends Component {
         //         </MyContext.Consumer>
         //     );
         // }
->>>>>>> fe1a2090f57b5a8178096f958d7c07a15f668b8a
 
         return null;
     }
