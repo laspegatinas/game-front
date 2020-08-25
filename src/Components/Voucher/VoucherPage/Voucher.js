@@ -1,71 +1,119 @@
-import React, {useState, useEffect} from 'react';
-import Vouchers from '../Vouchers.json';
+import React, { useState, useEffect } from 'react';
 import VoucherHeader from '../Header/VoucherHeader';
+import { Link } from 'react-router-dom';
 import VoucherCards from '../VoucherCards/VoucherCards';
 import { MyContext } from '../../../context/MyProvider';
+import Api from '../../../Api/index';
 import './Voucher.css';
 
 
-    const Voucher = () => {
+const Voucher = () => {
 
         const [vouchers, setVouchers] = useState([]);
-        const [chosenVoucher, setChosenVoucher] = useState([]);
+        const [chosenVoucher, setChosenVoucher] = useState();
+        const [loaded, setLoaded] = useState(false);
         const [choseVoucher, setToChosen] = useState(false);
-        // const { usedVouchers } = React.useContext(MyContext);
         const { updateVoucherHistory } = React.useContext(MyContext);
-        
-
+        const { state: { user}} = React.useContext(MyContext);
+         
+        // useEffect(async () => {
+        //     await   Api.getProducts().then( async (resp) => {
+                  
+        //         console.log(resp.data);
+        //         let myVouchers = [...vouchers];
+        //         myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
+        //         myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
+        //         myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
+        //         setVouchers(myVouchers);
+        //       
+        //             setLoaded(true);   
+        //        
+                                                      
+        //     });
             
-        useEffect( () => {
-            setVouchers(Vouchers['vouchers']);
-          }, []); 
+        //    // setVouchers(Vouchers['vouchers']);
+        //   }, []); 
 
+        const getMyProducts = async () => {
+            await   Api.getProducts().then((resp) => {
+                  
+                console.log(resp.data);
+                let myVouchers = [...vouchers];
+                myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
+                myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
+                myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
+                setVouchers(myVouchers);               
+                    setLoaded(true);                                                                  
+            });
+          }; 
 
         const selectVoucher = (event) => {        
             const voucherIndex = event.target.id;
             const selectedVoucher = vouchers[voucherIndex];
-            let myVoucher = [...chosenVoucher];
-             myVoucher.push(selectedVoucher);
-             setChosenVoucher(myVoucher);
-             console.log(myVoucher);
-             setToChosen(true);         
+            setChosenVoucher(selectedVoucher);  
+            setToChosen(true);    
         }; 
 
-       const pushToVoucherHistory = () => {          
-            updateVoucherHistory(chosenVoucher[0].title);               
-        }
+       const pushToVoucherHistory = async  () => {         
+            let d = new Date();
+            let m = d.getMonth() + 1;
+            let day = d.getDate();
+            let y = d.getFullYear();           
+        // await    Api.buyProduct({
+        //         'reference' : chosenVoucher.reference,
+        //         'qty': 1,
+        //         'user': user,
+        //     }).then( (resp) =>{
+        //     console.log(resp.data.voucher.code);
+        //     localStorage.setItem('code', resp.data.voucher.code);
+        //    // updateVoucherHistory(`Name ${chosenVoucher.reference} date: ${`${m}/${day}/${y}`} code :${resp.data.voucher.code}`)   
+        //     ;
+        // }) 
+        updateVoucherHistory(`Nombre ${chosenVoucher.reference} fecha: ${`${m}/${day}/${y}`} código :${localStorage.code}`)                                           
+         }
+
+     
          
     return(
  
     <React.Fragment> 
-        <VoucherHeader/>
+        
             <div className="wrapper">
-                <div>          
-                    {
-                    vouchers.map((vouch, index) => 
-                <VoucherCards       key={index} 
-                                    id={index} 
-                                    imageClass={'voucherImage'}
-                                    image={vouch.image} 
-                                    title={vouch.title} 
-                                    text={vouch.text}                                        
-                                    action={selectVoucher} 
-                                    buttonPrint={vouch.button}/>)               
-                    }           
-                </div>                   
-                    <div >                      
-                        {chosenVoucher.map((voucher, index) => 
-                        <section className="popUpWindow" >
-                            <h2 key={index} >{voucher.title} ({voucher.quantity})</h2>
-                            <p>{voucher.text}</p>
-                            <img src={voucher.image}></img>
-                            <button onClick={pushToVoucherHistory}>{voucher.button}</button>
-                        </section>)
-                        }                  
-                    </div> 
+                <VoucherHeader />
+                <div>
+                {loaded ?
+            <div>
+                    {vouchers.map((voucher, index)=> 
+                    
+                <VoucherCards 
+                                key={index}
+                                id={index}
+                                title={voucher.reference}
+                                text= {voucher.description}
+                                image= {voucher.image}
+                                action={selectVoucher}                               
+                                />
+                )}
             </div>
-    </React.Fragment> 
-                  
-)};
+            : <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>            
+            }
+            </div>       
+                       {choseVoucher &&           
+                <div >                      
+                    <section className="popUpWindow" >
+                        <h2 >{chosenVoucher.reference}</h2>                       
+                        <h4>Cuesta {chosenVoucher.price} puntos - Queadan {chosenVoucher.qty} disponibles!</h4>
+                        <img width='75vh' height="75vh" src={chosenVoucher.image}></img> 
+                        <p>{chosenVoucher.description}</p>                     
+                        <Link  to="/voucherreceived"><button onClick={pushToVoucherHistory}>Canjear</button></Link>
+                        <button onClick={() => setToChosen(false)}>Cancel</button>
+                    </section>
+                </div> 
+                }         
+            </div>
+        </React.Fragment>
+
+    )
+};
 
 export default Voucher;

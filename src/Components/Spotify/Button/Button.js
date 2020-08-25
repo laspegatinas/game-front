@@ -2,9 +2,11 @@
 import React, { useState } from 'react';
 import './Button.css';
 
-const Button = ({ printedSong, currentSong, onClick, showConfetti }) => {
+
+const Button = ({ printedSong, currentSong, onClick, action, songName }) => {
 
     const [hasBeenClicked, makeButtonClicked] = useState(false);
+    const [spotifyScore, setSpotifyScore] = useState(0)
 
     const isCorrect = printedSong === currentSong;
 
@@ -15,7 +17,7 @@ const Button = ({ printedSong, currentSong, onClick, showConfetti }) => {
 
         makeButtonClicked(true);
 
-        onClick();
+       // onClick();
     };
 
     let colorClass = 'colorClass';
@@ -23,6 +25,7 @@ const Button = ({ printedSong, currentSong, onClick, showConfetti }) => {
 
     if (isCorrect === true) {
         colorClass = 'green';
+       // setSpotifyScore(spotifyScore + 10);
     }
 
     if (isCorrect === false && hasBeenClicked === true) {
@@ -34,13 +37,22 @@ const Button = ({ printedSong, currentSong, onClick, showConfetti }) => {
     }
 
     return (
-        <button
-            type="button"
-            onClick={onClickHandler}
-            className={`myButton button ${colorClass}`}
-        >
-            {printedSong}
-        </button>
+        
+            // CONFETTI logic to show the confetti component, we only show the confetti component if (and only if) the confetti variable is true
+            // CONFETTI check the confetti package and the demo related on their webpage to understand and play around with the props I used
+        <div>   
+         
+                
+            
+                <button
+                    type="button"
+                    id={songName}
+                    onClick={action}
+                    className={`myButton button ${colorClass}`}
+                >
+                    {printedSong}
+                </button>
+        </div>
     );
 };
 

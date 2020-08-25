@@ -68,13 +68,10 @@ class QuizYT extends Component {
     checkIf =  (e) => {
 
         const {correctAnswer, points } = this.state;
+        const displayedAnswer =  e.target.value;
 
-        const displayedAnswer =   e.target.value;
-
-        if (displayedAnswer !== correctAnswer) {
-               
+        if (displayedAnswer !== correctAnswer) {              
             this.setState({
-
                 wrong: 'the-yt-quiz',
                 points: points + 0,              
                 display: 'timer',

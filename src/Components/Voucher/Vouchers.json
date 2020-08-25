@@ -5,10 +5,11 @@
             "id": 0,
             "image": "https://via.placeholder.com/100",
             "title": "First Voucher",
-            "text": "This is the first text",
+            "text": "Ver Más",
             "points": 400,
+            "code": "993jdjdk2lskxXSF",
             "quantity": 4,
-            "button": "Download Voucher"
+            "button": "Get Voucher"
 
         },
 
@@ -16,20 +17,22 @@
             "id": 1,
             "image": "https://via.placeholder.com/100",
             "title": "Second Voucher",
-            "text": "This is the second text",
+            "text": "Ver Más",
             "points": 500,
+            "code": "444jdjdk2lskxXSF",
             "quantity": 2,
-            "button": "Download Voucher"
+            "button": "Get Voucher"
         },
 
         {
             "id": 2,
             "image": "https://via.placeholder.com/100",
             "title": "Third Voucher",
-            "text": "This is the Third text",
+            "text": "Ver Más",
             "points": 600,
+            "code": "454jdjdksafsfxXSF",
             "quantity": 1,
-            "button": "Download Voucher"
+            "button": "Get Voucher"
         }
 
      

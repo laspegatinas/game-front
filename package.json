@@ -30,6 +30,7 @@
     "react-share": "^4.1.0",
     "react-sound": "^1.2.0",
     "react-spotify-login": "^0.9.1",
+    "react-to-pdf": "0.0.11",
     "react-youtube": "^7.9.0",
     "reactstrap": "^8.5.1"
   },

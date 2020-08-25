@@ -30,7 +30,7 @@ const Login = (props) => {
             "password": password,
                                
              }).then((resp) => {
-                 
+                 console.log(resp.data)
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{

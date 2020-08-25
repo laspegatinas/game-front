@@ -20,27 +20,19 @@ const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className 
         if(timeLeft===0){
            console.log("TIME LEFT IS 0");
            setTimeLeft(null)
-        }
-       
-        if (!timeLeft) return;
-     
-        
-        const intervalId = setInterval(() => {
-     
+        }     
+        if (!timeLeft) return;      
+        const intervalId = setInterval(() => {   
           setTimeLeft(timeLeft - 1);
-        }, 1000);
-     
-      
-        return () => clearInterval(intervalId);
-      
+        }, 1000);     
+        return () => clearInterval(intervalId);     
       }, [timeLeft]);
 
     return (  
 
     <div >
         
-        <button className={ popUpClass == 'popUp' ? 'none' : popButton}
-         
+        <button className={ popUpClass == 'popUp' ? 'none' : popButton}       
             onClick={() => closeModal()}
         >
             <img   src={src}
@@ -53,11 +45,9 @@ const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className 
 
       
         <div className={popUpClass}>
-
             <div >
-             <h2 className={'popHead'}> {todo} <br/> {instruct}</h2>
-
-            <p className={'timer2'}>{timeLeft}</p>
+                <h2 className={'popHead'}> {todo} <br/> {instruct}</h2>
+                <p className={'timer2'}>{timeLeft}</p>
             </div>                
                                 
         </div>

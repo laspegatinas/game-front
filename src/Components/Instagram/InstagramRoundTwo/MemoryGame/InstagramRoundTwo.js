@@ -9,6 +9,7 @@ import Rounds from '../../../Rounds/Rounds';
 import Register from '../../../Register/Register';
 import SocialMedia from '../../../SocialMedia/SocialMedia';
 import UserForm from '../../../Register/User/UserForm/UserForm';
+import { Link } from 'react-router-dom';
 import texts from '../../../../texts.json';
 
 //import InstructionGames from '../SharedButtons/InstructionGames';
@@ -27,7 +28,7 @@ const initialState = () => {
     itsComparing: false,
     tryes: 0,
     winner: false,
-    points: '0'
+    points: ''
   };
 }
 
@@ -63,8 +64,13 @@ class InstagramRoundTwo extends React.Component {
                     {/*score={ Math.round(10 / tryes * 100)} ${ Math.round(10 / tryes * 100) }*/}               
                 {/* <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button>  */}
                 {context.state.username
-                    ? <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
-                    buttonStyle={'suma-puntos-button'} score={points} currentGame="instagram2" roundIn= 'two'/>
+                    ? 
+                    // <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
+                    // buttonStyle={'suma-puntos-button'} score="" currentGame={"instagram2"} />
+                    <Link to="/members" language={language} score={points}><button>
+                      Got to next game
+                      </button>
+                    </Link>
                     
                     : <UserForm nextButton={'navbar-btn'} language={'spanish'} />}
             </div>

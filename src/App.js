@@ -17,6 +17,7 @@ import './App.css';
 import InstagramRoundThree from './Components/Instagram/InstagramRoundThree/InstagramRoundThree';
 import InstagramRoundTwo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
 import Voucher from './Components/Voucher/VoucherPage/Voucher';
+import VoucherReceived from './Components/Voucher/Received/VoucherReceived';
 
 // Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect"
 //  title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
@@ -158,6 +159,17 @@ render() {
                                     <div>
                                         <Navbar {...props} pagein="game" language={selectedLanguage} />
                                         <Voucher {...props}  />
+                                    </div>
+                                )}
+                            />  
+
+                                <PrivateRoute
+                                authed={context.state.authed}
+                                path="/voucherreceived"
+                                component={(props) => (
+                                    <div>
+                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
+                                        <VoucherReceived {...props}  />
                                     </div>
                                 )}
                             />  

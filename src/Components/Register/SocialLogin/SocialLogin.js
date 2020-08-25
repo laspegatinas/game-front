@@ -108,7 +108,7 @@ const SocialLogin = (props) => {
       }
 
       const responseGoogleFail = (response) => {
-
+          console.log(response)
       }
 
     
@@ -119,10 +119,9 @@ const SocialLogin = (props) => {
 
            
            <FacebookLogin           
-            appId="1001755983615818" //APP ID 
+            appId="354742908880457" //APP ID 
             fields="name,email,picture"
-            callback={responseFacebook}
-            
+            callback={responseFacebook}            
             />
             
              {loading
@@ -130,16 +129,17 @@ const SocialLogin = (props) => {
             <h2>Loading...</h2>
             :
             <p></p>
-        } 
-          
-
-            
+        }            
             <GoogleLogin           
-            clientId="278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com" //CLIENTID 
+            clientId="45195171194-l7tf2i1lct6tpe7fjcurgor52ct4k7gh.apps.googleusercontent.com" //CLIENTID 
             buttonText="Login with Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogleFail}
+            cookiePolicy= 'single_host_origin'
         />
+        {/*testing:
+        facebook 1001755983615818
+        google 278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com */}
       <br></br>
       <br></br>
         

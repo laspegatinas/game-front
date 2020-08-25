@@ -66,32 +66,23 @@ class Concerts extends Component {
 
         return (
             <div className={'concerts-pictures'}>
-                {this.state.concertList.map((concert) => (
-                    
+                {this.state.concertList.map((concert) => (                  
                     <div className="concert-picture">
-                         <DelayLink delay={5000} clickAction={this.popIt} to={{ pathname: '/youtuberoundtwo' }}> 
-                        {/* <button
-                            type="button"
-                            className="buttonConcert"
-                            onClick={(event) => this.setSelectedConcertId(event.target.id)}
-                        > */}
-                        <PopUp src={concert.frame}
+                        <DelayLink delay={5000} clickAction={this.popIt} to={{ pathname: '/youtuberoundtwo' }}> 
+                            <button
                                 id={concert.id}
-                                videoId={concert.videoId}
-                                className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'} place={concert.place} year={concert.year}
-                                 todo={texts[language].popUp} instruct={texts[language].popUpConcerts} popButton={'buttonConcert'}>
-                             {/* <h6>place={concert.place}</h6>
-                             <h6>{concert.year}</h6> */}
-                            <button 
-                             
-                            type="button"
-                            className={'buttonConcert'}
-                            onClick={(event) => this.setSelectedConcertId(event.target.id)}
-                        ></button>  
-                            
-                            
-                        {/* </button> */}
-                        </PopUp>
+                                type="button"
+                                className="buttonConcert"
+                                onClick={(event) => this.setSelectedConcertId(event.target.id)}>
+                                <PopUp src={concert.frame}
+                                        id={concert.id}
+                                        videoId={concert.videoId}
+                                        className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'} place={concert.place} year={concert.year}
+                                        todo={texts[language].popUp} instruct={texts[language].popUpConcerts} popButton={'buttonConcert'}>
+                                    {/* <h6>place={concert.place}</h6>
+                                        <h6>{concert.year}</h6> */}
+                                </PopUp>
+                            </button> 
                         </DelayLink > 
                     </div>
                 ))}
