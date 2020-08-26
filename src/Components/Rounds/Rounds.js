@@ -158,8 +158,13 @@ class Rounds extends React.Component {
                             }
                             </div>
                         </div>
+                        
+                <div className="">   
+                
+                <svg width="200" height="160" style={{position:"relative",top:'9rem'}}><line x1="0" y1="0" x2="200" y2="160" stroke="black" stroke-width="10%"/></svg>
+                <svg width="30" height="300" style={{position:"relative",top:'25rem'}}><line x1="15" y1="0" x2="15" y2="300" stroke="black" stroke-width="10%"/></svg>
+                
 
-                <div className="">                      
                     <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={homebtn} onClick={this.backToHome} className="backToHome"
                     type="button"></img></Link>
                                     
@@ -170,6 +175,7 @@ class Rounds extends React.Component {
                                 <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
                                  popButton={'button1'} popText={texts[language].roundOneBtn}/>
                             </DelayLink> 
+                            
                     </div>
                     <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
                         {/* {context.state.spotify_round_two || ''}          */}
@@ -200,7 +206,9 @@ class Rounds extends React.Component {
                     {/* <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link> */}
                     <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp4(context)}</div>               
                 </div>
+                
             </div> 
+            
                 <div className="home-play-buttons">
                     <div>
                         {this.state.accessToken 
@@ -225,7 +233,9 @@ class Rounds extends React.Component {
                     </button>
                     <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
                         {texts[language].home}</Link>
+                        
                 </div>
+                
             </div>
                     </>
                 )}
