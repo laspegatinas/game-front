@@ -4,7 +4,7 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-import { MyContext } from '../../context/MyProvider';
+//import { MyContext } from '../../context/MyProvider';
 //import PopUp from '../Rounds/PopUp';
 
 
@@ -16,18 +16,17 @@ import { MyContext } from '../../context/MyProvider';
       const Home = ({ language }) => {
 
     //   const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
-    // //   const { state } = React.useContext(MyContext);
-    // //   const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
+    //    const { state } = React.useContext(MyContext);
+    //    const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
   
   
-     
-
     // const clicked = async () => {
         
-    //         //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) 
-    //          //addPoints(60, 'youtube', 'two')
+    //          addPointsExtended(80, 'instagram', 'three', ['3398157']) 
+    //        //  addPoints(60, 'youtube', 'two')
     //         // console.log(user)     
-    //       // console.log(state)           
+    //       // console.log(state)    
+    //        //console.log(localStorage.ConcertId)       
                     
     //      // resetState()   
     // }

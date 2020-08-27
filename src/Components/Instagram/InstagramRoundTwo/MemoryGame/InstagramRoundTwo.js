@@ -6,7 +6,7 @@ import construirBaraja from './utils/construirBaraja';
 import { MyContext } from '../../../../context/MyProvider';
 import Navbar from '../../../Navbar/Navbar';
 import Rounds from '../../../Rounds/Rounds';
-import Register from '../../../Register/Register';
+import  '../../../Register/Register.css';
 import SocialMedia from '../../../SocialMedia/SocialMedia';
 import UserForm from '../../../Register/User/UserForm/UserForm';
 import { Link } from 'react-router-dom';
@@ -67,7 +67,7 @@ class InstagramRoundTwo extends React.Component {
                     ? 
                     // <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
                     // buttonStyle={'suma-puntos-button'} score="" currentGame={"instagram2"} />
-                    <Link to="/members" language={language} score={points}><button>
+                    <Link to="/members" language={language} score={points}><button className="suma-puntos-button">
                       Got to next game
                       </button>
                     </Link>

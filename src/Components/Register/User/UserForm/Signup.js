@@ -101,6 +101,16 @@ const SignUp = ({ language }) => {
                         'spotify_round_two':0,
                         'instagram_round_one':0,
                         'instagram_round_two':0,
+                        'spotify_round_two_extended': JSON.stringify({
+                            "Al Carrer!": 0,
+                            "Un secreto a voces": 0,
+                            "Ahora o nunca": 0,
+                            "La Gran Pegatina Live 2016": 0,
+                            "Revulsiu": 0,
+                            "Eureka!": 0,
+                            "Xapomelön": 0,
+                            "Via Mandarina": 0,
+                        }),
                         'youtube_round_one':0,
                         'youtube_round_two':0,
                         'total_app_points': 0,
@@ -110,7 +120,8 @@ const SignUp = ({ language }) => {
                         Api.getPoints(resp.data.id).then((resp2)=>{
                             let user = {...resp['data'], ...resp2['data']};
                             logUserIntoContext(user);
-                            closeModal();
+                           // closeModal();
+                            //    window.location.reload(true);
                             console.log('data you pass to the context', user);
                         })   
                     })

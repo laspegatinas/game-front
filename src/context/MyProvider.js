@@ -30,8 +30,27 @@ export default (props) => {
                                     },
         instagram_round_one: '',
         instagram_round_two: '',
+        instagram_round_three: '',
+        instagram_round_three_extended: 
+                                        {
+                                            '966913838': '',
+                                            '9115805': '',
+                                            '4459158': '',
+                                            '13259158': '',
+                                            '2889579314': '',
+                                            '194454090': '',
+                                            '2078886031': '',
+                                            '3398157': '',
+                                            '1607991476': '',
+                                            
+                                        },
         youtube_round_one: '',
         youtube_round_two: '',
+        youtube_round_two_extended: { 
+                                            'QDHlpJogBwc' : '',
+                                            'wFC_Ot6m_Qk' : ''
+
+                                         },
         total_app_points: '',
         usedVouchers: [],
         activePanel: 'signup',
@@ -56,10 +75,10 @@ export default (props) => {
         setState(newState)
         localStorage.setItem('session',JSON.stringify(newState))
         console.log(localStorage.getItem('session'))
-        console.log('STATE', state)
+      //  console.log('STATE', state)
     }
 
-    const updateSpotifyPoints = (newState) => {
+    const updateSpotifyPoints = (newState, completeState) => {
         const keysArray = [
         "Al Carrer!",
         "Un secreto a voces",
@@ -77,12 +96,67 @@ export default (props) => {
             total += parseInt(newState[key]);
         });
 
-        changeState({
-            ...state,
+        let updatedState = {
+            ...completeState,
             spotify_round_two: total,
+        }
+
+        changeState(updatedState);
+        updateTotalPoints(updatedState);
+
+       // console.log(state.spotify_round_two)
+    }
+    const updateYoutubePoints = (newState, completeState) => {
+        const keysArray = [
+
+            'QDHlpJogBwc',
+            'wFC_Ot6m_Qk'
+        ];
+        
+        let total = 0;
+
+        keysArray.forEach((key) => {
+            total += parseInt(newState[key]);
         });
 
-        console.log(state.spotify_round_two)
+        let updatedState = {
+            ...completeState,
+            youtube_round_two: total,
+
+        }
+
+        changeState(updatedState);
+        updateTotalPoints(updatedState);
+        
+    }
+    const updateInstagramPoints = (newState, completeState) => {
+        const keysArray = [
+            '966913838',
+            '9115805',
+            '4459158',
+            '13259158',
+            '2889579314',
+            '194454090',
+            '2078886031',
+            '3398157',
+            '1607991476'
+        ];
+        
+        let total = 0;
+
+        keysArray.forEach((key) => {
+            total += parseInt(newState[key]);
+        });
+
+        let updatedState = {
+
+            ...completeState,
+            instagram_round_three: total,
+        }
+
+        changeState(updatedState);
+        updateTotalPoints(updatedState);
+        //console.log(state.instagram_round_two)
     }
 
     const updateTotalPoints = (newState) => {
@@ -91,6 +165,7 @@ export default (props) => {
             'spotify_round_two',
             'instagram_round_one',
             'instagram_round_two',
+            'instagram_round_three',
             'youtube_round_one',
             'youtube_round_two',
         ];
@@ -102,7 +177,7 @@ export default (props) => {
         });
 
         changeState({
-            ...state,
+            ...newState,
             total_app_points: total,
         });
     };
@@ -157,31 +232,37 @@ export default (props) => {
                 if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}_extended`][album])) 
                 || (state[`${gameName}_round_${roundIn}_extended`][album] == undefined)) {
                     let newIndex = `${gameName}_round_${roundIn}_extended`;
-                    let oldIndex = state.spotify_round_two_extended;
+                    let oldIndex = state[`${gameName}_round_${roundIn}_extended`];
                     let newState = {}
                     newState =  {
                         ...state, 
                         [newIndex]: {...oldIndex,[album]: newPoints},
                     } ;
                     changeState(newState);
+                    //console.log(newState);
                     console.log(newState[newIndex]);
                    
-                    updateTotalPoints(newState);
-                    updateSpotifyPoints(newState[newIndex]);
-                    console.log(newState)
-                    console.log(newPoints)
-                    console.log(JSON.stringify(state.spotify_round_two_extended));
-                    console.log(JSON.stringify(newState.spotify_round_two_extended));
                     
-                    Api.setPoints({
-                        
-                        'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
-                        
-                        'user':newState.user
-                    }).then((resp)=>{
-                        console.log(resp)
-                    })
-                }
+                    //updates the point of chosen round to the sum of the various round variations
+                    if (gameName === 'spotify' && roundIn === 'two'){
+                    updateSpotifyPoints(newState[newIndex], newState);
+                     };
+                    if (gameName === 'instagram' && roundIn === 'three'){
+                    updateInstagramPoints(newState[newIndex], newState);
+                     };
+                    if (gameName === 'youtube' && roundIn === 'two'){
+                    updateYoutubePoints(newState[newIndex], newState);
+                     };
+                    // updateTotalPoints(newState);
+                //     console.log(newState)
+                //     console.log(newPoints)                                      
+                //     Api.setPoints({                       
+                //         'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),                      
+                //         'user': newState.user
+                //     }).then((resp)=>{
+                //         console.log(resp)
+                //     })
+                 }
             },
 
             clearUser: () => changeState({
@@ -208,8 +289,26 @@ export default (props) => {
                                     },
                 instagram_round_one: '',
                 instagram_round_two: '',
+                instagram_round_three: '',
+                instagram_round_three_extended: {
+                                                    '966913838': '',
+                                                    '9115805': '',
+                                                    '4459158': '',
+                                                    '13259158': '',
+                                                    '2889579314': '',
+                                                    '194454090': '',
+                                                    '2078886031': '',
+                                                    '3398157': '',
+                                                    '1607991476': '',
+                                                    
+                                                },
                 youtube_round_one: '',
                 youtube_round_two: '',
+                youtube_round_two_extended: { 
+                                                    'QDHlpJogBwc' : '',
+                                                    'wFC_Ot6m_Qk' : ''
+
+                                                },
                 total_app_points: '',
                 // activePanel: 'login',
                 language: 'spanish',
@@ -269,8 +368,11 @@ export default (props) => {
                 spotify_round_two_extended: JSON.parse(data.spotify_round_two_extended),
                 instagram_round_one: data.instagram_round_one,
                 instagram_round_two: data.instagram_round_two,
+                instagram_round_three: data.instagram_round_three,
+                instagram_round_three_extended: data.instagram_round_three_extended,
                 youtube_round_one: data.youtube_round_one,
                 youtube_round_two: data.youtube_round_two,
+                youtube_round_two_extended: data.youtube_round_two_extended,
                 updateTotalPoints: data.total_app_points,
                 usedVouchers: data.usedVouchers,
                 activePanel: 'login',
