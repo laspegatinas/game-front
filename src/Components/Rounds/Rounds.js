@@ -6,7 +6,10 @@ import texts from '../../texts.json';
 import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
-import homebtn from '../../Pictures/home45.png';
+import homebtn from '../../Pictures/home1.png';
+import ronda1 from '../../Pictures/ronda1.png';
+import ronda2 from '../../Pictures/ronda2.png';
+import ronda3 from '../../Pictures/ronda3.png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
@@ -177,7 +180,7 @@ class Rounds extends React.Component {
                                         {context.state.spotify_round_two || ''}
                                         {loginComp(context)}
                                     </div>
-                                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
+                                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img className={'btnRonda3'} src={ronda3} /></Link>
 
 
                                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
@@ -188,7 +191,7 @@ class Rounds extends React.Component {
                                         </DelayLink>
                                     </div>
                                     <div className={spotify || instagram || pop ? 'hideGame' : 'title'} >{context.state.youtube_round_two || ''}{loginComp3(context)}</div>
-                                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
+                                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className={'btnRonda2'} src={ronda2} /></Link>
 
                                     <div className={spotify || youtube ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
