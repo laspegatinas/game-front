@@ -4,8 +4,8 @@ import './Concerts.css'
 import arenal16 from '../Concerts/Pictures/arenal2016.png';
 import arenal19 from '../Concerts/Pictures/arenal2019.png';
 import bilbao18 from '../Concerts/Pictures/bilbao2018.png';
-//import { Link } from 'react-router-dom';
-import DelayLink from 'react-delay-link';
+import { Link } from 'react-router-dom';
+//import DelayLink from 'react-delay-link';
 import PopUp from '../../Rounds/PopUp';
 import texts from '../../../texts.json';
 
@@ -68,22 +68,24 @@ class Concerts extends Component {
             <div className={'concerts-pictures'}>
                 {this.state.concertList.map((concert) => (                  
                     <div className="concert-picture">
-                        <DelayLink delay={5000} clickAction={this.popIt} to={{ pathname: '/youtuberoundtwo' }}> 
+                        <Link  to={{ pathname: '/youtuberoundtwo' }}> 
                             <button
                                 id={concert.id}
                                 type="button"
                                 className="buttonConcert"
                                 onClick={(event) => this.setSelectedConcertId(event.target.id)}>
-                                <PopUp src={concert.frame}
-                                        id={concert.id}
-                                        videoId={concert.videoId}
-                                        className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'} place={concert.place} year={concert.year}
-                                        todo={texts[language].popUp} instruct={texts[language].popUpConcerts} popButton={'buttonConcert'}>
+                                <img
+                                    src={concert.frame}
+                                    id={concert.id}
+                                    videoId={concert.videoId}
+                                    className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'}
+                                >                     
+                                </img>
                                     {/* <h6>place={concert.place}</h6>
                                         <h6>{concert.year}</h6> */}
-                                </PopUp>
+                                
                             </button> 
-                        </DelayLink > 
+                        </Link > 
                     </div>
                 ))}
             </div>

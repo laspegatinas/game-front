@@ -12,7 +12,8 @@ instance.defaults.withCredentials = false;
 instance.interceptors.response.use(function (response) {
 return response;
 }, function (error) {
-if(error && ((error.response && (error.response.status === 401||error.response.status === 403 ))|| error.message == 'Network Error' ) && window.localStorage.getItem('loggedIn')){
+if(error && ((error.response && (error.response.status === 401||error.response.status === 403 ))|| error.message == 'Network Error' ) 
+&& window.localStorage.getItem('loggedIn')){
   // Manejar 401 403 logout  
 }
 return Promise.reject(error);
@@ -41,7 +42,7 @@ buyProduct : function(product){
 },
 
 getHistory : function(user){
-    return instance.post('store/history', user);
+    return instance.get(`store/history?user=${user}`);
 },
 
 socialSignUp : function(user){

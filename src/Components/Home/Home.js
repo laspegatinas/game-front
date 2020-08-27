@@ -4,8 +4,7 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-import Api from '../../Api/index';
-//import { MyContext } from '../../context/MyProvider';
+import { MyContext } from '../../context/MyProvider';
 //import PopUp from '../Rounds/PopUp';
 
 
@@ -16,11 +15,10 @@ import Api from '../../Api/index';
 
       const Home = ({ language }) => {
 
-    //  const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
-    
-    //   const { state } = React.useContext(MyContext);
-    //   const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
-    //  // const { usedVouchers } = React.useContext(MyContext); ,5f401d0f39c180001777b4be ...resp.data['5f401d1639c180001777b4bf'], ...resp.data['5f401d2739c180001777b4c0']];
+    //   const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
+    // //   const { state } = React.useContext(MyContext);
+    // //   const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
+  
   
      
 
@@ -28,25 +26,10 @@ import Api from '../../Api/index';
         
     //         //  addPointsExtended(55, 'spotify', 'two', localStorage.AlbumId) 
     //          //addPoints(60, 'youtube', 'two')
-    //         // console.log(user)
-    //        await   Api.getProducts().then( async (resp) => {
-                  
-    //             console.log(resp.data);
-    //             let myVouchers = [...vouchersEx];
-    //             myVouchers.push(resp.data['5f401d0f39c180001777b4be']);
-    //             myVouchers.push(resp.data['5f401d1639c180001777b4bf']);
-    //             myVouchers.push(resp.data['5f401d2739c180001777b4c0'])
-    //             setVouchersEx(myVouchers);
-    //             setLoaded(true);
-            
-                   
-                                             
-    //         });
-               
-
-           // console.log(state)           
-               // console.log(state)       
-         //  resetState()   
+    //         // console.log(user)     
+    //       // console.log(state)           
+                    
+    //      // resetState()   
     // }
 
    

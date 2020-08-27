@@ -6,6 +6,7 @@ import texts from '../../texts.json';
 import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
+import ronda3 from '../../Pictures/ronda3.png';
 import homebtn from '../../Pictures/home45.png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
@@ -124,111 +125,118 @@ class Rounds extends React.Component {
             const { state: { username, email } } = context;
             if (username || email) {
                 return (
-                    <Link to="/members" language={language} score={score}><button className="button1">
-                        {texts[language].startRound3Instagram}
-                    </button>
+                    <Link to="/members" language={language} score={score}><img className="btnRonda3" src={ronda3} type="button"/>
                     </Link>
                 );
             };
             return <UserForm nextButton={'button1'} language={language} score={score} gameIn="instagram" />;
         };
 
-        return (
-            <MyContext.Consumer>
-                {(context) => (
-                    <>
-                        <div>
-                            {/* displaying the appropriate introduction, depending on chosen game */}
-                            <div className={page}>
-                                <div className={pop ? 'hideGame' : "title"}>
-                                    <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
-                                    {spotify ?
+    return (
+    <MyContext.Consumer>
+        {(context) => (
+            <>
+            <div>
+                    {/* displaying the appropriate introduction, depending on chosen game */}
+                <div className={page}>
+                        <div className={pop ? 'hideGame' : "title"}>
+                            <div style={{position:'absolute',top:'2vh',left:'0vw',width:'100%'}}>
+                            <h1 >{spotify ? texts[language].spotifyPlayWithButton : youtube ? texts[language].youtubePlayWithButton : instagram ? texts[language].instagramPlayWithButton : null}</h1>
+                            {spotify ?
+                                (
+                                    <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                )
+                                : instagram ?
+                                    (
+                                        <h4>{texts[language].youtubeInstructionsR1}</h4>
+                                    )
+                                    : youtube ?
                                         (
                                             <h4>{texts[language].youtubeInstructionsR1}</h4>
                                         )
-                                        : instagram ?
-                                            (
-                                                <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                            )
-                                            : youtube ?
-                                                (
-                                                    <div>
-                                                        <h4>{texts[language].youtubeInstructionsR1}</h4>
-                                                        <h5>{texts[language].youtubeAddition}</h5>
-                                                    </div>
-                                                )
-                                                : null
-                                    }
-                                </div>
-
-                                <div className="gameButtons">
-                                    <Link className={pop ? 'hideGame' : 'title'} to="/"><button onClick={this.backToHome} className="button1"
-                                        type="button">{texts[language].home}</button></Link>
-
-                                    <div className={youtube || instagram ? 'hideGame' : 'title'}>
-                                        <div className={pop ? 'hideGame' : ''}> {context.state.spotify_round_one || ''}</div>
-                                        {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
-                                        <DelayLink delay={5000} clickAction={this.popStart} to="spotifyroundone" >
-                                            <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
-                                                popButton={'button1'} popText={texts[language].roundOneBtn} />
-                                        </DelayLink>
-                                    </div>
-                                    <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
-                                        {context.state.spotify_round_two || ''}
-                                        {loginComp(context)}
-                                    </div>
-                                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Spotify}</button></Link>
-
-
-                                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
-                                        <div className={pop ? 'hideGame' : ''}> {context.state.youtube_round_one || ''}</div>
-                                        <DelayLink delay={5000} clickAction={this.popStart} to="youtuberoundone" >
-                                            <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
-                                                popButton={'button1'} popText={texts[language].roundOneBtn} />
-                                        </DelayLink>
-                                    </div>
-                                    <div className={spotify || instagram || pop ? 'hideGame' : 'title'} >{context.state.youtube_round_two || ''}{loginComp3(context)}</div>
-                                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><button className="button1" type="button">{texts[language].startRound3Youtube}</button></Link>
-
-                                    <div className={spotify || youtube ? 'hideGame' : 'title'}>
-                                        <div className={pop ? 'hideGame' : ''}> {context.state.instagram_round_one || ''}</div>
-                                        <DelayLink delay={5000} clickAction={this.popStart} to="instagramroundone" >
-                                            <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
-                                                popText={texts[language].roundOneBtn} />
-                                        </DelayLink>
-                                    </div>
-                                    {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
-                                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
-                                    {/* <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link> */}
-                                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp4(context)}</div>
-                                </div>
-                            </div>
-                            <div className="home-play-buttons">
-                                <div>
-                                    {this.state.accessToken
-                                        ?
-                                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                                            <i class="fab fa-spotify"></i>
-                                            {texts[language].key}
-                                        </button>
-                                        :
-                                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
-                                            <i class="fab fa-spotify"></i>
-                                            {texts[language].keySpotifyBtnSecondClick}
-                                        </button>}
-                                </div>
-                                <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
-                                    <i class="fab fa-youtube"></i>
-                                    {texts[language].youtubePlayWithButton}
-                                </button>
-                                <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
-                                    <i class="fab fa-instagram"></i>
-                                    {texts[language].instagramPlayWithButton}
-                                </button>
-                                <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
-                                    {texts[language].home}</Link>
+                                        : null
+                            }
                             </div>
                         </div>
+                        
+                <div className="">   
+                
+                <svg width="200" height="160" style={{position:"relative",top:'9rem'}}><line x1="0" y1="0" x2="200" y2="160" stroke="black" stroke-width="10%"/></svg>
+                <svg width="30" height="300" style={{position:"relative",top:'25rem'}}><line x1="15" y1="0" x2="15" y2="300" stroke="black" stroke-width="10%"/></svg>
+                
+
+                    <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={homebtn} onClick={this.backToHome} className="backToHome"
+                    type="button"></img></Link>
+                                    
+                    <div className={youtube || instagram ? 'hideGame' : 'title'}>
+                        <div className={pop ? 'hideGame' : ''}></div>
+                        {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
+                            <DelayLink  delay={5000} clickAction={this.popStart} to="spotifyroundone" >
+                                <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                                 popButton={'button1'} popText={texts[language].roundOneBtn}/>
+                            </DelayLink> 
+                            
+                    </div>
+                    <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
+                        {/* {context.state.spotify_round_two || ''}          */}
+                        {loginComp(context)}
+                    </div>
+                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={ronda3} type="button"/></Link>
+
+
+                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                        <div className={pop ? 'hideGame' : ''}></div>
+                            <DelayLink delay={5000} clickAction={this.popStart} to="youtuberoundone" >
+                                <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
+                                popButton={'button1'} popText={texts[language].roundOneBtn} />
+                            </DelayLink>
+                    </div>
+                    <div className={spotify || instagram || pop ? 'hideGame' : 'title'} >{loginComp3(context)}</div>
+                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={ronda3} type="button"/></Link>
+
+                    <div className={spotify || youtube ? 'hideGame' : 'title'}>
+                        <div className={pop ? 'hideGame' : ''}></div>
+                            <DelayLink delay={5000} clickAction={this.popStart} to="instagramroundone" >
+                                <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
+                                popText={texts[language].roundOneBtn} />
+                            </DelayLink>
+                    </div>
+                                {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
+                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
+                    {/* <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link> */}
+                    <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp4(context)}</div>               
+                </div>
+                
+            </div> 
+            
+                <div className="home-play-buttons">
+                    <div>
+                        {this.state.accessToken 
+                    ?
+                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                            <i class="fab fa-spotify"></i>
+                            {texts[language].key}
+                        </button>
+                    :                                  
+                        <button type="button" className={this.props.spotifyButton} onClick={this.startSpotify}>
+                            <i class="fab fa-spotify"></i>
+                            {texts[language].keySpotifyBtnSecondClick}
+                        </button> }
+                    </div>
+                    <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
+                        <i class="fab fa-youtube"></i>
+                        {texts[language].youtubePlayWithButton}
+                    </button>
+                    <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
+                        <i class="fab fa-instagram"></i>
+                        {texts[language].instagramPlayWithButton}
+                    </button>
+                    <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
+                        {texts[language].home}</Link>
+                        
+                </div>
+                
+            </div>
                     </>
                 )}
             </MyContext.Consumer>
