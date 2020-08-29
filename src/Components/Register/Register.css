@@ -38,44 +38,41 @@ display: flex;
 */
 
 .concertButton {
-
-    border: none;
+	border: none;
 }
 
 .btnRonda2 {
+	position: relative;
 
-    position: relative;
-
-    top: -6rem;
-    left: 4rem;
+	top: -6rem;
+	left: 3rem;
 }
 
 .albumPoints {
-
-    border-radius: 80%;
-    /* padding: 0.4em; */
+	border-radius: 80%;
+	/* padding: 0.4em; */
 }
 
 .header {
-    font-family: 'Teko', sans-serif;
+	font-family: 'Teko', sans-serif;
 }
 
 /* JAIMES CSS */
 .screenDiv {
-     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-direction: column; 
-    
-    padding:0;
-    margin:0;
-    top:0;
-    left:0;
-    height: 100%;
-    background-color: #302C71;
-    z-index: 1;
-    /* display: flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	flex-direction: column;
+
+	padding: 0;
+	margin: 0;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: #302c71;
+	z-index: 1;
+	/* display: flex;
     position: absolute;
     padding:0;
     margin:0;
@@ -87,103 +84,95 @@ display: flex;
     height: 100%;
     background-color: black;
     color: white; */
-
 }
 
 .screenDiv__firstDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .allAlbumsDiv {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
-.blackBorder{
-    /* width: 200px;
+.blackBorder {
+	/* width: 200px;
     margin: 20px; */
-    border: 3px solid black;
+	border: 3px solid black;
 }
 
-.buttonAlbum{
-    border: none;
-    transition: all .2s ease-in-out;
-    padding: 0;
+.buttonAlbum {
+	border: none;
+	transition: all .2s ease-in-out;
+	padding: 0;
 }
 
 .buttonAlbum:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .buttonAlbum:focus {
-    transform: scale(1.1);
-    outline: none;
+	transform: scale(1.1);
+	outline: none;
 }
 
 /* .img_concert{
     width: 5em;
 } */
 
- .album {
-
-    width: 16vh;
-} 
-
+.album {
+	width: 16vh;
+}
 
 .suma-puntos-button {
-    padding: 15px 39px;
-    cursor: pointer;
-    background-color: #a23488;
-    font-weight: 700;
-    border-radius: 56px;
-    border: none;
-    margin-top: 30px;
-    text-decoration: none;
-    box-shadow: inset 0px 0px 15px 3px #bb8fbe;
-    background: linear-gradient(to bottom, #752d76 5%, #c835cf 100%);
-    border: 1px solid #8e4c88;
-    color: #ffffff;
-    text-shadow: 0px 1px 0px #1a0d1a;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 15px;
-    padding: 10px 30px;
-    font-weight: 600;
-    letter-spacing: 0px;
-    align-items: center;
-    height: 60px;
-    border-radius: 30px;
+	padding: 15px 39px;
+	cursor: pointer;
+	background-color: #a23488;
+	font-weight: 700;
+	border-radius: 56px;
+	border: none;
+	margin-top: 30px;
+	text-decoration: none;
+	box-shadow: inset 0px 0px 15px 3px #bb8fbe;
+	background: linear-gradient(to bottom, #752d76 5%, #c835cf 100%);
+	border: 1px solid #8e4c88;
+	color: #ffffff;
+	text-shadow: 0px 1px 0px #1a0d1a;
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 15px;
+	padding: 10px 30px;
+	font-weight: 600;
+	letter-spacing: 0px;
+	align-items: center;
+	height: 60px;
+	border-radius: 30px;
 }
 
 .suma-puntos-button:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .round-first-question {
-    font-size: 1.7rem;
-    margin-bottom: 5vh;
+	font-size: 1.7rem;
+	margin-bottom: 5vh;
 }
 
 .round-second-question {
-    font-size: 1.7rem;
+	font-size: 1.7rem;
 }
 
 @media only screen and (max-width: 750px) {
+	.round-first-question {
+		font-size: 1.3rem;
+		margin-bottom: 5vh;
+	}
 
-    .round-first-question {
-        font-size: 1.3rem;
-        margin-bottom: 5vh;
-    }
-
-    .round-second-question {
-        font-size: 1.3rem;
-    }
-
-  
-
-    
+	.round-second-question {
+		font-size: 1.3rem;
+	}
 }
