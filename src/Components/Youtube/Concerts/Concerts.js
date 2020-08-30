@@ -6,6 +6,7 @@ import arenal19 from '../Concerts/Pictures/arenal2019.png';
 import bilbao18 from '../Concerts/Pictures/bilbao2018.png';
 import { Link } from 'react-router-dom';
 //import DelayLink from 'react-delay-link';
+import { MyContext } from '../../../context/MyProvider';
 import PopUp from '../../Rounds/PopUp';
 import texts from '../../../texts.json';
 
@@ -26,15 +27,15 @@ class Concerts extends Component {
                 videoURL: 'https://www.youtube.com/watch?v=QDHlpJogBwc',
                 frame: arenal16
             },
-            {
-                id: 4,
-                videoId: '',
-                who: 'La Pegatina',
-                place: 'Arenal Sound',
-                year: '2019',
-                videoURL: 'https://www.youtube.com/watch?v=QDHlpJogBwc',
-               // frame: arenal19
-            },
+            // {
+            //     id: 4,
+            //     videoId: '',
+            //     who: 'La Pegatina',
+            //     place: 'Arenal Sound',
+            //     year: '2019',
+            //     videoURL: 'https://www.youtube.com/watch?v=QDHlpJogBwc',
+            //    // frame: arenal19
+            // },
             {
                 id: "wFC_Ot6m_Qk",
                 videoId: 'wFC_Ot6m_Qk',
@@ -65,10 +66,13 @@ class Concerts extends Component {
         const { language } = this.props;
 
         return (
+            <MyContext.Consumer>
+            {(context) => (
             <div className={'concerts-pictures'}>
                 {this.state.concertList.map((concert) => (                  
                     <div className="concert-picture">
                         <Link  to={{ pathname: '/youtuberoundtwo' }}> 
+                        <button className="albumPoints">{context.state.youtube_round_two_extended && context.state.youtube_round_two_extended[concert.id] + '/50'}</button>
                             <button
                                 id={concert.id}
                                 type="button"
@@ -89,6 +93,8 @@ class Concerts extends Component {
                     </div>
                 ))}
             </div>
+                )}
+                </MyContext.Consumer>
         )
     }
 }

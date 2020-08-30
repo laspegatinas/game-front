@@ -7,6 +7,7 @@ import './Rounds.css';
 import '../../App.css';
 import '../Home/Home.css';
 import ronda3 from '../../Pictures/ronda3.png';
+import ronda2 from '../../Pictures/ronda2.png';
 import homebtn from '../../Pictures/home45.png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
@@ -92,7 +93,7 @@ class Rounds extends React.Component {
             const { state: { username, email } } = context;
             if (username || email) {
                 return (
-                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Spotify}
+                    <Register buttonStyle={'hideGame'} imageStyle={'btnRonda2'} buttonSrc={ronda2}
                     score={score} currentGame="spotify" language={language} />
                 );
             };
@@ -103,7 +104,7 @@ class Rounds extends React.Component {
             const { state: { username, email } } = context;
             if (username || email) {
                 return (
-                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram}
+                    <Register buttonStyle={'hideGame'} imageStyle={'btnRonda2'} buttonSrc={ronda2}
                     score={score} currentGame="instagram" language={language} />
                 );
             };
@@ -114,7 +115,7 @@ class Rounds extends React.Component {
             const { state: { username, email } } = context;
             if (username || email) {
                 return (
-                    <Register buttonStyle={'button1'} buttonText={texts[language].startRound2Instagram}
+                    <Register imageStyle={'btnRonda2'} buttonSrc={ronda2} buttonStyle={'hideGame'}
                     score={score} currentGame="youtube" language={language} />
                 );
             };

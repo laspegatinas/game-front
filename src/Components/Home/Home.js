@@ -4,8 +4,8 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-//import { MyContext } from '../../context/MyProvider';
-//import PopUp from '../Rounds/PopUp';
+import { MyContext } from '../../context/MyProvider';
+import PopUp from '../Rounds/PopUp';
 
 
 // all the links to the first games are in Rounds.js now
@@ -22,11 +22,11 @@ import Rounds from '../Rounds/Rounds';
   
     // const clicked = async () => {
         
-    //          addPointsExtended(80, 'instagram', 'three', ['3398157']) 
+    //       //  addPointsExtended(20, 'instagram', 'three', ['966913838']) 
     //        //  addPoints(60, 'youtube', 'two')
     //         // console.log(user)     
-    //       // console.log(state)    
-    //        //console.log(localStorage.ConcertId)       
+    //        console.log(state)    
+    //      //  console.log(localStorage.yt_points_1)       
                     
     //      // resetState()   
     // }
@@ -37,11 +37,10 @@ import Rounds from '../Rounds/Rounds';
 
     <div className="container">
         <div className="main">
-            <p className="playWith">{texts[language].playwithTitle}</p>
-         
-            
+            <p className="playWith">{texts[language].playwithTitle}</p>        
             <img src={logo} alt="la pegatina logo" className="laPegatina" />          
             <div className="home-play-buttons">
+                {/* <PopUp/> */}
                 <Rounds
                     language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
                     instagramButton={'btn-game'} homeButton={'hideGame'}

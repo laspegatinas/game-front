@@ -8,14 +8,15 @@
     padding-bottom: 8px;
 }
 
-.afterRound {
+/* .afterRound {
 
     margin-left: 4em;
-}
+} */
 
 .title .h1 {
 
     margin-left: 3.7em;
+    text-align: center;
 }
 
 .song-name {
@@ -45,14 +46,14 @@
     color: #766dca;
 }
 
-.instruct  {
+/* .instruct  {
     text-align: center;
     display: block;
     margin-top: 15vh;
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 11vh;
-}
+} */
 
 .instruct p {
     color: #766dca;
@@ -177,6 +178,25 @@ input {
     font-size: 22px;
 }
 
+@media screen and (min-width: 760px) {
+    .instruct {
+        text-align: center;
+        display: block;
+        margin-top: 15vh;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 11vh;
+    }
+
+    .buttonContainer {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2em;
+    }
+  }
+
 
 @media only screen and (max-width: 750px) {
 
@@ -186,6 +206,15 @@ input {
         text-align: center;
         display: inline;
         min-width: 35%;
+    }
+
+    .instruct  {
+        text-align: center;
+        display: block;
+        /* margin-top: 15vh; */
+        font-size: 2rem;
+        font-weight: 700;
+        /* margin-bottom: 11vh; */
     }
 
     #counter {
@@ -212,6 +241,7 @@ input {
         padding: 4px 10px;
         margin-top: 1.5vh;
         width: 80%;
+        height: 10vh;
     }
 
     .done {

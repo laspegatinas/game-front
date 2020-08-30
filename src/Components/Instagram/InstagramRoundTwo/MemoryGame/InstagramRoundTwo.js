@@ -40,6 +40,11 @@ class InstagramRoundTwo extends React.Component {
     console.log(construirBaraja)
   }
 
+  addScore = (context, newPoints, gameName, roundIn) => {
+    context.addPoints(newPoints, gameName, roundIn);
+   
+}
+
   // score = this.state.tryes ? (Math.round(10 / this.state.tryes * 100)).toString() : '0';
 //console.log(score)
 
@@ -67,8 +72,8 @@ class InstagramRoundTwo extends React.Component {
                     ? 
                     // <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
                     // buttonStyle={'suma-puntos-button'} score="" currentGame={"instagram2"} />
-                    <Link to="/members" language={language} score={points}><button className="suma-puntos-button">
-                      Got to next game
+                    <Link to="/members" language={language} score={points}><button onClick={() => this.addScore(context, points, 'instagram', 'two')} className="suma-puntos-button">
+                      {texts[language].keepPointsPlayMoreText}
                       </button>
                     </Link>
                     

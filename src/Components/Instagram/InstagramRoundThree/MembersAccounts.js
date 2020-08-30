@@ -97,7 +97,7 @@ class members extends Component {
     setSelectedMemberId = (context, id) => {
         const { score } = this.props;
         localStorage.setItem('memberId', id);
-        this.instagramPoints(context, score, 'instagram', 'two')
+       // this.instagramPoints(context, score, 'instagram', 'two')
     }
 
     instagramPoints = (context, newPoints, gameName, roundIn) => {
@@ -126,6 +126,7 @@ class members extends Component {
                                             key={memberaccount.name}
                                             onClick={() => this.setSelectedMemberId(context, memberaccount.id)}
                                         >
+                                        { <button className="albumPoints">{context.state.instagram_round_three_extended && context.state.instagram_round_three_extended[memberaccount.id] + '/40'}</button>}
                                             <img src={memberaccount.gif} alt="member profile pic" />
                                         </button>
                                     </Link>

@@ -108,11 +108,16 @@ class PlayerCountdown extends Component {
         // const { history } = this.props;
 
         if (value === 0 && currentAttempt < totalAttempts) {
-            return (
-                <div id="next-button" onClick={this.playMusicStartTimer}>
-                    <img src={next2} alt="next" type="button" className="next-button" />
-                </div>
-            );
+            // return (
+                // <div id="next-button" onClick={this.playMusicStartTimer}>
+                //     <img src={next2} alt="next" type="button" className="next-button" />
+                // </div>
+                // );
+                
+                    // history.push('/listenedsongs');
+                    this.playMusicStartTimer();
+                
+            
         }
 
         if (value === 0 && currentAttempt === totalAttempts) {

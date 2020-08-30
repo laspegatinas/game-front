@@ -133,7 +133,7 @@ class Register extends Component {
                                                                         })
                                                                     }      
                                                                     }>
-                                              {/* { <button className="albumPoints">{context.state.spotify_round_two_extended && context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>} */}
+                                              { <button className="albumPoints">{context.state.spotify_round_two_extended && context.state.spotify_round_two_extended[albumObject.name] + '/200'}</button>}
                                                <br/>
                                                 <img
                                                     src={albumObject.images[0].url}
@@ -147,13 +147,13 @@ class Register extends Component {
                                 </div>
                             </div>
                             <img type="button"
-                                className={'btnRonda2'} src={ronda2}
+                                className={this.props.imageStyle} src={this.props.buttonSrc}
                                 onClick={() => this.showLink(context, score, 'spotify', 'one')}
                             />
                             
-                            {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
+                             <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'spotify', 'one')}>
                                 {this.props.buttonText}
-                            </button> */}
+                            </button>
                           
                         </div>
                     )}
@@ -178,12 +178,12 @@ class Register extends Component {
                                 </div>
                             </div>
                             <img type="button"
-                                className={'btnRonda2'} src={ronda2}
+                                className={this.props.imageStyle} src={this.props.buttonSrc}
                                 onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}
                             />
-                            {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
+                            <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, localStorage.yt_points_1, 'youtube', 'one')}>
                                 {this.props.buttonText}
-                            </button> */}
+                            </button>
                         </div>
                     )}
                 </MyContext.Consumer>
@@ -200,12 +200,12 @@ class Register extends Component {
                             <div>
                             <Link to="instagramroundtwo">
                             <img type="button"
-                                className={'btnRonda2'} src={ronda2}
+                                className={this.props.imageStyle} src={this.props.buttonSrc}
                                 onClick={() => this.showLink(context, score, 'instagram', 'one')}
                             />
-                                 {/* <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
+                                 <button className={this.props.buttonStyle} type="button" onClick={() => this.showLink(context, score, 'instagram', 'one')}>
                                 {this.props.buttonText}
-                                </button> */}
+                                </button>
                             </Link> 
                             </div>
 

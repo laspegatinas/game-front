@@ -11,6 +11,7 @@ import UserForm from '../../Register/User/UserForm/UserForm';
 import Register from '../../Register/Register';
 import { MyContext } from '../../../context/MyProvider';
 import Rounds from '../../Rounds/Rounds';
+import '../../Rounds/Rounds.css';
 import { Link } from 'react-router-dom';
 
 const shareurl = 'https://juegaconlapegatinaenpruebas.netlify.com';
@@ -241,9 +242,11 @@ const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, u
                                 <div />
                             )
                         }
+                        <div className="buttonContainer">
                          <Rounds language={language} tokenButton={'hideGame'} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
                                  youtubeButton={'btn-game'}/>
                                 <button className={'btn-game afterRound'} onClick={() => refreshPage()}  type="button">{texts[language].playAgain}</button>
+                        </div>
                     </div>
                 </>
             )}

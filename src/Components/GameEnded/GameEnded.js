@@ -20,6 +20,14 @@ const GameEnded = ({ score, currentGame, language, points }) => {
         
         addPointsExtended(score || points, currentGame, 'two', localStorage.AlbumId)
     }
+    const addPointsToConcert = () => {
+        
+        addPointsExtended(score || points, currentGame, 'two', localStorage.ConcertId)
+    }
+    const addPointsToMember = () => {
+        
+        addPointsExtended(score || points, currentGame, 'three', localStorage.memberId)
+    }
 
     return (
         <div>
@@ -40,7 +48,7 @@ const GameEnded = ({ score, currentGame, language, points }) => {
                             <div className="game-ended-container">
                                  <h1>{texts[language].score.replace('%points', points)}</h1> 
                                 <h3>{texts[language].gameEnded}</h3>
-                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToContext}>{texts[language].keepPointsPlayMoreText}</button></Link>
+                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToConcert}>{texts[language].keepPointsPlayMoreText}</button></Link>
                             </div>
                         );
                     }
@@ -51,7 +59,7 @@ const GameEnded = ({ score, currentGame, language, points }) => {
                             <div className="game-ended-container">
                                 <h1>{texts[language].score.replace('%points', points)}</h1>
                                 <h3>{texts[language].gameEnded}</h3>
-                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToContext}>{texts[language].keepPointsPlayMoreText}</button></Link>
+                                <Link to="/"><button type="button" className="suma-puntos-button" onClick={addPointsToMember}>{texts[language].keepPointsPlayMoreText}</button></Link>
                             </div>
                         );
                     }
