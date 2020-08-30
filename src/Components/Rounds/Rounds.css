@@ -1,15 +1,15 @@
 .title {
-    color: white;
-    text-decoration: none;
-    font-family: sans-serif;
-    /* margin-top: 9vh; */
-    padding: 0vh;
-    font-size: 3vh;
+	color: white;
+	text-decoration: none;
+	font-family: sans-serif;
+	/* margin-top: 9vh; */
+	padding: 0vh;
+	font-size: 3vh;
 }
 
 .fab {
-    margin-right: 1rem;
-    font-size: 1.3rem;
+	margin-right: 1rem;
+	font-size: 1.3rem;
 }
 
 .title h1 {
@@ -20,95 +20,88 @@
 }
 
 .title h4 {
-    font-size: 2.25rem;
-    max-width: 50rem;
-    font-family: 'Teko', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
+	font-size: 2.25rem;
+	max-width: 50rem;
+	font-family: 'Teko', sans-serif;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .instructions {
-    font-family: 'Teko', sans-serif;
-    color: white;
-    padding: 7vh;
+	font-family: 'Teko', sans-serif;
+	color: white;
+	padding: 7vh;
 }
 
 .gameButtons {
-
-    padding: 4em;
+	padding: 4em;
 }
 
 .button1 {
-    font-family: 'Teko', sans-serif;
-    padding: 1.5vh;
-    width: 25vh;
-    border-radius: 8em;
-    font-weight: 700;
+	font-family: 'Teko', sans-serif;
+	padding: 1.5vh;
+	width: 25vh;
+	border-radius: 8em;
+	font-weight: 700;
 }
 
 .button1:hover {
-    transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 .button1:focus {
-    outline: none;
+	outline: none;
 }
 
 .screen {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #302C71;
-    z-index: 1;
-    align-items: center;
-    justify-content: center;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #302c71;
+	z-index: 1;
+	align-items: center;
+	justify-content: center;
 }
 
 .btns {
-    display: flex;
-    border-radius: 30%;
+	display: flex;
+	border-radius: 30%;
 }
 
 .btnRonda3 {
-
-    position: relative;
-    top: 10rem;
-    left: 3rem;
-    
+	position: relative;
+	top: 3rem;
+	left: 3.5rem;
 }
 
-
-
 .backToHome {
-
-    position: relative;
-    top: 2rem;
-    left: -18rem;
-
+	position: relative;
+	top: 5rem;
+	left: 3rem;
 }
 
 .home-btn-image {
-    height: 20px;
-    margin-right: 10px;
-    color: white;
+	height: 20px;
+	margin-right: 10px;
+	color: white;
 }
 
 h4 {
-    font-size: 1.25rem;
+	font-size: 1.25rem;
 }
 
-@media all and (max-width:30em) {
-    .title h1 {
-        font-size: 3.3rem;
-    }
+@media all and (max-width: 30em) {
+	.title h1 {
+		font-size: 3.3rem;
+	}
 
-    .title h4 {
-        font-size: 1.6rem;
-    }
+	.title h4 {
+		font-size: 1.6rem;
+	}
 }
