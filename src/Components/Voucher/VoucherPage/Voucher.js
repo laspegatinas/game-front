@@ -98,7 +98,7 @@ const Voucher = () => {
                         <h2 >{chosenVoucher.reference}</h2>                       
                         <h4>Cuesta {chosenVoucher.price} puntos - Queadan {chosenVoucher.qty} disponibles!</h4>
                         <img width='75vh' height="75vh" src={chosenVoucher.image}></img> 
-                        <p>{chosenVoucher.description}</p>                     
+                        <h4>{`Buy choosing this product you will cash in ${chosenVoucher.price} of your achieved points. Are you sure?`}</h4>                     
                         <Link  to="/voucherreceived"><button onClick={chooseProduct}>Canjear</button></Link>
                         <button onClick={() => setToChosen(false)}>Cancel</button>
                     </section>

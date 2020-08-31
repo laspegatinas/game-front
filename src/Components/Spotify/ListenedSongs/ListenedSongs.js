@@ -243,8 +243,8 @@ const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, u
                             )
                         }
                         <div className="buttonContainer">
-                         <Rounds language={language} tokenButton={'hideGame'} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
-                                 youtubeButton={'btn-game'}/>
+                         <Rounds language={language} allRounds={'allRoundsSpotify'} tokenButton={'hideGame'} homeButton={'btn-game'} spotifyButton={'hideGame'} instagramButton={'btn-game'}
+                                backToHome={'hideGame'} connection={'hideGame'} youtubeButton={'btn-game'}/>
                                 <button className={'btn-game afterRound'} onClick={() => refreshPage()}  type="button">{texts[language].playAgain}</button>
                         </div>
                     </div>

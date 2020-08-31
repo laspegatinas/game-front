@@ -101,6 +101,7 @@ const SignUp = ({ language }) => {
                         'spotify_round_two':0,
                         'instagram_round_one':0,
                         'instagram_round_two':0,
+                        'instagram_round_three':0,
                         'spotify_round_two_extended': JSON.stringify({
                             "Al Carrer!": 0,
                             "Un secreto a voces": 0,
@@ -110,6 +111,23 @@ const SignUp = ({ language }) => {
                             "Eureka!": 0,
                             "Xapomelön": 0,
                             "Via Mandarina": 0,
+                        }),
+                        instagram_round_three_extended: 
+                        JSON.stringify({
+                           '966913838': 0,
+                           '9115805': 0,
+                           '4459158': 0,
+                           '13259158': 0,
+                           '2889579314': 0,
+                           '194454090': 0,
+                           '2078886031': 0,
+                           '3398157': 0,
+                           '1607991476': 0,
+                       }),
+                        youtube_round_two_extended: JSON.stringify({ 
+                           'QDHlpJogBwc' : 0,
+                           'wFC_Ot6m_Qk' : 0
+
                         }),
                         'youtube_round_one':0,
                         'youtube_round_two':0,

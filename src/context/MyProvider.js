@@ -33,15 +33,15 @@ export default (props) => {
         instagram_round_three: '',
         instagram_round_three_extended: 
                                         {
-                                            '966913838': '',
-                                            '9115805': '',
-                                            '4459158': '',
-                                            '13259158': '',
-                                            '2889579314': '',
-                                            '194454090': '',
-                                            '2078886031': '',
-                                            '3398157': '',
-                                            '1607991476': '',
+                                            '966913838': 0,
+                                            '9115805': 0,
+                                            '4459158': 0,
+                                            '13259158': 0,
+                                            '2889579314': 0,
+                                            '194454090': 0,
+                                            '2078886031': 0,
+                                            '3398157': 0,
+                                            '1607991476': 0,
                                             
                                         },
         youtube_round_one: '',
@@ -253,15 +253,22 @@ export default (props) => {
                     if (gameName === 'youtube' && roundIn === 'two'){
                     updateYoutubePoints(newState[newIndex], newState);
                      };
-                    // updateTotalPoints(newState);
+                    
                 //     console.log(newState)
                 //     console.log(newPoints)                                      
-                //     Api.setPoints({                       
-                //         'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),                      
-                //         'user': newState.user
-                //     }).then((resp)=>{
-                //         console.log(resp)
-                //     })
+                    Api.setPoints({                       
+                        'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
+                        'instagram_round_three_extended': JSON.stringify(newState.instagram_round_three_extended),
+                        'youtube_round_two_extended': JSON.stringify(newState.youtube_round_two_extended),
+                        'instagram_round_three': JSON.stringify(newState.youtube_round_three),
+                        
+                                              
+                        'user': newState.user
+                    }).then((resp)=>{
+                        console.log(resp)
+                        Api.getPoints(newState.user)
+                        .then((resp2)=> console.log(resp2))
+                    })
                  }
             },
 
@@ -291,15 +298,15 @@ export default (props) => {
                 instagram_round_two: '',
                 instagram_round_three: '',
                 instagram_round_three_extended: {
-                                                    '966913838': '',
-                                                    '9115805': '',
-                                                    '4459158': '',
-                                                    '13259158': '',
-                                                    '2889579314': '',
-                                                    '194454090': '',
-                                                    '2078886031': '',
-                                                    '3398157': '',
-                                                    '1607991476': '',
+                                                    '966913838': 0,
+                                                    '9115805': 0,
+                                                    '4459158': 0,
+                                                    '13259158': 0,
+                                                    '2889579314': 0,
+                                                    '194454090': 0,
+                                                    '2078886031': 0,
+                                                    '3398157': 0,
+                                                    '1607991476': 0,
                                                     
                                                 },
                 youtube_round_one: '',
@@ -331,6 +338,25 @@ export default (props) => {
                 let newState ={}
                newState = {
                 ...state,
+                instagram_round_three_extended: 
+                {
+                    '966913838': 0,
+                    '9115805': 0,
+                    '4459158': 0,
+                    '13259158': 0,
+                    '2889579314': 0,
+                    '194454090': 0,
+                    '2078886031': 0,
+                    '3398157': 0,
+                    '1607991476': 0,
+                    
+                },
+
+                youtube_round_two_extended: { 
+                    'QDHlpJogBwc' : '',
+                    'wFC_Ot6m_Qk' : ''
+
+                 },
                 spotify_round_two_extended: {
                     "Al Carrer!": 0,
                     "Un secreto a voces": 0,
@@ -341,12 +367,13 @@ export default (props) => {
                     "Xapomelön": 0,
                     "Via Mandarina": 0,
                 }};
-
                 changeState(newState);
 
                 Api.setPoints({
                         
                     'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),                   
+                    'youtube_round_two_extended': JSON.stringify(newState.youtube_round_two_extended),                   
+                    'instagram_round_three_extended': JSON.stringify(newState.instagram_round_three_extended),                   
                     'user':newState.user
                 }).then((resp)=>{
                     console.log(resp)
@@ -369,11 +396,11 @@ export default (props) => {
                 instagram_round_one: data.instagram_round_one,
                 instagram_round_two: data.instagram_round_two,
                 instagram_round_three: data.instagram_round_three,
-                instagram_round_three_extended: data.instagram_round_three_extended,
+                instagram_round_three_extended: JSON.parse(data.instagram_round_three_extended),
                 youtube_round_one: data.youtube_round_one,
                 youtube_round_two: data.youtube_round_two,
-                youtube_round_two_extended: data.youtube_round_two_extended,
-                updateTotalPoints: data.total_app_points,
+                youtube_round_two_extended: JSON.parse(data.youtube_round_two_extended),
+                total_app_points: data.total_app_points,
                 usedVouchers: data.usedVouchers,
                 activePanel: 'login',
                 language: 'spanish',

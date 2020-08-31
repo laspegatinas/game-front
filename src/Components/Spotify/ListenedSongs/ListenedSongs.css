@@ -178,6 +178,11 @@ input {
     font-size: 22px;
 }
 
+.allRoundsSpotify {
+
+     margin-top: 16rem;
+}
+
 @media screen and (min-width: 760px) {
     .instruct {
         text-align: center;

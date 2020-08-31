@@ -11,7 +11,7 @@ const lang1 = 'spanish';
 
 
 
-const UserForm = ({ mainpage, language, score, gameIn, nextButton }) => (
+const UserForm = ({ mainpage, language, score, gameIn, nextButton, regButton }) => (
 
     mainpage
         ? (
@@ -79,14 +79,15 @@ const UserForm = ({ mainpage, language, score, gameIn, nextButton }) => (
         )
         : (
             <div className="user-form">
-                <button
+                <img
                     type="button"
                     className={nextButton} //navbar-btn
                     data-toggle="modal"
                     data-target="#register"
+                    src={regButton}
                 >
-                    Regístrate / loguéate y ve a la Ronda 2
-                </button>
+                    {/* Regístrate / loguéate y ve a la Ronda 2 */}
+                </img>
 
 
 

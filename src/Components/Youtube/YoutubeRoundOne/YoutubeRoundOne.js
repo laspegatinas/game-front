@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import '../Youtube.css';
 // import { Link } from 'react-router-dom';
 import Register from '../../Register/Register';
+import '../Youtube.css';
 import texts from '../../../texts.json';
 import YTGame from '../YTGame/YTGame';
 import { MyContext } from '../../../context/MyProvider';
@@ -117,10 +118,11 @@ class YoutubeRoundOne extends Component {
                           
                             <div className="youtube-game-over">
                                 <h3>{`Has hecho ${localStorage.yt_points_1} puntos`}</h3>
-                                <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'hideGame'}
-                                    instagramButton={'btn-game'}/> 
-                                 
+                                <div className="btnContainer">
+                                <Rounds backToHome={'hideGame'} connection={'hideGame'} allRounds={'allRoundsYoutube'} language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'hideGame'}
+                                    instagramButton={'btn-game'}/>                                
                                  <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button> 
+                                 </div>
                                 {context.state.username
                                     ? <Register language={language} buttonStyle={'suma-puntos-button'} buttonText={texts[language].keepPointsPlayMoreText} currentGame="youtube" roundIn= 'one'/>
                                     /* <Link to="youtuberoundtwo"><button className = 'navbar-btn' type="button" onClick={() => context.addPoints(this.counter)}>Juega una segunda ronda</button></Link> */

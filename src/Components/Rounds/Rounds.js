@@ -9,6 +9,9 @@ import '../Home/Home.css';
 import ronda3 from '../../Pictures/ronda3.png';
 import ronda2 from '../../Pictures/ronda2.png';
 import homebtn from '../../Pictures/home45.png';
+import home1 from '../../Pictures/home1.png';
+import regButton from '../../Pictures/regButton (2).png';
+import regButton3 from '../../Pictures/regButton3 (1).png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
@@ -87,7 +90,7 @@ class Rounds extends React.Component {
 
 
         const { page, instagram, youtube, spotify, pop } = this.state;
-        const { language, score } = this.props;
+        const { language, score, connection, allRounds, backToHome } = this.props;
 
         const loginComp = (context) => {
             const { state: { username, email } } = context;
@@ -97,7 +100,7 @@ class Rounds extends React.Component {
                     score={score} currentGame="spotify" language={language} />
                 );
             };
-            return <UserForm nextButton={'button1'} language={language} score={score} gameIn="spotify" />;
+            return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="spotify" />;
         };
 
         const loginComp2 = (context) => {
@@ -108,7 +111,7 @@ class Rounds extends React.Component {
                     score={score} currentGame="instagram" language={language} />
                 );
             };
-            return <UserForm nextButton={'button1'} language={language} score={score} gameIn="instagram" />;
+            return <UserForm nextButton={'btnRonda2'}  regButton={regButton} language={language} score={score} gameIn="instagram" />;
         };
 
         const loginComp3 = (context) => {
@@ -119,7 +122,7 @@ class Rounds extends React.Component {
                     score={score} currentGame="youtube" language={language} />
                 );
             };
-            return <UserForm nextButton={'button1'} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
         };
 
         const loginComp4 = (context) => {
@@ -130,7 +133,7 @@ class Rounds extends React.Component {
                     </Link>
                 );
             };
-            return <UserForm nextButton={'button1'} language={language} score={score} gameIn="instagram" />;
+            return <UserForm nextButton={'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="instagram" />;
         };
 
         return (
@@ -160,13 +163,14 @@ class Rounds extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="">
+                                <div className={allRounds}>
 
-                                    <svg width="200" height="160" style={{ position: "relative", top: '9rem' }}><line x1="0" y1="0" x2="200" y2="160" stroke="#800080" stroke-width="10%" /></svg>
-                                    <svg width="30" height="300" style={{ position: "relative", top: '25rem' }}><line x1="15" y1="0" x2="15" y2="300" stroke="#800080" stroke-width="10%" /></svg>
+                                    
+                                        <svg className={pop ? 'hideGame' : connection}  width="200" height="160" style={{ position: "relative", top: '9rem' }}><line x1="0" y1="0" x2="200" y2="160" stroke="#6965B4" stroke-width="10%" /></svg>
+                                        <svg className={pop ? 'hideGame' : connection} width="30" height="300" style={{ position: "relative", top: '25rem' }}><line x1="15" y1="0" x2="15" y2="270" stroke="#6965B4" stroke-width="10%" /></svg>
+                                    
 
-
-                                    <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={homebtn} onClick={this.backToHome} className="backToHome"
+                                    <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={home1} onClick={this.backToHome} className={backToHome}
                                         type="button"></img></Link>
 
                                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
@@ -182,7 +186,7 @@ class Rounds extends React.Component {
                                         {/* {context.state.spotify_round_two || ''}          */}
                                         {loginComp(context)}
                                     </div>
-                                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={ronda3} type="button" /></Link>
+                                    <Link className={youtube || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={regButton3} type="button" /></Link>
 
 
                                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
@@ -193,7 +197,7 @@ class Rounds extends React.Component {
                                         </DelayLink>
                                     </div>
                                     <div className={spotify || instagram || pop ? 'hideGame' : 'title'} >{loginComp3(context)}</div>
-                                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={ronda3} type="button" /></Link>
+                                    <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={regButton3} type="button" /></Link>
 
                                     <div className={spotify || youtube ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>

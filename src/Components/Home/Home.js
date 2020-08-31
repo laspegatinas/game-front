@@ -11,8 +11,6 @@ import PopUp from '../Rounds/PopUp';
 // all the links to the first games are in Rounds.js now
 // the links to the second Rounds in Register.js
 
-
-
       const Home = ({ language }) => {
 
     //   const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
@@ -22,7 +20,7 @@ import PopUp from '../Rounds/PopUp';
   
     // const clicked = async () => {
         
-    //       //  addPointsExtended(20, 'instagram', 'three', ['966913838']) 
+    //         //addPointsExtended(111, 'instagram', 'three', ['9115805']) 
     //        //  addPoints(60, 'youtube', 'two')
     //         // console.log(user)     
     //        console.log(state)    
@@ -41,9 +39,9 @@ import PopUp from '../Rounds/PopUp';
             <img src={logo} alt="la pegatina logo" className="laPegatina" />          
             <div className="home-play-buttons">
                 {/* <PopUp/> */}
-                <Rounds
-                    language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
-                    instagramButton={'btn-game'} homeButton={'hideGame'}
+                <Rounds 
+                 connection={''}  allRounds={''} language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
+                    instagramButton={'btn-game'} backToHome={'backToHome'} homeButton={'hideGame'}
                 />
                 
                 {/* <button onClick={clicked}>CLIIIIIIIIIICK</button> */}

@@ -34,25 +34,27 @@ const Login = (props) => {
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
-                    let user = {...resp['data'], ...resp2['data'], usedVouchers: [], instagram_round_three_extended: 
-                    {
-                        '966913838': 0,
-                        '9115805': 0,
-                        '4459158': 0,
-                        '13259158': 0,
-                        '2889579314': 0,
-                        '194454090': 0,
-                        '2078886031': 0,
-                        '3398157': 0,
-                        '1607991476': 0,
+                    console.log(resp2);
+                    let user = {...resp['data'], ...resp2['data'], usedVouchers: [], 
+                    // instagram_round_three_extended: 
+                    // {
+                    //     '966913838': 0,
+                    //     '9115805': 0,
+                    //     '4459158': 0,
+                    //     '13259158': 0,
+                    //     '2889579314': 0,
+                    //     '194454090': 0,
+                    //     '2078886031': 0,
+                    //     '3398157': 0,
+                    //     '1607991476': 0,
                         
-                    },
-                    instagram_round_three: 0,
-                    youtube_round_two_extended: { 
-                        'QDHlpJogBwc' : 0,
-                        'wFC_Ot6m_Qk' : 0
+                    // },
+                    // instagram_round_three: 0,
+                    // youtube_round_two_extended: { 
+                    //     'QDHlpJogBwc' : 0,
+                    //     'wFC_Ot6m_Qk' : 0
 
-                    },
+                    // },
                 }
                     logUserIntoContext(user);
                 })   

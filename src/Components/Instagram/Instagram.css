@@ -123,6 +123,29 @@
     outline: none;
 }
 
+.homeFromInsta {
+
+    top: 6rem;
+    left: 6rem;
+}
+
+.allRoundsInstagram {
+
+    margin-top: 16rem;
+}
+
+@media screen and (min-width: 760px) {
+    
+
+    .allBtns {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 2em;
+    }
+  }
+
 @media only screen and (max-width: 750px) {
 
     .instagram-game {

@@ -76,14 +76,15 @@
 
 .btnRonda3 {
 	position: relative;
-	top: 3rem;
-	left: 3.5rem;
+	/* top: 3rem; */
+	top: 1rem;
+	left: 1.5rem;
 }
 
 .backToHome {
 	position: relative;
-	top: 5rem;
-	left: 3rem;
+	top: 7rem;
+	left: 1rem;
 }
 
 .home-btn-image {

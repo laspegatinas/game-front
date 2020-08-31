@@ -21,6 +21,7 @@ const UserPofile = ({ language }) => {
     const [editing, setEdit] = useState(false);
     const [showVouchers, setShowVouchers] = useState(false);
     const [voucherHistory, setVoucherHistory] = useState([]);
+    const [updateMessage, setUpdateMessage] = useState();
     const { state: {accessToken, user}} = React.useContext(MyContext);
 
     const submitUpdate = (e) => {
@@ -37,9 +38,10 @@ const UserPofile = ({ language }) => {
                     .then((resp2) => {
                         let user = { ...resp['data'], ...resp2['data'] };
                         logUserIntoContext(user);
+                        setUpdateMessage('Updated Successfully!')
                     })
             }, (err) => {
-
+                setUpdateMessage('We are sorry, something went wrong... Please log yourself in again.')
             });
     };
 
@@ -125,6 +127,7 @@ const UserPofile = ({ language }) => {
                                     />
                                     <button className="safeBtn" type="submit">Submit</button>
                                     <button className="cancelBtn" onClick={() => setEdit(false)}>{texts[language].cancel}</button>
+                                     <h4>{updateMessage}</h4>
                                 </form>
                             </div>
                         : showVouchers ? 
@@ -172,7 +175,7 @@ const UserPofile = ({ language }) => {
 
                                      <h6>
                             {texts[language].pointsComplete}:
-                            <p className="myprofile-h6">{context.state.updateTotalPoints}</p>
+                            <p className="myprofile-h6">{context.state.total_app_points}</p>
                         </h6>
 
                         <h4 className="myprofile-h4">
