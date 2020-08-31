@@ -35,6 +35,10 @@ const Login = (props) => {
                 closeModal()
                 Api.getPoints(resp.data.id).then((resp2)=>{
                     console.log(resp2);
+                    //extended
+                    // ? 
+                    // :
+                    // setting points for extended
                     let user = {...resp['data'], ...resp2['data'], usedVouchers: [], 
                     // instagram_round_three_extended: 
                     // {
