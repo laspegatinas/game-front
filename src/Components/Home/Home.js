@@ -21,7 +21,7 @@ import PopUp from '../Rounds/PopUp';
     // const clicked = async () => {
         
     //         //addPointsExtended(111, 'instagram', 'three', ['9115805']) 
-    //        //  addPoints(60, 'youtube', 'two')
+    //        //  addPoints(30, 'instagram', 'one');
     //         // console.log(user)     
     //        console.log(state)    
     //      //  console.log(localStorage.yt_points_1)       

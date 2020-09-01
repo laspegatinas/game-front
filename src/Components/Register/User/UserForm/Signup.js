@@ -13,14 +13,11 @@ const SignUp = ({ language }) => {
    
 
     const { logUserIntoContext } = React.useContext(MyContext);
-    // const [users, updateUsers] = useState([]);
-  
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repeatedPassword, setRepeatedPassword] = useState('');
     const [posted, setPosted] = useState(false);
-
     // State where we are going to keep the error and messages on the register page that we receive from the backend
     const [messages, setMessages] = useState([]);
 
@@ -101,7 +98,7 @@ const SignUp = ({ language }) => {
                         'spotify_round_two':0,
                         'instagram_round_one':0,
                         'instagram_round_two':0,
-                        'instagram_round_three':0,
+                        'instagram_round_three': 0,
                         'spotify_round_two_extended': JSON.stringify({
                             "Al Carrer!": 0,
                             "Un secreto a voces": 0,
@@ -136,10 +133,11 @@ const SignUp = ({ language }) => {
                     }).then((respo)=>{
                         console.log(respo)
                         Api.getPoints(resp.data.id).then((resp2)=>{
+                            console.log(resp2)
                             let user = {...resp['data'], ...resp2['data']};
                             logUserIntoContext(user);
                            // closeModal();
-                            //    window.location.reload(true);
+                                window.location.reload(true);
                             console.log('data you pass to the context', user);
                         })   
                     })

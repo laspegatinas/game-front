@@ -59,8 +59,6 @@ export default (props) => {
         
     });
 
-    // const [usedVouchers, setUsedVouchers] = useState([]);
-
     useEffect(() => {
         let session = localStorage.getItem('session')
         if (session){
@@ -213,18 +211,25 @@ export default (props) => {
                     console.log(newState)
                     console.log(newPoints)
                     Api.setPoints({
+                        'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
+                        'instagram_round_three_extended': JSON.stringify(newState.instagram_round_three_extended),
+                        'youtube_round_two_extended': JSON.stringify(newState.youtube_round_two_extended),
+                        'instagram_round_three': newState.instagram_round_three,
                         'spotify_round_one': newState.spotify_round_one,
                         'spotify_round_two': newState.spotify_round_two,
                         'instagram_round_one': newState.instagram_round_one,
                         'instagram_round_two': newState.instagram_round_two,
+                        'instagram_round_three': newState.instagram_round_three,
                         'youtube_round_one': newState.youtube_round_one,
                         'youtube_round_two': newState.youtube_round_two,
-                        'total_app_points': newState.total_app_points,
+                        'total_app_points': newState.total_app_points,                       
                         'user': newState.user
                     }).then((resp)=>{
                         console.log(resp)
-                    })
-                } 
+                        Api.getPoints(newState.user)
+                        .then((resp2)=> console.log(resp2));
+                    });
+                };
             },
 
             addPointsExtended: (newPoints, gameName, roundIn, album) => {
@@ -233,11 +238,11 @@ export default (props) => {
                 || (state[`${gameName}_round_${roundIn}_extended`][album] == undefined)) {
                     let newIndex = `${gameName}_round_${roundIn}_extended`;
                     let oldIndex = state[`${gameName}_round_${roundIn}_extended`];
-                    let newState = {}
+                    let newState = {};
                     newState =  {
                         ...state, 
                         [newIndex]: {...oldIndex,[album]: newPoints},
-                    } ;
+                    };
                     changeState(newState);
                     //console.log(newState);
                     console.log(newState[newIndex]);
@@ -260,16 +265,22 @@ export default (props) => {
                         'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
                         'instagram_round_three_extended': JSON.stringify(newState.instagram_round_three_extended),
                         'youtube_round_two_extended': JSON.stringify(newState.youtube_round_two_extended),
-                        'instagram_round_three': JSON.stringify(newState.youtube_round_three),
-                        
-                                              
+                        'instagram_round_three': newState.instagram_round_three,
+                        'spotify_round_one': newState.spotify_round_one,
+                        'spotify_round_two': newState.spotify_round_two,
+                        'instagram_round_one': newState.instagram_round_one,
+                        'instagram_round_two': newState.instagram_round_two,
+                        'instagram_round_three': newState.instagram_round_three,
+                        'youtube_round_one': newState.youtube_round_one,
+                        'youtube_round_two': newState.youtube_round_two,
+                        'total_app_points': newState.total_app_points,                                             
                         'user': newState.user
                     }).then((resp)=>{
-                        console.log(resp)
+                        console.log(resp);
                         Api.getPoints(newState.user)
-                        .then((resp2)=> console.log(resp2))
-                    })
-                 }
+                        .then((resp2)=> console.log(resp2));
+                    });
+                 };
             },
 
             clearUser: () => changeState({
@@ -406,8 +417,6 @@ export default (props) => {
                 language: 'spanish',
                 authed: true,
             }),
-
-            
 
             replaceState: (newState) => changeState(newState),
 

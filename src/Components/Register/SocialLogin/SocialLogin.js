@@ -10,8 +10,6 @@ const SocialLogin = (props) => {
     const { logUserIntoContext } = React.useContext(MyContext);
     const { state:  { spotify_round_two_extended }} = React.useContext(MyContext);
     const [email, setEmail] = useState('');
-   // const [username, setUsername] = useState('');
-    const [id, setId] = useState('');
     const [loading, setLoading] = useState(false);
 
 
@@ -92,12 +90,6 @@ const SocialLogin = (props) => {
                     
              
              }
-
-        // setEmail(response.email);
-        // setUsername(response.name);
-        // setId(response.id);
-        // setPicture(response.picture.data.url);
-        // postProfile(response)
         postProfile(user);
         setLoading(true);
       }
@@ -105,37 +97,27 @@ const SocialLogin = (props) => {
       const responseGoogle =  (response) => {
         console.log(response);  
         console.log((response.profileObj.imageUrl));
-        let user = {
-                
+        let user = {                
             'name' : response.profileObj.name.toLowerCase(),
             "email": response.profileObj.email,
             "id": response.profileObj.googleId,
             "picture": response.profileObj.imageUrl,
-            "roles": ["user"]
-                    
-             
+            "roles": ["user"]             
              }
 
-        // setEmail(response.profileObj.email);
-
-        // setUsername(response.profileObj.givenName);
-        // setId(response.profileObj.googleId);
-        // setPicture(response.profileObj.imageUrl);
         postProfile(user);
         setLoading(true);
       }
 
       const responseGoogleFail = (response) => {
-          console.log(response)
+          console.log(response);
       }
 
     
     return (
         <MyContext.Consumer>
         {(context) => (
-     <div>
-
-           
+     <div>         
            <FacebookLogin           
             appId="354742908880457" //APP ID 
             fields="name,email,picture"
@@ -155,9 +137,6 @@ const SocialLogin = (props) => {
             onFailure={responseGoogleFail}
             cookiePolicy= 'single_host_origin'
         />
-        {/*testing:
-        facebook 1001755983615818
-        google 278860152347-ojkar9rh5hg8o2drhgrf3gc4taq0o9q3.apps.googleusercontent.com */}
       <br></br>
       <br></br>
         

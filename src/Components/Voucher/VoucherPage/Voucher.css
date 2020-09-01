@@ -21,32 +21,64 @@
     cursor: pointer;
 }
 
-.popUpWindow {
+@media screen and (min-width: 760px) {
+    .popUpWindow {
 
-    border: 2px solid black;
-    width: 30vw;
-    height: 30vw;
-    position: absolute;
-    top: 20%;
-    left: 35%;
+        border: 2px solid black;
+        width: 30vw;
+        height: 30vw;
+        position: absolute;
+        top: 20%;
+        left: 35%; 
+        background-color: #302C71;
+        
+    }
     
+    .popUpWindow h2{
+        margin-top: 1rem;
+    }
     
+    .popUpWindow button{
+        display: block;
+        margin: auto;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
     
-    background-color: #302C71;
-    
-}
+    .popUpWindow img{
+        margin-top: 2rem;
+    }
+  }
 
-.popUpWindow h2{
-    margin-top: 1rem;
-}
+  @media screen and (max-width: 680px) {
+    .popUpWindow {
 
-.popUpWindow button{
-    display: block;
-    margin: auto;
-    margin-top: 1rem;
-    border-radius: 5px;
-}
+        border: 2px solid black;
+        width: 70vw;
+        height: 130vw;
+        position: absolute;
+        top: 10%;
+        left: 15%;
+        background-color: #302C71;
+        
+    }
+    
+    .popUpWindow h2{
+        margin-top: 1rem;
+    }
+    
+    .popUpWindow button{
+        display: block;
+        margin: auto;
+        margin-top: 1rem;
+        border-radius: 5px;
+    }
+    
+    .popUpWindow img{
+        margin-top: 2rem;
+    }
+  }
 
-.popUpWindow img{
-    margin-top: 2rem;
-}
+ 
+
+
