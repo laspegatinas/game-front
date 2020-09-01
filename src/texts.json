@@ -81,7 +81,23 @@
 		"phone": "Telèfon",
 		"city": "Ciutat",
 		"completeProfile": "Commpletar Perfil",
-		"cancel": "Sortir"
+		"cancel": "Sortir",
+		"availableProducts": "Mostra els productes disponibles",
+		"cashIn": "Bescanvia els punts",
+		"cashGetPrice": "Canvia els teus punts acumulats per increïbles premis",
+		"redeem": "Canvia",
+		"chooseProduct": "Triant aquest producte vas a canviar ",
+		"ofYourPoints": " dels teus punts acumulats. Estàs segur?",
+		"cost": "Costa ",
+		"left": " punts - queden ",
+		"history": "Veure historial de vouchers",
+		"chooseRedeem": "Canvia punts",
+		"congrats" :" Felicitacions! Vaig seguir jugant per acumular més punts i canviar-los per més premis!",
+		"yourCode": "El teu codi per bescanviar:",
+		"continueRedeem": "Seguir canviant",
+		"continuePlay": "Seguir jugant",
+		"download": "Descarregar pdf"
+		
 	},
 
 	"spanish": {
@@ -167,7 +183,22 @@
 		"phone": "Teléfono",
 		"city": "Ciudad",
 		"completeProfile": "Completar Perfil",
-		"cancel": "Salir"
+		"cancel": "Salir",
+		"availableProducts": "Mostrar Poductos disponibles",
+		"cashIn": "CANJEA TUS PUNTOS",
+		"cashGetPrice": "Canjea tus puntos acumulados por increibles premios",
+		"redeem": "Canjear",
+		"chooseProduct": "Eligiendo este producto vas a canjear ",
+		"ofYourPoints": " de tus puntos acumulados. Estás seguro?",
+		"cost": "Cuesta ",
+		"left": " puntos - quedan ",
+		"history": "Ver historial de vouchers",
+		"chooseRedeem": "Canjear puntos",
+		"congrats" :" Felicitaciones! Seguí jugando para acumular más puntos y canjearlos por más premios!",
+		"yourCode": "Tu código para canjear:",
+		"continueRedeem": "Seguir canjeando",
+		"continuePlay": "Seguir jugando",
+		"download": "Descargar pdf"
 	},
 
 	"english": {
@@ -251,7 +282,22 @@
 		"phone": "Phone",
 		"city": "City",
 		"completeProfile": "Complete Profile",
-		"cancel": "Cancel"
+		"cancel": "Cancel",
+		"availableProducts": "Display available products",
+		"cashIn": "REDEEM YOUR POINTS",
+		"cashGetPrice": "Redeem your points for incredible prices!",
+		"redeem": "Redeem",
+		"chooseProduct": "Buy choosing this product you will redeem ",
+		"ofYourPoints": " of your collected points. Are you sure?",
+		"cost": "It costs ",
+		"left": " points - availability: ",
+		"history": "Show voucher-history",
+		"chooseRedeem": "Redeem points",
+		"congrats" : "Congratulations! Continue playing to collect more points and redeem them for more prices!",
+		"yourCode": "You're code to redeem:",
+		"continueRedeem": "Continue redeeming",
+		"continuePlay": "Continue playing",
+		"download": "Download pdf"
 	},
 
 	"french": {
@@ -336,6 +382,21 @@
 		"phone": "Téléphone",
 		"city": "Ville",
 		"completeProfile": "Compléter Profil",
-		"cancel": "Sortir"
+		"cancel": "Sortir",
+		"availableProducts": "Afficher les produits disponibles",
+		"cashIn": "ÈCHANGER VOS POINTS",
+		"cashGetPrice": "Échangez vos points accumulés contre des prix incroyables",
+		"redeem": "Échanger",
+		"chooseProduct": "En choisissant ce produit, vous utiliserez ",
+		"ofYourPoints": " de vos points collectés. Êtes-vous sûr?",
+		"cost": "Coute ",
+		"left": " poins - disponibilité: ",
+		"history": "Voir record de vouchers",
+		"chooseRedeem": "Échanger points",
+		"congrats" :"Toutes nos félicitations! Continuez à jouer pour accumuler plus de points et les échanger contre plus de prix!",
+		"yourCode": "Votre code à utiliser:",
+		"continueRedeem": "Continuer échanger de points",
+		"continuePlay": "Continuer jouer",
+		"download": "Télécharger pdf"
 	}
 }

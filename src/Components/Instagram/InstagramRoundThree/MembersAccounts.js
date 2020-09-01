@@ -126,7 +126,7 @@ class members extends Component {
                                             key={memberaccount.name}
                                             onClick={() => this.setSelectedMemberId(context, memberaccount.id)}
                                         >
-                                        { <button className="albumPoints">{context.state.instagram_round_three_extended && context.state.instagram_round_three_extended[memberaccount.id] + '/40'}</button>}
+                                        { <button className="albumPoints">{context.state.instagram_round_three_extended ? context.state.instagram_round_three_extended[memberaccount.id] + '/40' : ''}</button>}
                                             <img src={memberaccount.gif} alt="member profile pic" />
                                         </button>
                                     </Link>

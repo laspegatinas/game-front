@@ -29,6 +29,26 @@ const videoDataObject2 = [
                 question: 'Cuántos integrantes tiene en total la formación de LA GRAN PEGATINA?',
                 answers: ['12', '10', '9', '14'],
             },
+            {
+                question: 'Qué integrante comenzó con "La Gran Pegatina" ha quedado fijo en La Pegatina al día de hoy?',
+                answers: ['Miki Florensa', 'Ruben Sierra', 'Bob Marley', 'Ferran Ibañez'],
+            },
+            {
+                question: 'De qué color tiene el cabello Ovidi en este concierto?',
+                answers: ['Violeta', 'Negro', 'Azul', 'Está calvo'],
+            },
+            {
+                question: 'Tiene calzoncillo Romain abajo de su pollera en este concierto?',
+                answers: ['Nunca lo sabremos', 'Si', 'No', 'No hace falta'],
+            },
+            {
+                question: 'Cuánto dura el concierto en total?',
+                answers: ['124 minutos', '112 minutos', '90 minutos', '86 minutos'],
+            },
+            {
+                question: 'Qué camiseta tiene puesta Sergi, nuestro baterista?',
+                answers: ['Una de fútbol, como siempre', 'Una de Basquet como las que le gustan a él', 'Una de Victoria Secret, nunca pierde el estilo', 'Va en cueros, mostrando abdominales'],
+            },
         ],
     },
     {
@@ -57,6 +77,26 @@ const videoDataObject2 = [
             {
                 question: 'Qué otro instrumento toca Romain durante el concierto además del acordeón?',
                 answers: ['Piano ', 'Armónica', 'Guitarra eléctica', 'Ronroco'],
+            },
+            {
+                question: 'En qué canción Adriá toca la guitarra además de cantar?',
+                answers: ['Amantes de lo ajeno', 'No som daqui', 'Y se fué', 'Algo está pasando'],
+            },
+            {
+                question: 'Cuál de estas canciones que no pertenece a La Pegatina cantamos en el concierto?',
+                answers: ['Ikusi mendizaleak', 'Todos los días sale el Sol', 'Non e Facile', 'Algo está pasando'],
+            },
+            {
+                question: 'Quién corea "A lalalala long"junto a Adriá?',
+                answers: ['Ferrán', 'Ruben', 'Miki', 'Axel'],
+            },
+            {
+                question: 'En el agradecimiento a Equipos y Banda, le pedimos a alguien que "Haga la croqueta". A quién?',
+                answers: ['Roberto, el Road Manager', 'Tamu, de técnica', 'German, nuestro Manager', 'A Pato, de Argentina'],
+            },
+            {
+                question: 'Qué canción que suena en este concierto está dedicada especialmente a los políticos?',
+                answers: ['Una mirada', 'Alosque', 'Gasolina de Dadee Yankee', 'Amantes de lo ajeno'],
             },
         ],
     },

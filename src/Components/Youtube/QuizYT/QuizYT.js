@@ -29,11 +29,11 @@ class QuizYT extends Component {
 
     toNext = () => {
         
-        const { questions } = this.props;
+        const { questions, questionNumber } = this.props;
         const { index } = this.state;
 
         // if(this.state.index > this.state.counter){
-        if (index < 4) {
+        if (index < questionNumber) {
             
             this.setState({
                 index: index + 1,
@@ -105,7 +105,7 @@ class QuizYT extends Component {
 
     render() {
 
-        const { questions } = this.props;
+        const { questions, questionNumber } = this.props;
         const { index, points, display, answers, giveMeConfetti, backgroundcolor, wrong } = this.state;
 
         return (
@@ -152,7 +152,7 @@ class QuizYT extends Component {
                                             </button>
                                         ))}
                                     </div>
-                                    <p className='yt-question-counter'>{this.state.counter}/5</p>
+                                    <p className='yt-question-counter'>{this.state.counter}/{questionNumber +1}</p>
                                 </div>
                             )
                         }

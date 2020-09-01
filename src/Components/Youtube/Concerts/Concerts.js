@@ -72,7 +72,7 @@ class Concerts extends Component {
                 {this.state.concertList.map((concert) => (                  
                     <div className="concert-picture">
                         <Link  to={{ pathname: '/youtuberoundtwo' }}> 
-                        <button className="albumPoints">{context.state.youtube_round_two_extended && context.state.youtube_round_two_extended[concert.id] + '/50'}</button>
+                        <button className="albumPoints">{context.state.youtube_round_two_extended ? context.state.youtube_round_two_extended[concert.id] + '/100' : ''}</button>
                             <button
                                 id={concert.id}
                                 type="button"

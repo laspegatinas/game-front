@@ -15,21 +15,20 @@ import PopUp from '../Rounds/PopUp';
 
     //   const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
     //    const { state } = React.useContext(MyContext);
-    //    const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
+    //     const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
   
   
     // const clicked = async () => {
         
-    //         //addPointsExtended(111, 'instagram', 'three', ['9115805']) 
+    //           addPointsExtended(150, 'spotify', 'two', ["Un secreto a voces"]) 
     //        //  addPoints(30, 'instagram', 'one');
     //         // console.log(user)     
-    //        console.log(state)    
-    //      //  console.log(localStorage.yt_points_1)       
+    //       //console.log(state)    
+    //      //  console.log(localStorage.yt_points_1)  
+    //       // localStorage.setItem('code', 'XSAD32134sw4');       
                     
     //      // resetState()   
     // }
-
-   
 
     return(
 

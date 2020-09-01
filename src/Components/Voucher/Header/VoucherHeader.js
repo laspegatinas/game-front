@@ -1,16 +1,18 @@
 import React from 'react';
 import Header from './Header.css'
+import texts from '../../../texts.json';
 
 
 
-const VoucherHeader = () => {
+const VoucherHeader = ({language}) => {
 
 
   return (
 
     <div>
-      <h1 className='headersTxt'>CANJEÁ TUS PUNTOS</h1>
-      <p className='headersTxt'>Canjea tus puntos acumulados por increibles premios</p>
+      {/* <h1 className='headersTxt'>CANJEÁ TUS PUNTOS</h1> */}
+      <h1 className='headersTxt'>{texts[language].cashIn}</h1>   
+      <p className='headersTxt'>{texts[language].cashGetPrice}</p>
     </div>
   )
 };

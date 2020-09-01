@@ -158,7 +158,7 @@ render() {
                                 component={(props) => (
                                     <div>
                                         <Navbar {...props} pagein="game" language={selectedLanguage} />
-                                        <Voucher {...props}  />
+                                        <Voucher {...props} language={selectedLanguage} />
                                     </div>
                                 )}
                             />  
@@ -169,7 +169,7 @@ render() {
                                 component={(props) => (
                                     <div>
                                         <Navbar {...props} pagein="game" language={selectedLanguage} />
-                                        <VoucherReceived {...props}  />
+                                        <VoucherReceived {...props} language={selectedLanguage} />
                                     </div>
                                 )}
                             />  

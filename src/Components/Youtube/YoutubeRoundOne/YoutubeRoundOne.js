@@ -103,7 +103,7 @@ class YoutubeRoundOne extends Component {
             return (
                 <div>
                     <YTGame object={videoDataObject} videoId={this.state.randomVideoId} data={this.state.data} currentTitle={this.state.currentTitle}
-                    fourNonShuffledSongsTitles={this.state.fourNonShuffledSongsTitles}  language={language} stopPlaying={this.stopPlaying} 
+                    fourNonShuffledSongsTitles={this.state.fourNonShuffledSongsTitles} questionNumber={4}  language={language} stopPlaying={this.stopPlaying} 
                     questions={this.state.questions}/>
                 </div>
             );

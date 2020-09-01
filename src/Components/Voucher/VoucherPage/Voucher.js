@@ -5,9 +5,10 @@ import VoucherCards from '../VoucherCards/VoucherCards';
 import { MyContext } from '../../../context/MyProvider';
 import Api from '../../../Api/index';
 import './Voucher.css';
+import texts from '../../../texts.json';
 
 
-const Voucher = () => {
+const Voucher = ({language}) => {
 
         const [vouchers, setVouchers] = useState([]);
         const [chosenVoucher, setChosenVoucher] = useState();
@@ -62,7 +63,7 @@ const Voucher = () => {
         //         'user': user,
         //     }).then( (resp) =>{
         //         console.log(resp)
-        //     localStorage.setItem('code', resp.data.voucher.code);  
+        //     localStorage.setItem('code', resp.data.voucher.code); XSAD32134sw4 
         //     ;
         // });
          updateVoucherHistory(`fecha: ${`${m}/${day}/${y}`}`)                                           
@@ -73,7 +74,7 @@ const Voucher = () => {
     <React.Fragment> 
         
             <div className="wrapper">
-                <VoucherHeader />
+                <VoucherHeader language={language} />
                 <div>
                 {loaded ?
             <div>
@@ -89,18 +90,19 @@ const Voucher = () => {
                                 />
                 )}
             </div>
-            : <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>            
+            : <button onClick={getMyProducts}>{texts[language].availableProducts}</button>
+            // <button onClick={getMyProducts}>Mostrar Poductos disponibles</button>            
             }
             </div>       
                        {choseVoucher &&           
                 <div >                      
                     <section className="popUpWindow" >
                         <h2 >{chosenVoucher.reference}</h2>                       
-                        <h4>Cuesta {chosenVoucher.price} puntos - Queadan {chosenVoucher.qty} disponibles!</h4>
+                        <h4>{texts[language].cost} {chosenVoucher.price} {texts[language].left} {chosenVoucher.qty}</h4>
                         <img width='75vh' height="75vh" src={chosenVoucher.image}></img> 
-                        <h4>{`Buy choosing this product you will cash in ${chosenVoucher.price} of your achieved points. Are you sure?`}</h4>                     
-                        <Link  to="/voucherreceived"><button onClick={chooseProduct}>Canjear</button></Link>
-                        <button onClick={() => setToChosen(false)}>Cancel</button>
+                        <h4>{`${texts[language].chooseProduct} ${chosenVoucher.price} ${texts[language].ofYourPoints}`}</h4>                     
+                        <Link language={language} to="/voucherreceived"><button onClick={chooseProduct}>{texts[language].redeem}</button></Link>
+                        <button onClick={() => setToChosen(false)}>{texts[language].cancel}</button>
                     </section>
                 </div> 
                 }         

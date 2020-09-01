@@ -172,7 +172,7 @@ class Rounds extends React.Component {
 
                                     <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={home1} onClick={this.backToHome} className={backToHome}
                                         type="button"></img></Link>
-
+                                    
                                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}

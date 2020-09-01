@@ -38,13 +38,12 @@ const Login = (props) => {
                     if (resp2.data.spotify_round_two_extended &&
                          resp2.data.youtube_round_two_extended &&  resp2.data.instagram_round_three_extended
                          && resp2.data.instagram_round_three === 0 || resp2.data.instagram_round_three )
-                       {
-                         
-                        console.log('hey');
+                       {                       
+                       // console.log('hey');
                         let user = {...resp['data'], ...resp2['data'], usedVouchers: [], };
                         logUserIntoContext(user);
                     }   else {
-                        console.log('ho');
+                     //   console.log('ho');
                         let user = {...resp['data'], ...resp2['data'], usedVouchers: [], 
                         instagram_round_three_extended: 
                         JSON.stringify({
@@ -58,14 +57,12 @@ const Login = (props) => {
                             '3398157': 0,
                             '1607991476': 0,                           
                         }),
-                        youtube_round_two_extended: 
-                        
+                        youtube_round_two_extended:                         
                         JSON.stringify({ 
                             'QDHlpJogBwc' : 0,
                             'wFC_Ot6m_Qk' : 0   
                         }),                          
-                        spotify_round_two_extended: 
-                        
+                        spotify_round_two_extended:                       
                         JSON.stringify({
                             "Al Carrer!": 0,
                             "Un secreto a voces": 0,

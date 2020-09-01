@@ -11,18 +11,14 @@ const UserPofile = ({ language }) => {
 
     const { state, logUserIntoContext } = React.useContext(MyContext);
 
-
-
-    // const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [region, setRegion] = useState('');
     const [city, setCity] = useState('');
-    //const [email, setEmail] = useState('');
     const [editing, setEdit] = useState(false);
     const [showVouchers, setShowVouchers] = useState(false);
     const [voucherHistory, setVoucherHistory] = useState([]);
     const [updateMessage, setUpdateMessage] = useState();
-    const { state: {accessToken, user}} = React.useContext(MyContext);
+    const { state: {user}} = React.useContext(MyContext);
 
     const submitUpdate = (e) => {
 
@@ -38,10 +34,10 @@ const UserPofile = ({ language }) => {
                     .then((resp2) => {
                         let user = { ...resp['data'], ...resp2['data'] };
                         logUserIntoContext(user);
-                        setUpdateMessage('Updated Successfully!')
+                        setUpdateMessage('Updated Successfully!');
                     })
             }, (err) => {
-                setUpdateMessage('We are sorry, something went wrong... Please log yourself in again.')
+                setUpdateMessage('We are sorry, something went wrong... Please log yourself in again.');
             });
     };
 
@@ -68,7 +64,8 @@ const UserPofile = ({ language }) => {
                             <h1>{context.state.username}</h1>
 
                         </div>
-                        <a onClick={() => { context.clearUser(); console.log('clicked'); }}>Salir</a>
+                        <button onClick={() => { context.clearUser(); console.log('clicked'); }}>{texts[language].logOutButton}</button>
+                        <Link to="/"><button>{texts[language].home}</button></Link>
                         <hr />
 
                         {editing
@@ -184,10 +181,12 @@ const UserPofile = ({ language }) => {
 
                         <hr />
                         <div className="bottomButtons">
-                            <Link to="vouchers"> <button className="getVoucher">Canjear puntos</button></Link> 
+                             {/* <Link to="/"><button className="myprofile-btn">Leave</button></Link> */}
+                            <Link language={language} to="vouchers"> <button className="getVoucher">{texts[language].chooseRedeem}</button></Link> 
                             {/* <button className="showVouchers" onClick={() => setShowVouchers(true)}>Ver Canjes</button> */}
-                            <button className="showVouchers" onClick={myHistory}>Show Vouchers</button>
+                            <button className="showVouchers" onClick={myHistory}>{texts[language].history}</button>
                             <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
+                            
                         </div>
                        </div>                      
                         }           

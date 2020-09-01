@@ -145,7 +145,7 @@ class YTPlayer extends Component {
             },
         };
 
-        const { videoId, questions, stopPlaying, language } = this.props;
+        const { videoId, questions, stopPlaying, language, questionNumber } = this.props;
 
         const { showButtons, fourShuffledSongsTitles, title, giveMeConfetti, loadingDisplayClass, playerDisplayClass } = this.state;
 
@@ -208,6 +208,7 @@ class YTPlayer extends Component {
                                 questions={questions}
                                 stopPlaying={stopPlaying}
                                 showConfetti={this.showConfetti}
+                                questionNumber={questionNumber}
                             />
                     </div>
                         )}

@@ -103,7 +103,7 @@ class YoutubeRoundTwo extends Component {
         if (gameStatus === 'playing') {
             return (
                 <div>
-                    <YTGame object={videoDataObject2} language={language} stopPlaying={this.stopPlaying}  videoId={this.state.randomVideoId} data={this.state.data}
+                    <YTGame object={videoDataObject2} language={language} stopPlaying={this.stopPlaying} questionNumber={9}  videoId={this.state.randomVideoId} data={this.state.data}
                      currentTitle={this.state.currentTitle}
                     fourNonShuffledSongsTitles={this.state.fourNonShuffledSongsTitles}  language={language} stopPlaying={this.stopPlaying} 
                     questions={this.state.questions}/>

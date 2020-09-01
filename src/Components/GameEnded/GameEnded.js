@@ -9,12 +9,9 @@ import { Link } from 'react-router-dom';
 
 const GameEnded = ({ score, currentGame, language, points }) => {
 
-    const { addPoints, addPointsExtended } = useContext(MyContext);
+    const { addPointsExtended } = useContext(MyContext);
 
-    const addPointsToContext = () => {
-        console.log('score i current game', score, currentGame)
-        addPoints(score || points, currentGame, 'two')
-    }
+   
 
     const addPointsToAlbum = () => {
         
