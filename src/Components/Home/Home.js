@@ -4,8 +4,6 @@ import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
 import texts from '../../texts.json';
 import Rounds from '../Rounds/Rounds';
-import { MyContext } from '../../context/MyProvider';
-import PopUp from '../Rounds/PopUp';
 
 
 // all the links to the first games are in Rounds.js now
@@ -13,22 +11,6 @@ import PopUp from '../Rounds/PopUp';
 
       const Home = ({ language }) => {
 
-    //   const { state:  { spotify_round_two_extended, youtube_round_two, user }} = React.useContext(MyContext);
-    //    const { state } = React.useContext(MyContext);
-    //     const { addPointsExtended, addPoints, resetState, updateVoucherHistory  } = React.useContext(MyContext);
-  
-  
-    // const clicked = async () => {
-        
-    //           addPointsExtended(150, 'spotify', 'two', ["Un secreto a voces"]) 
-    //        //  addPoints(30, 'instagram', 'one');
-    //         // console.log(user)     
-    //       //console.log(state)    
-    //      //  console.log(localStorage.yt_points_1)  
-    //       // localStorage.setItem('code', 'XSAD32134sw4');       
-                    
-    //      // resetState()   
-    // }
 
     return(
 
@@ -37,13 +19,10 @@ import PopUp from '../Rounds/PopUp';
             <p className="playWith">{texts[language].playwithTitle}</p>        
             <img src={logo} alt="la pegatina logo" className="laPegatina" />          
             <div className="home-play-buttons">
-                {/* <PopUp/> */}
                 <Rounds 
                  connection={''}  allRounds={''} language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
                     instagramButton={'btn-game'} backToHome={'backToHome'} homeButton={'hideGame'}
-                />
-                
-                {/* <button onClick={clicked}>CLIIIIIIIIIICK</button> */}
+                />               
             </div>
         </div>
     </div>

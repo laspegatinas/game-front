@@ -14,7 +14,6 @@ const Voucher = ({language}) => {
         const [chosenVoucher, setChosenVoucher] = useState();
         const [loaded, setLoaded] = useState(false);
         const [choseVoucher, setToChosen] = useState(false);
-        const { updateVoucherHistory } = React.useContext(MyContext);
         const { state: { user}} = React.useContext(MyContext);
          
         // useEffect(async () => {
@@ -53,20 +52,20 @@ const Voucher = ({language}) => {
         }; 
 
        const chooseProduct = async  () => {         
-            let d = new Date();
-            let m = d.getMonth() + 1;
-            let day = d.getDate();
-            let y = d.getFullYear();           
-        // await   Api.buyProduct({
-        //         'reference' : chosenVoucher.reference,
-        //         'qty': 1,
-        //         'user': user,
-        //     }).then( (resp) =>{
-        //         console.log(resp)
-        //     localStorage.setItem('code', resp.data.voucher.code); XSAD32134sw4 
-        //     ;
-        // });
-         updateVoucherHistory(`fecha: ${`${m}/${day}/${y}`}`)                                           
+            // let d = new Date();
+            // let m = d.getMonth() + 1;
+            // let day = d.getDate();
+            // let y = d.getFullYear();           
+            await   Api.buyProduct({
+                    'reference' : chosenVoucher.reference,
+                    'qty': 1,
+                    'user': user,
+                }).then( (resp) =>{
+                    console.log(resp)
+                localStorage.setItem('code', resp.data.voucher.code); 
+                ;
+            });
+         //updateVoucherHistory(`fecha: ${`${m}/${day}/${y}`}`)                                           
          };
          
     return(

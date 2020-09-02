@@ -5,8 +5,8 @@
 import React, { Fragment, useState } from 'react';
 import Api from '../../../../Api';
 import { MyContext } from '../../../../context/MyProvider';
-// import '../UserProfile/Userprofile.css';
 import texts from '../../../../texts.json';
+import SocialLogin from '../../SocialLogin/SocialLogin';
 
 const lang3 = 'spanish';
 
@@ -87,6 +87,7 @@ const Login = (props) => {
     return (
         <div>
             <Fragment>
+                <SocialLogin/>
                 <div id="login-tab-content" className="active tabs-content">
                     <form className="login-form" onSubmit={logUser}>
                         <input
