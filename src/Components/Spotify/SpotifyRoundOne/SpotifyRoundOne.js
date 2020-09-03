@@ -82,7 +82,7 @@ class SpotifyRoundOne extends React.Component {
 
         const savedState = JSON.parse(localStorage.savedState);
 
-        console.log('spotifyRoundOne didmount', savedState)
+       // console.log('spotifyRoundOne didmount', savedState)
 
         if (savedState !== undefined) {
             replaceState(savedState.state);
@@ -150,7 +150,7 @@ class SpotifyRoundOne extends React.Component {
 
     writeChosenSong = (songName) => {
         this.chosenSong = songName;
-        console.log(this.chosenSong)
+       // console.log(this.chosenSong)
     }
 
     checkCoincidence = () => {

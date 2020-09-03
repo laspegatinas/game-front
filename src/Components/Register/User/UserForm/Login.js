@@ -30,11 +30,11 @@ const Login = (props) => {
             "password": password,
                                
              }).then((resp) => {
-                 console.log(resp.data)
+                 //console.log(resp.data)
                 Api.setSessionToken(resp.data.accessToken)
                 closeModal();
                 Api.getPoints(resp.data.id).then((resp2)=>{
-                    console.log(resp2.data);
+                   // console.log(resp2.data);
                     if (resp2.data.spotify_round_two_extended &&
                          resp2.data.youtube_round_two_extended &&  resp2.data.instagram_round_three_extended
                          && resp2.data.instagram_round_three === 0 || resp2.data.instagram_round_three )

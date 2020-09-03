@@ -79,7 +79,7 @@ const SignUp = ({ language }) => {
                                
         })
             .then(async (res) => {
-                console.log(res.status)
+              //  console.log(res.status)
                 if (res) {
                     setPosted(!posted);
                 }
@@ -91,7 +91,7 @@ const SignUp = ({ language }) => {
                     "password": password,
                                        
                      }).then((resp) => {
-                         console.log(resp)
+                       //  console.log(resp)
                     Api.setSessionToken(resp.data.accessToken)
                     Api.setPoints({
                         'spotify_round_one':0,
@@ -131,14 +131,14 @@ const SignUp = ({ language }) => {
                         'total_app_points': 0,
                         'user': resp.data.id
                     }).then((respo)=>{
-                        console.log(respo)
+                       // console.log(respo)
                         Api.getPoints(resp.data.id).then((resp2)=>{
-                            console.log(resp2)
+                           // console.log(resp2)
                             let user = {...resp['data'], ...resp2['data']};
                             logUserIntoContext(user);
                            // closeModal();
                                 window.location.reload(true);
-                            console.log('data you pass to the context', user);
+                            //console.log('data you pass to the context', user);
                         })   
                     })
                    
@@ -147,11 +147,11 @@ const SignUp = ({ language }) => {
                 return res;
             })
             .then((dataJSON) => {
-                console.log(dataJSON)
+               // console.log(dataJSON)
                 let ret = [dataJSON]
 
                 setMessages(ret);
-                console.log(messages)
+               // console.log(messages)
             });
     };
 

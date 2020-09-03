@@ -55,7 +55,7 @@ class InstagramRoundOne extends Component {
     }
 
     componentDidMount() {
-        console.log(this.context)
+       // console.log(this.context)
         fetch(`https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables=
         {"id":"${this.profileId}","first":${this.numberOfPosts}}`)
             .then((res) => res.json())

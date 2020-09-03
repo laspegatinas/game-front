@@ -69,7 +69,7 @@ class Register extends Component {
             alCarrer,
         ]
 
-        console.log(albums)
+       // console.log(albums)
 
         this.setState({
             albums,
@@ -92,7 +92,7 @@ class Register extends Component {
 
     componentDidMount() {
         const { currentGame } = this.props;
-        console.log('Register.js',currentGame)
+       // console.log('Register.js',currentGame)
         if (currentGame === 'spotify') {
             this.getSpotifyAlbums();
         }

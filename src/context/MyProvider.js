@@ -69,10 +69,10 @@ export default (props) => {
     },[])
 
     const changeState = (newState) => {
-        console.log('NUEVO STATE',newState)
+      //  console.log('NUEVO STATE',newState)
         setState(newState)
         localStorage.setItem('session',JSON.stringify(newState))
-        console.log(localStorage.getItem('session'))
+       // console.log(localStorage.getItem('session'))
       //  console.log('STATE', state)
     }
 
@@ -182,7 +182,7 @@ export default (props) => {
 
     const { points: activePanel } = state;
     // We rename points so we can after do 'points: state.points + points' without problems
-
+    
     const { children } = props;
 
     return (
@@ -190,12 +190,12 @@ export default (props) => {
             state: state,
 
             addPoints: (newPoints, gameName, roundIn) => {
-                console.log('ADD PONITS')
-                console.log(newPoints)
-                console.log(gameName)
-                console.log(roundIn)
-                console.log(`${gameName}_round_${roundIn}`)
-                console.log(state[`${gameName}_round_${roundIn}`])
+                // console.log('ADD PONITS')
+                // console.log(newPoints)
+                // console.log(gameName)
+                // console.log(roundIn)
+                // console.log(`${gameName}_round_${roundIn}`)
+                // console.log(state[`${gameName}_round_${roundIn}`])
                 let newState = {}
                 if ((newPoints >= parseInt(state[`${gameName}_round_${roundIn}`])) || (state[`${gameName}_round_${roundIn}`] == undefined)) {
                     let index = `${gameName}_round_${roundIn}`;
@@ -206,10 +206,10 @@ export default (props) => {
                     } ;
                     changeState(newState);
                 
-                    console.log(state)
+                   // console.log(state)
                     updateTotalPoints(newState)
-                    console.log(newState)
-                    console.log(newPoints)
+                    // console.log(newState)
+                    // console.log(newPoints)
                     Api.setPoints({
                         'spotify_round_two_extended': JSON.stringify(newState.spotify_round_two_extended),
                         'instagram_round_three_extended': JSON.stringify(newState.instagram_round_three_extended),
@@ -225,7 +225,7 @@ export default (props) => {
                         'total_app_points': newState.total_app_points,                       
                         'user': newState.user
                     }).then((resp)=>{
-                        console.log(resp)
+                       // console.log(resp)
                         Api.getPoints(newState.user)
                         .then((resp2)=> console.log(resp2));
                     });
@@ -245,7 +245,7 @@ export default (props) => {
                     };
                     changeState(newState);
                     //console.log(newState);
-                    console.log(newState[newIndex]);
+                   // console.log(newState[newIndex]);
                    
                     
                     //updates the point of chosen round to the sum of the various round variations

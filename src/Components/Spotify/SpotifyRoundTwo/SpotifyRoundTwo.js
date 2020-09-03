@@ -116,7 +116,7 @@ class spotifyRoundTwo extends React.Component {
             return;
         }
 
-        console.log('spotifyFilteredObjArr', this.spotifyFilteredObjArr);
+       // console.log('spotifyFilteredObjArr', this.spotifyFilteredObjArr);
         const randomNumber = Math.floor(Math.random() * this.spotifyFilteredObjArr.length);
         // const randomSong = this.spotifyFilteredObjArr[randomNumber];
         const randomSong = this.spotifyFilteredObjArr[randomNumber];
@@ -127,8 +127,8 @@ class spotifyRoundTwo extends React.Component {
             nextSong = this.spotifyFilteredObjArr[randomNumber + 1];
         }
 
-        console.log('randomSong', randomSong);
-        console.log('nextSong', nextSong);
+        // console.log('randomSong', randomSong);
+        // console.log('nextSong', nextSong);
 
 
         this.spotifyFilteredObjArr = this.spotifyFilteredObjArr.filter((song) => song.id !== randomSong.id);

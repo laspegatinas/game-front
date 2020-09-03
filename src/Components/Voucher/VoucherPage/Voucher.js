@@ -61,7 +61,7 @@ const Voucher = ({language}) => {
                     'qty': 1,
                     'user': user,
                 }).then( (resp) =>{
-                    console.log(resp)
+                  //  console.log(resp)
                 localStorage.setItem('code', resp.data.voucher.code); 
                 ;
             });

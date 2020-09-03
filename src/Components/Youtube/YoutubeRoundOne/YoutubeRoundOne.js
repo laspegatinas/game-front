@@ -45,7 +45,7 @@ class YoutubeRoundOne extends Component {
             
         });
 
-        console.log(arrayPlaylist);
+       // console.log(arrayPlaylist);
 
         // create the random from one videoid, in Round 2 not random but chosen, push all the concerts in array, but take only ID of chosen one
          const randomVideoId = arrayPlaylist[Math.floor(Math.random() * arrayPlaylist.length)];

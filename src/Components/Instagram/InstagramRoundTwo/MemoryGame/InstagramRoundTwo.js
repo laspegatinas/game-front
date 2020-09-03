@@ -37,7 +37,7 @@ class InstagramRoundTwo extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState()
-    console.log(construirBaraja)
+    //console.log(construirBaraja)
   }
 
   addScore = (context, newPoints, gameName, roundIn) => {
