@@ -181,9 +181,8 @@ const UserPofile = ({ language }) => {
 
                         <hr />
                         <div className="bottomButtons">
-                             {/* <Link to="/"><button className="myprofile-btn">Leave</button></Link> */}
+                             
                             {/* <Link language={language} to="vouchers"> <button className="getVoucher">{texts[language].chooseRedeem}</button></Link>  */}
-                            {/* <button className="showVouchers" onClick={() => setShowVouchers(true)}>Ver Canjes</button> */}
                             {/* <button className="showVouchers" onClick={myHistory}>{texts[language].history}</button> */}
                             <button className="myprofile-btn" onClick={() => setEdit(true)}>{texts[language].completeProfile}</button>
                             
