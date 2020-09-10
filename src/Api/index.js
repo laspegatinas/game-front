@@ -1,6 +1,6 @@
 import axios from 'axios';
 //import ApiConstants from './ApiConstants';
-const apiUrl = 'http://authnodejstest.herokuapp.com/api/'
+const apiUrl = 'https://authnodejstest.herokuapp.com/api/'
 
 const instance = axios.create({
     baseURL: apiUrl
