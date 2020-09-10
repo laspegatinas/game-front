@@ -50,6 +50,7 @@ p {
 .made-by {
     font-size: 11px;
     margin-bottom: 0px;
+    display: none;
 }
 
 @media only screen and (max-width: 750px) {
