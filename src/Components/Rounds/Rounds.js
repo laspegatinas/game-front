@@ -97,7 +97,7 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <Register buttonStyle={'hideGame'} imageStyle={'btnRonda2'} buttonSrc={ronda2}
-                    score={score} currentGame="spotify" language={language} />
+                        score={score} currentGame="spotify" language={language} />
                 );
             };
             return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="spotify" />;
@@ -108,10 +108,10 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <Register buttonStyle={'hideGame'} imageStyle={'btnRonda2'} buttonSrc={ronda2}
-                    score={score} currentGame="instagram" language={language} />
+                        score={score} currentGame="instagram" language={language} />
                 );
             };
-            return <UserForm nextButton={'btnRonda2'}  regButton={regButton} language={language} score={score} gameIn="instagram" />;
+            return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="instagram" />;
         };
 
         const loginComp3 = (context) => {
@@ -119,7 +119,7 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <Register imageStyle={'btnRonda2'} buttonSrc={ronda2} buttonStyle={'hideGame'}
-                    score={score} currentGame="youtube" language={language} />
+                        score={score} currentGame="youtube" language={language} />
                 );
             };
             return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
@@ -165,14 +165,14 @@ class Rounds extends React.Component {
 
                                 <div className={allRounds}>
 
-                                    
-                                        <svg className={pop ? 'hideGame' : connection}  width="200" height="160" style={{ position: "relative", top: '9rem' }}><line x1="0" y1="0" x2="200" y2="160" stroke="#6965B4" stroke-width="10%" /></svg>
-                                        <svg className={pop ? 'hideGame' : connection} width="30" height="300" style={{ position: "relative", top: '25rem' }}><line x1="15" y1="0" x2="15" y2="270" stroke="#6965B4" stroke-width="10%" /></svg>
-                                    
+
+                                    <svg className={pop ? 'hideGame' : connection} width="200" height="160" style={{ position: "relative", top: '9rem', left: '2rem' }}><line x1="0" y1="0" x2="200" y2="160" stroke="#6965B4" stroke-width="10%" /></svg>
+                                    <svg className={pop ? 'hideGame' : connection} width="30" height="300" style={{ position: "relative", top: '25rem' }}><line x1="15" y1="0" x2="15" y2="270" stroke="#6965B4" stroke-width="10%" /></svg>
+
 
                                     <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={home1} onClick={this.backToHome} className={backToHome}
                                         type="button"></img></Link>
-                                    
+
                                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}

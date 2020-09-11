@@ -3,7 +3,7 @@
     position: relative;
 
     top: -7.5rem;
-    left: -9rem;
+    left: -8rem;
     /* color: #0b083b; */
     /* color: #FFFFFF; */
 }
@@ -20,7 +20,7 @@
 .popUp {
 
     /* position: absolute; */
-    width: 15em;
+    width: 13em;
     height: 15em;
     margin: auto;
     box-shadow:inset 0px 0px 15px 3px #9fb4f2; 

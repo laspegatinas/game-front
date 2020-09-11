@@ -83,8 +83,8 @@
 
 .backToHome {
 	position: relative;
-	top: 7rem;
-	left: 1rem;
+	top: 6rem;
+	left: .5rem;
 }
 
 .home-btn-image {
@@ -104,5 +104,7 @@ h4 {
 
 	.title h4 {
 		font-size: 1.6rem;
+		max-width: 371px;
+		padding: 1rem;
 	}
 }
