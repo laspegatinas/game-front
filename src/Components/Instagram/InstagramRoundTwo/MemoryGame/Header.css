@@ -94,9 +94,9 @@
         left: 30%;
     }
 
-    .title {
+    /* .title {
         display: none
-    }
+    } */
     .memory-body {
         justify-content: space-between;
     }
@@ -135,4 +135,33 @@
     .winnerMemoryResult {
         display: none
     }
+
+    .backToHome {
+        position: relative;
+        width: 75px;
+		top: 6rem;
+		left: -7rem;
+    }
+    
+    .btnRonda1 {
+        position: relative;
+        width: 75px;
+		top: 1.5rem;
+		left: 1.5rem;
+	}
+
+	.btnRonda2 {
+        position: relative;
+        width: 75px;
+		top: 4.5rem;
+		left: 1rem;
+	}
+
+	.btnRonda3 {
+        position: relative;
+        width: 75px;
+		top: 8rem;
+		left: 1rem;
+	}
+    
 }

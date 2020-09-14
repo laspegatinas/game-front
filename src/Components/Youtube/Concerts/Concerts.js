@@ -18,8 +18,8 @@ class Concerts extends Component {
         popUpHidden: true,
         concertList: [
             {
-               
-                id: "QDHlpJogBwc", 
+
+                id: "QDHlpJogBwc",
                 videoId: "QDHlpJogBwc",
                 who: 'La Gran Pegatina',
                 place: 'Arenal Sound',
@@ -45,16 +45,16 @@ class Concerts extends Component {
                 videoURL: 'https://www.youtube.com/watch?v=wFC_Ot6m_Qk',
                 frame: bilbao18
             },
-         
+
         ]
     }
 
     setSelectedConcertId = (id) => {
         localStorage.setItem('ConcertId', id);
-        //console.log(localStorage.ConcertId)
+        // console.log(localStorage.ConcertId)
     }
 
-    popIt = () =>  {
+    popIt = () => {
         this.setState({
             popUpHidden: false
         })
@@ -67,34 +67,34 @@ class Concerts extends Component {
 
         return (
             <MyContext.Consumer>
-            {(context) => (
-            <div className={'concerts-pictures'}>
-                {this.state.concertList.map((concert) => (                  
-                    <div className="concert-picture">
-                        <Link  to={{ pathname: '/youtuberoundtwo' }}> 
-                        <button className="albumPoints">{context.state.youtube_round_two_extended ? context.state.youtube_round_two_extended[concert.id] + '/100' : ''}</button>
-                            <button
-                                id={concert.id}
-                                type="button"
-                                className="buttonConcert"
-                                onClick={(event) => this.setSelectedConcertId(event.target.id)}>
-                                <img
-                                    src={concert.frame}
-                                    id={concert.id}
-                                    videoId={concert.videoId}
-                                    className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'}
-                                >                     
-                                </img>
-                                    {/* <h6>place={concert.place}</h6>
+                {(context) => (
+                    <div className={'concerts-pictures'}>
+                        {this.state.concertList.map((concert) => (
+                            <div key={concert.id} className="concert-picture">
+                                <Link to={{ pathname: '/youtuberoundtwo' }}>
+                                    <button className="albumPoints">{context.state.youtube_round_two_extended ? context.state.youtube_round_two_extended[concert.id] + '/100' : ''}</button>
+                                    <button
+                                        id={concert.id}
+                                        type="button"
+                                        className="buttonConcert"
+                                        onClick={(event) => this.setSelectedConcertId(event.target.id)}>
+                                        <img
+                                            src={concert.frame}
+                                            id={concert.id}
+                                            videoId={concert.videoId}
+                                            className={popUpHidden ? "concert-picture-detail" : 'coverConcerts'}
+                                        >
+                                        </img>
+                                        {/* <h6>place={concert.place}</h6>
                                         <h6>{concert.year}</h6> */}
-                                
-                            </button> 
-                        </Link > 
+
+                                    </button>
+                                </Link >
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
                 )}
-                </MyContext.Consumer>
+            </MyContext.Consumer>
         )
     }
 }

@@ -97,7 +97,8 @@ h4 {
 	font-size: 1.25rem;
 }
 
-@media all and (max-width: 30em) {
+
+/* @media all and (max-width: 371px){
 	.title h1 {
 		font-size: 3.3rem;
 	}
@@ -107,4 +108,157 @@ h4 {
 		max-width: 371px;
 		padding: 1rem;
 	}
+
+	.backToHome {
+		position: relative;
+		top: 3rem;
+		left: 7rem;
+	}
+
+	.btnRonda1 {
+		position: relative;
+		top: -1.5rem;
+		left: -6rem;
+	}
+
+	.btnRonda2 {
+		position: relative;
+		top: 1rem;
+		left: 1rem;
+	}
+
+	.btnRonda3 {
+		position: relative;
+		top: 7rem;
+		left: 1rem;
+	}
+
+	svg{ 
+		display: none;
+	}
+} */
+
+@media all and (max-width: 372px) {
+	.title h1 {
+		font-size: 3.3rem;
+	}
+
+	.title h4 {
+		font-size: 1.6rem;
+		max-width: 371px;
+		padding: 1rem;
+	}
+
+	.backToHome {
+		position: relative;
+		width: 90px;
+		top: 7rem;
+		left: 7rem;
+	}
+
+	.btnRonda1 {
+		position: relative;
+		width: 90px;
+		top: .5rem;
+		left: -6rem;
+	}
+
+	.btnRonda2 {
+		position: relative;
+		width: 90px;
+		top: 1rem;
+		left: 1rem;
+	}
+
+	.btnRonda3 {
+		position: relative;
+		width: 90px;
+		top: 6rem;
+		left: 1rem;
+	}
+
+	svg{ 
+		display: none;
+	}
 }
+
+@media screen and (min-width: 372px)  and (max-width: 30em) {
+	.title h1 {
+		font-size: 3.3rem;
+	}
+
+	.title h4 {
+		font-size: 1.6rem;
+		max-width: 371px;
+		padding: 1rem;
+	}
+
+	.backToHome {
+		position: relative;
+		width: 75px;
+		top: 1.5rem;
+		left: 9rem;
+	}
+
+	.btnRonda1 {
+		position: relative;
+		width: 75px;
+		top: -3.5rem;
+    	left: 0;
+	}
+
+	.btnRonda2 {
+		position: relative;
+		width: 75px;
+		top: -1rem;
+		left: 0;
+	}
+
+	.btnRonda3 {
+		position: relative;
+		width: 75px;
+		top: 5rem;
+		left: 0;
+	}
+
+	svg{ 
+		display: none;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+	.title h1 {
+		font-size: 3.3rem;
+	}
+
+	.title h4 {
+		font-size: 1.9rem;
+		max-width: 621px;
+		padding: 1rem;
+	}
+
+	.backToHome {
+		position: relative;
+		top: 4rem;
+		left: 3rem;
+	}
+
+	.btnRonda1 {
+		position: relative;
+		top: -9.5rem;
+    	left: -11rem;
+	}
+
+	.btnRonda2 {
+		position: relative;
+		top: -6rem;
+		left: 1rem;
+	}
+
+	.btnRonda3 {
+		position: relative;
+		top: 2rem;
+		left: 1rem;
+	}
+}
+
