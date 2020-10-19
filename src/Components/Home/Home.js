@@ -20,8 +20,11 @@ import Rounds from '../Rounds/Rounds';
             <img src={logo} alt="la pegatina logo" className="laPegatina" />          
             <div className="home-play-buttons">
                 <Rounds 
-                 connection={''}  allRounds={''} language={language} spotifyButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
-                    instagramButton={'btn-game'} backToHome={'backToHome'} homeButton={'hideGame'}
+                 connection={''}  allRounds={''} language={language} 
+                 spotifyButton={'btn-game'} 
+                 tokenButton={'btn-game'} 
+                 youtubeButton={'btn-game'}
+                 backToHome={'backToHome'} homeButton={'hideGame'}
                 />               
             </div>
         </div>

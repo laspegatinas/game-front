@@ -68,15 +68,6 @@ class Rounds extends React.Component {
         });
     }
 
-    startInsta = () => {
-        const instaStart = true;
-        const start = 'screen';
-        this.setState({
-            instagram: instaStart,
-            page: start,
-            button: 'hideGame',
-        });
-    }
 
     popStart = () => {
         this.setState({
@@ -231,10 +222,6 @@ class Rounds extends React.Component {
                                 <button type="button" className={this.props.youtubeButton} onClick={this.startYoutube}>
                                     <i class="fab fa-youtube"></i>
                                     {texts[language].youtubePlayWithButton}
-                                </button>
-                                <button type="button" className={this.props.instagramButton} onClick={this.startInsta}>
-                                    <i class="fab fa-instagram"></i>
-                                    {texts[language].instagramPlayWithButton}
                                 </button>
                                 <Link className={this.props.homeButton} to="/"><img className={"home-btn-image"} src={homebtn} />
                                     {texts[language].home}</Link>
