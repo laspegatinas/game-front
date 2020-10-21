@@ -9,6 +9,7 @@ import SocialMedia from './Components/SocialMedia/SocialMedia';
 import Navbar from './Components/Navbar/Navbar';
 import YoutubeRoundOne from './Components/Youtube/YoutubeRoundOne/YoutubeRoundOne';
 import YoutubeRoundTwo from './Components/Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
+import Memo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
 import User from './Components/Register/User/User';
 import MyProvider, { MyContext } from './context/MyProvider';
 import './App.css';
@@ -114,7 +115,16 @@ render() {
                                     </div>
                                 )}
                             />
-
+                            <PrivateRoute	
+                                authed={context.state.authed}	
+                                path="/memo"	
+                                component={(props) => (	
+                                    <div>	
+                                        <Navbar pagein="game" />	
+                                        <Memo language={selectedLanguage} {...props} />	
+                                    </div>	
+                                )}	
+                            />
                             <PrivateRoute
                                 authed={context.state.authed}
                                 path="/vouchers"
