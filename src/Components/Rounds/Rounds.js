@@ -17,6 +17,7 @@ import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
 import PopUp from '../Rounds/PopUp';
+import star from '../../Pictures/Star.png'
 
 
 class Rounds extends React.Component {
@@ -158,12 +159,16 @@ class Rounds extends React.Component {
 
                                     
                                         <svg className={pop ? 'hideGame' : connection}  width="200" height="160" style={{ position: "relative", top: '9rem' }}><line x1="0" y1="0" x2="200" y2="160" stroke="#6965B4" stroke-width="10%" /></svg>
-                                        <svg className={pop ? 'hideGame' : connection} width="30" height="300" style={{ position: "relative", top: '25rem' }}><line x1="15" y1="0" x2="15" y2="270" stroke="#6965B4" stroke-width="10%" /></svg>
+                                        <svg className={pop ? 'hideGame' : connection} width="30" height="250" style={{ position: "relative", top: '20rem' }}><line x1="15" y1="0" x2="15" y2="270" stroke="#6965B4" stroke-width="10%" /></svg>
+                                        <svg className={pop ? 'hideGame' : connection} width="300" height="30" style={{ position: "relative", top: '26rem' }}><line x1="0" y1="0" x2="250" y2="0" stroke="#6965B4" stroke-width="10%" /></svg>
+                                       
+                                      
+                                        
                                     
 
                                     <Link className={pop ? 'hideGame' : 'title'} to="/"><img src={home1} onClick={this.backToHome} className={backToHome}
                                         type="button"></img></Link>
-                                    
+                                     <img src={star} />
                                     <div className={youtube || instagram ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}

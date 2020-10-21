@@ -46,8 +46,8 @@ display: flex;
 
     position: relative;
 
-    top: -6rem;
-    left: 1rem;
+        top: -5rem;
+        left: -7rem;
 }
 
 .albumPoints {

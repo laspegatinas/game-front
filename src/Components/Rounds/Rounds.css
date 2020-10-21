@@ -77,8 +77,8 @@
 .btnRonda3 {
 	position: relative;
 	/* top: 3rem; */
-	top: 1rem;
-	left: 1.5rem;
+	top: 0.2rem;
+    left: -7rem;
 }
 
 .backToHome {
