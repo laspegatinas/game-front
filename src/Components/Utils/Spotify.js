@@ -143,24 +143,24 @@ const Spotify = {
 			case 'Ahora o nunca':
 				albumID = '1gVTdZJaemKysGPHgMQfvD';
 				break;
-			case 'La Gran Pegatina Live 2016':
-				albumID = '3yAo1PKKqDKK3JzaZNAIVU';
-				break;
-			case 'Revulsiu':
-				albumID = '1QhYAMuClrXwodJbdWr9kb';
-				break;
-			case 'Eureka!':
-				albumID = '6wTQ7zBcv3hwG3jSvBb6nI';
-				break;
-			case 'Xapomelön':
-				albumID = '5YGUW9OJPCoT3bUySE50X7';
-				break;
-			case 'Via Mandarina':
-				albumID = '17xrJ6CwY9OEtof17QV9OB';
-				break;
-			case 'Al Carrer!':
-				albumID = '4GDvxuvYI9ZrnBOiE8of32';
-				break;
+			// case 'La Gran Pegatina Live 2016':
+			// 	albumID = '3yAo1PKKqDKK3JzaZNAIVU';
+			// 	break;
+			// case 'Revulsiu':
+			// 	albumID = '1QhYAMuClrXwodJbdWr9kb';
+			// 	break;
+			// case 'Eureka!':
+			// 	albumID = '6wTQ7zBcv3hwG3jSvBb6nI';
+			// 	break;
+			// case 'Xapomelön':
+			// 	albumID = '5YGUW9OJPCoT3bUySE50X7';
+			// 	break;
+			// case 'Via Mandarina':
+			// 	albumID = '17xrJ6CwY9OEtof17QV9OB';
+			// 	break;
+			// case 'Al Carrer!':
+			// 	albumID = '4GDvxuvYI9ZrnBOiE8of32';
+			// 	break;
         }
 
         return albumID;

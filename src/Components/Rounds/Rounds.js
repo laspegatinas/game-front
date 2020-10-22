@@ -195,6 +195,15 @@ class Rounds extends React.Component {
                                         </DelayLink>
 
                                     </div>
+                                    {/* <div className={youtube || instagram ? 'hideGame' : 'title'}>
+                                        <div className={pop ? 'hideGame' : ''}></div>
+                                        {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
+                                        {/* <DelayLink delay={5000} clickAction={this.popStart} to="spotifyRoundTwo" >
+                                            <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                                                popButton={'button1'} popText={texts[language].roundOneBtn} />
+                                        </DelayLink>
+
+                                    </div>  */}
                                     <div className={youtube || instagram || pop ? 'hideGame' : 'title'}>
                                         {/* {context.state.spotify_round_two || ''}          */}
                                         {loginComp(context)}
@@ -221,6 +230,7 @@ class Rounds extends React.Component {
                                                  />
                                         </DelayLink>
                                     </div>
+
                                     {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
                                     <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp2(context)}</div>
                                     {/* <Link className={spotify || youtube || pop ? 'hideGame' : 'title'} to="instagramroundthree"><button className="button1" type="button">{texts[language].startRound3Instagram}</button></Link> */}

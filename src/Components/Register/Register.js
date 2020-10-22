@@ -40,33 +40,33 @@ class Register extends Component {
         // Ahora o nunca
         const ahoraONunca = await Spotify.getAlbumsImages('1gVTdZJaemKysGPHgMQfvD');
 
-        // La Gran Pegatina Live 2016
-        const laPegatinaLive2016 = await Spotify.getAlbumsImages('3yAo1PKKqDKK3JzaZNAIVU');
+        // // La Gran Pegatina Live 2016
+        // const laPegatinaLive2016 = await Spotify.getAlbumsImages('3yAo1PKKqDKK3JzaZNAIVU');
 
-        // Revulsiu
-        const revulsiu = await Spotify.getAlbumsImages('1QhYAMuClrXwodJbdWr9kb');
+        // // Revulsiu
+        // const revulsiu = await Spotify.getAlbumsImages('1QhYAMuClrXwodJbdWr9kb');
 
-        // Eureka!
-        const eureka = await Spotify.getAlbumsImages('6wTQ7zBcv3hwG3jSvBb6nI');
+        // // Eureka!
+        // const eureka = await Spotify.getAlbumsImages('6wTQ7zBcv3hwG3jSvBb6nI');
 
-        // Xapomelon
-        const xapomelon = await Spotify.getAlbumsImages('5YGUW9OJPCoT3bUySE50X7');
+        // // Xapomelon
+        // const xapomelon = await Spotify.getAlbumsImages('5YGUW9OJPCoT3bUySE50X7');
 
-        // Via Mandarina
-        const viaMandarina = await Spotify.getAlbumsImages('17xrJ6CwY9OEtof17QV9OB');
+        // // Via Mandarina
+        // const viaMandarina = await Spotify.getAlbumsImages('17xrJ6CwY9OEtof17QV9OB');
 
-        // Al carrer
-        const alCarrer = await Spotify.getAlbumsImages('4GDvxuvYI9ZrnBOiE8of32');
+        // // Al carrer
+        // const alCarrer = await Spotify.getAlbumsImages('4GDvxuvYI9ZrnBOiE8of32');
 
         const albums = [
             unSecretoAVoces,
             ahoraONunca,
-            laPegatinaLive2016,
-            revulsiu,
-            eureka,
-            xapomelon,
-            viaMandarina,
-            alCarrer,
+            // laPegatinaLive2016,
+            // revulsiu,
+            // eureka,
+            // xapomelon,
+            // viaMandarina,
+            // alCarrer,
         ]
 
        // console.log(albums)

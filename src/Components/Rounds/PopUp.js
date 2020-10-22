@@ -37,7 +37,7 @@ const PopUp = ({popButton, popText, todo, instruct, src, id, videoId, className 
         ></button> */}
           <img
                 className={popUpClass == 'popUp' ? 'none' : 'btnRonda1'}
-                src={src}
+                src={ronda1}
                 type="button"
                 onClick={() => closeModal()}
             />
