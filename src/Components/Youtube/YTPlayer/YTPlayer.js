@@ -153,9 +153,9 @@ class YTPlayer extends Component {
 
             return (
                 <div className="video-and-questions">
-                    <div className={`loading ${loadingDisplayClass}`}>
+                    {/* <div className={`loading ${loadingDisplayClass}`}>
                         <Loading />
-                    </div>
+                    </div> */}
 
                     <div style={{ position: 'relative' }} className={`theYTPlayer ${playerDisplayClass}`}>
                         <div className="cover-bar"></div>

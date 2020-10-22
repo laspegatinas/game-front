@@ -16,7 +16,7 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
-import { PopUp } from '../Rounds/PopUp';
+import { PopUp, PopUp3 } from '../Rounds/PopUp';
 import { PopUp2 } from '../Rounds/PopUp'
 import star from '../../Pictures/Star.png'
 import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
@@ -110,12 +110,25 @@ class Rounds extends React.Component {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="youtuberoundtwo" >
-                    <PopUp2 language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
-                        popButton={'button2'} popText={texts[language].roundOneBtn} />
+                    <PopUp2 language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                        popButton={'button2'} popText={texts[language].youtubeInstructionsR2} />
                 </DelayLink>
                 )
             };
             return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+        };
+        const loginCompR3 = (context) => {
+            const { state: { username, email } } = context;
+            if (username || email) {
+                return (
+                    <DelayLink delay={5000} buttonStyle={'hideGame'}
+                    clickAction={this.popStart} to="youtuberoundthree" >
+                    <PopUp3 language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                        popButton={'button3'} popText={texts[language].roundOneBtn} />
+                </DelayLink>
+                )
+            };
+            return <UserForm nextButton={'btnRonda3'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
         };
 
         // const loginComp2 = (context) => {
@@ -212,6 +225,19 @@ class Rounds extends React.Component {
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
                                         {loginCompR2(context)}
+                                    </div>
+                                     {/* Round3 */}
+                                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                                        <div className={pop ? 'hideGame' : ''}></div>
+                                        {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
+                                        {loginCompR3(context)}
+                                    </div>
+                                    
+                                    {/* RoundStar */}
+                                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                                        <div className={pop ? 'hideGame' : ''}></div>
+                                        {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
+                                        {/* {loginCompRStar(context)} */}
                                     </div>
 
                                     {/* <div className={youtube || instagram ? 'hideGame' : 'title'}>

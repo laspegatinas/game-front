@@ -125,6 +125,16 @@ render() {
                                     </div>
                                 )}
                             />
+                            <PrivateRoute
+                                authed={context.state.authed}
+                                path="/youtuberoundthree"
+                                component={(props) => (
+                                    <div>
+                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
+                                        <YoutubeRoundThree {...props} language={selectedLanguage} />
+                                    </div>
+                                )}
+                            />
                             <PrivateRoute	
                                 authed={context.state.authed}	
                                 path="/memo"	
