@@ -9,6 +9,7 @@ import SocialMedia from './Components/SocialMedia/SocialMedia';
 import Navbar from './Components/Navbar/Navbar';
 import YoutubeRoundOne from './Components/Youtube/YoutubeRoundOne/YoutubeRoundOne';
 import YoutubeRoundTwo from './Components/Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
+import YoutubeRoundThree from './Components/Youtube/YoutubeRoundThree/YoutubeRoundThree'
 import Memo from './Components/Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo.js';
 import User from './Components/Register/User/User';
 import MyProvider, { MyContext } from './context/MyProvider';
@@ -79,7 +80,16 @@ render() {
                                 )}
                             />
 
-                         
+                            <PrivateRoute
+                                authed={context.state.authed}
+                                path="/spotifyroundthree"
+                                component={(props) => (
+                                    <div>
+                                        <Navbar {...props} pagein="game" language={selectedLanguage} />
+                                        <SpotifyRoundTwo {...props} language={selectedLanguage} />
+                                    </div>
+                                )}
+                            />
 
                             <PrivateRoute
                                 authed={context.state.authed}
