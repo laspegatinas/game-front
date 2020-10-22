@@ -16,7 +16,8 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
-import PopUp from '../Rounds/PopUp';
+import { PopUp } from '../Rounds/PopUp';
+import { PopUp2 } from '../Rounds/PopUp'
 import star from '../../Pictures/Star.png'
 import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
 
@@ -109,8 +110,8 @@ class Rounds extends React.Component {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="youtuberoundtwo" >
-                    <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
-                        popButton={'button1'} popText={texts[language].roundOneBtn} />
+                    <PopUp2 language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                        popButton={'button2'} popText={texts[language].roundOneBtn} />
                 </DelayLink>
                 )
             };
