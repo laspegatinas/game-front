@@ -44,7 +44,10 @@
 	border-radius: 8em;
 	font-weight: 700;
 }
-
+.star{
+left: 10rem;
+top: -10rem;
+}
 .button1:hover {
 	transform: scale(1.1);
 }
@@ -96,7 +99,9 @@
 h4 {
 	font-size: 1.25rem;
 }
-
+.hide {
+	background-color: black;
+}
 @media all and (max-width: 30em) {
 	.title h1 {
 		font-size: 3.3rem;

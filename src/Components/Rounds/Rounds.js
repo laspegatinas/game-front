@@ -16,7 +16,7 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
-import { PopUp, PopUp3 } from '../Rounds/PopUp';
+import { PopUp, PopUp3,PopUpStar } from '../Rounds/PopUp';
 import { PopUp2 } from '../Rounds/PopUp'
 import star from '../../Pictures/Star.png'
 import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
@@ -130,7 +130,19 @@ class Rounds extends React.Component {
             };
             return <UserForm nextButton={'btnRonda3'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
         };
-
+        const loginCompStar = (context) => {
+            const { state: { username, email } } = context;
+            if (username || email) {
+                return (
+                    <DelayLink delay={5000} buttonStyle={'hideGame'}
+                    clickAction={this.popStart} to="memo" >
+                    <PopUpStar language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                        popButton={'star'} popText={texts[language].roundOneBtn} />
+                </DelayLink>
+                )
+            };
+            return <UserForm nextButton={'btnRonda3'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+        };
         // const loginComp2 = (context) => {
         //     const { state: { username, email } } = context;
         //     if (username || email) {
@@ -234,10 +246,10 @@ class Rounds extends React.Component {
                                     </div>
                                     
                                     {/* RoundStar */}
-                                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                                    <div className={spotify  ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
-                                        {/* {loginCompRStar(context)} */}
+                                        {loginCompStar(context)}
                                     </div>
 
                                     {/* <div className={youtube || instagram ? 'hideGame' : 'title'}>
@@ -260,15 +272,6 @@ class Rounds extends React.Component {
                                     {/* <div className={spotify || instagram || pop ? 'hideGame' : 'title'} >{loginComp3(context)}</div>
                                     <Link className={spotify || instagram || pop ? 'hideGame' : 'title'} to="/"><img className="btnRonda3" src={regButton3} type="button" /></Link>
                                     <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp4(context)}</div> */}
-                                    {/* memo */}
-                                    <div className={spotify ? 'hideGame' : 'title'}>
-                                        <div className={pop ? 'hideGame' : ''}></div>
-                                        <DelayLink delay={5000} clickAction={this.popStart} to="/memo" >
-                                            <PopUp language={language} popButton={'button1'} todo={texts[language].popUp} instruct={texts[language].popUpInstagram}
-                                                popText={texts[language].roundOneBtn} src={star}
-                                                 />
-                                        </DelayLink>
-                                    </div>
 
                                     {/* <Link className={spotify || youtube ? 'hideGame' : 'title'} to="instagramroundone"><button className="button1" type="button">{texts[language].startRound1}</button></Link> */}
                                     {/* <div className={spotify || youtube || pop ? 'hideGame' : 'title'} >{loginComp2(context)}</div> */}
