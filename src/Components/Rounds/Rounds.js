@@ -131,7 +131,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda3'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="youtube" />;
         };
         const loginCompStar = (context) => {
             const { state: { username, email } } = context;
@@ -145,7 +145,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda3'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={'star'} regButton={star} language={language} score={score} gameIn="youtube" />;
         };
         // const loginComp2 = (context) => {
         //     const { state: { username, email } } = context;
