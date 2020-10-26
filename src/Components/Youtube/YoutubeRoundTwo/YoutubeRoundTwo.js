@@ -49,7 +49,12 @@ class YoutubeRoundTwo extends Component {
 
         // create the random from one videoid, in Round 2 not random but chosen, push all the concerts in array, but take only ID of chosen one
          const randomVideoId = 'QDHlpJogBwc';
+         
+            localStorage.setItem('ConcertId', randomVideoId);
+            //console.log(localStorage.ConcertId)
+        
          console.log(localStorage.ConcertId)
+         console.log(randomVideoId)
         // const randomVideoId = this.props.videoId;
         this.setState({
             randomVideoId,
@@ -115,7 +120,10 @@ class YoutubeRoundTwo extends Component {
         if (gameStatus === 'gameOver') {
             return (
                 <div>
-                     <GameEnded currentGame="youtube" points={localStorage.yt_points_1} language={language}/>
+                     <GameEnded 
+                     currentGame="youtube" 
+                     points={localStorage.yt_points_1}
+                     language={language}/>
                 </div>
             )
         }

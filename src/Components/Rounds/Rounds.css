@@ -45,8 +45,8 @@
 	font-weight: 700;
 }
 .star{
-left: 10rem;
-top: -10rem;
+	left: 10rem;
+	top: -10rem;
 }
 .button1:hover {
 	transform: scale(1.1);

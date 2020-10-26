@@ -8,6 +8,7 @@ import '../../App.css';
 import '../Home/Home.css';
 import ronda3 from '../../Pictures/ronda3.png';
 import ronda2 from '../../Pictures/ronda2.png';
+import ronda1 from '../../Pictures/ronda1.png';
 import homebtn from '../../Pictures/home45.png';
 import home1 from '../../Pictures/home1.png';
 import regButton from '../../Pictures/regButton (2).png';
@@ -16,8 +17,7 @@ import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
-import { PopUp, PopUp3,PopUpStar } from '../Rounds/PopUp';
-import { PopUp2 } from '../Rounds/PopUp'
+import  PopUp from '../Rounds/PopUp';
 import star from '../../Pictures/Star.png'
 import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
 
@@ -110,7 +110,8 @@ class Rounds extends React.Component {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="youtuberoundtwo" >
-                    <PopUp2 language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                    <PopUp  language={language} src={ronda2}
+                    btnRonda1={'btnRonda2'} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'button2'} popText={texts[language].youtubeInstructionsR2} />
                 </DelayLink>
                 )
@@ -123,7 +124,8 @@ class Rounds extends React.Component {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="youtuberoundthree" >
-                    <PopUp3 language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                    <PopUp src={ronda3} btnRonda1={'btnRonda3'}
+                     language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'button3'} popText={texts[language].roundOneBtn} />
                 </DelayLink>
                 )
@@ -134,9 +136,10 @@ class Rounds extends React.Component {
             const { state: { username, email } } = context;
             if (username || email) {
                 return (
-                    <DelayLink delay={5000} buttonStyle={'hideGame'}
+                    <DelayLink delay={20000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="memo" >
-                    <PopUpStar language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                    <PopUp language={language} src={star} btnRonda1={'star'}
+                     todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'star'} popText={texts[language].roundOneBtn} />
                 </DelayLink>
                 )
@@ -220,7 +223,8 @@ class Rounds extends React.Component {
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
                                         <DelayLink delay={5000} clickAction={this.popStart} to="spotifyroundone" >
-                                            <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
+                                            <PopUp src={ronda1} btnRonda1={'btnRonda1'}
+                                            language={language} todo={texts[language].popUp} instruct={texts[language].popUpSpotify}
                                                 popButton={'button1'} popText={texts[language].roundOneBtn} />
                                         </DelayLink>
                                     </div>
@@ -228,25 +232,26 @@ class Rounds extends React.Component {
                                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         <DelayLink delay={5000} clickAction={this.popStart} to="youtuberoundone" >
-                                            <PopUp language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
+                                            <PopUp src={ronda1} btnRonda1={'btnRonda1'}
+                                            language={language} todo={texts[language].popUp} instruct={texts[language].popUpYoutube}
                                                 popButton={'button1'} popText={texts[language].roundOneBtn} />
                                         </DelayLink>
                                     </div>
                                     {/* Round2 */}
-                                    <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                                    <div className={spotify ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
                                         {loginCompR2(context)}
                                     </div>
                                      {/* Round3 */}
-                                     <div className={spotify || instagram ? 'hideGame' : 'title'}>
+                                     <div className={spotify  ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
                                         {loginCompR3(context)}
                                     </div>
                                     
                                     {/* RoundStar */}
-                                    <div className={spotify  ? 'hideGame' : 'title'}>
+                                    <div className={spotify ? 'hideGame' : 'title'}>
                                         <div className={pop ? 'hideGame' : ''}></div>
                                         {/* button invokes a method that first shows popup and then with set timeout got to round one of the game*/}
                                         {loginCompStar(context)}

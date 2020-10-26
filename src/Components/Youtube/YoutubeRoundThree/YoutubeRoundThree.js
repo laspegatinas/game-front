@@ -49,7 +49,12 @@ class YoutubeRoundThree extends Component {
 
         // create the random from one videoid, in Round 2 not random but chosen, push all the concerts in array, but take only ID of chosen one
          const randomVideoId = "wFC_Ot6m_Qk";
+         
+            localStorage.setItem('ConcertId', randomVideoId);
+            //console.log(localStorage.ConcertId)
+      
          console.log(localStorage.ConcertId)
+         console.log(randomVideoId)
         // const randomVideoId = this.props.videoId;
         this.setState({
             randomVideoId,
