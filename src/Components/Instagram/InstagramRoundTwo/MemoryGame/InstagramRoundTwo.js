@@ -63,8 +63,8 @@ class InstagramRoundTwo extends React.Component {
           
             <div className="instagram-game-over youtube-game-over">
                 <h3>{`Has hecho ${ points } puntos`}</h3>
-                    <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
-                    instagramButton={'hideGame'}/> 
+                    {/* <Rounds language={language} spotifyButton={'btn-game'} homeButton={'btn-game'} tokenButton={'btn-game'} youtubeButton={'btn-game'}
+                    instagramButton={'hideGame'}/>  */}
                     {/* <button onClick={this.logScore}>logScore</button> */}
                     {/*score={ Math.round(10 / tryes * 100)} ${ Math.round(10 / tryes * 100) }*/}               
                 {/* <button className='btn-game' onClick={this.restartYoutube}>{texts[language].playAgain}</button>  */}
@@ -72,7 +72,7 @@ class InstagramRoundTwo extends React.Component {
                     ? 
                     // <Register language={language} buttonText={texts[language].keepPointsPlayMoreText}
                     // buttonStyle={'suma-puntos-button'} score="" currentGame={"instagram2"} />
-                    <Link to="/members" language={language} score={points}><button onClick={() => this.addScore(context, points, 'instagram', 'two')} className="suma-puntos-button">
+                    <Link to="/" language={language} score={points}><button onClick={() => this.addScore(context, points, 'instagram', 'two')} className="suma-puntos-button">
                       {texts[language].keepPointsPlayMoreText}
                       </button>
                     </Link>
