@@ -11,7 +11,7 @@ import Concerts from '../Youtube/Concerts/Concerts';
 import texts from '../../texts.json';
 import ronda2 from '../../Pictures/ronda2.png';
 //import InstagramRoundTwo from '../Instagram/InstagramRoundTwo/MemoryGame/InstagramRoundTwo';
-import MembersAccounts from '../Instagram/InstagramRoundThree/MembersAccounts';
+// import MembersAccounts from '../Instagram/InstagramRoundThree/MembersAccounts';
 //import Rounds from '../Rounds/Rounds';
 
 
@@ -125,7 +125,7 @@ class Register extends Component {
                                                 type="button"
                                                 className="buttonAlbum"
                                                 onClick={  (event) => {
-                                                                     
+                                                                     console.log(event.target.alt)
                                                                         this.showLink(context,score, 'spotify', 'one');
                                                                         this.setSelectedAlbumId(event.target.alt)                                                                   
                                                                         this.setState({ 

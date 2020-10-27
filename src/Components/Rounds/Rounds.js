@@ -20,7 +20,6 @@ import Spotify from '../Utils/Spotify';
 import  PopUp from '../Rounds/PopUp';
 import star from '../../Pictures/Star.png';
 import starRg from '../../Pictures/StarRg.png';
-import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
 
 
 class Rounds extends React.Component {
@@ -33,9 +32,11 @@ class Rounds extends React.Component {
         youtube: false,
         instagram: false,
         accessToken: '',
-        pop: false
+        pop: false,
+        albums:[]
 
     }
+    
 
     // getToken = () => {
     //     this.setState({
@@ -79,15 +80,6 @@ class Rounds extends React.Component {
         })
     }
 
-    startMemo = () => {	
-        const instaStart = true;	
-        const start = 'screen';	
-        this.setState({	
-            instagram: instaStart,	
-            page: start,	
-            button: 'hideGame',	
-        });	
-    }
 
     render() {
 
@@ -114,7 +106,10 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
-                    clickAction={this.popStart} to="youtuberoundtwo" >
+                    clickAction={this.popStart} 
+                    //reusing the componenent,sending the name of the album to each round
+                    to={{ pathname: '/spotifyroundtwo',selectedAlbum: 'Un secreto a voces' }}
+                    >
                     <PopUp  language={language} src={ronda2}
                     btnRonda1={pop?'hideGame':'btnRonda2'} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'button2'} popText={texts[language].youtubeInstructionsR2} />
@@ -143,7 +138,9 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
-                    clickAction={this.popStart} to="youtuberoundthree" >
+                    clickAction={this.popStart} to={{ pathname: '/spotifyroundthree',selectedAlbum: 'Ahora o nunca'  }}
+                    
+                    >
                     <PopUp src={ronda3} btnRonda1={pop?'hideGame':'btnRonda3'}
                      language={language} todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'button3'} popText={texts[language].roundOneBtn} />

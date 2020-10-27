@@ -35,7 +35,7 @@ class spotifyRoundTwo extends React.Component {
     // All the songs that the user guessed wrong are pushed into this array
     unknownSongs = [];
 
-    NUMBER_OF_SONGS_TO_PLAY_WITH = 11;
+    NUMBER_OF_SONGS_TO_PLAY_WITH = 10;
 
     state = {
         songNames: [],
@@ -57,8 +57,9 @@ class spotifyRoundTwo extends React.Component {
         noTracks: true,
         playlistName: 'Mis favoritos',
         giveMeConfetti: false,
-        selectedAlbum: localStorage.AlbumId,
+        selectedAlbum:this.props.location.selectedAlbum
     };
+    
 
     // API call to get the playlist data.
     async componentDidMount() {
@@ -75,8 +76,12 @@ class spotifyRoundTwo extends React.Component {
 
             status: 'playing'
         })
-        console.log(selectedAlbumID)
-        console.log(selectedAlbum)
+        // console.log(selectedAlbumID)
+        // console.log(selectedAlbum)
+    
+    }
+    setSelectedAlbumId = (selectedAlbum) => {
+        localStorage.setItem('AlbumId', selectedAlbum);       
     }
 
     /**
