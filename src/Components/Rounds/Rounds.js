@@ -18,7 +18,8 @@ import UserForm from '../Register/User/UserForm/UserForm';
 import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
 import  PopUp from '../Rounds/PopUp';
-import star from '../../Pictures/Star.png'
+import star from '../../Pictures/Star.png';
+import starRg from '../../Pictures/StarRg.png';
 import YoutubeRoundTwo from '../Youtube/YoutubeRoundTwo/YoutubeRoundTwo';
 
 
@@ -93,7 +94,7 @@ class Rounds extends React.Component {
 
         const { page, instagram, youtube, spotify, pop } = this.state;
         const { language, score, connection, allRounds, backToHome } = this.props;
-        console.log(this.context.state)
+        // console.log(this.context.state)
 
         // const loginComp = (context) => {
         //     const { state: { username, email } } = context;
@@ -145,7 +146,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'star'} regButton={star} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={'star'} regButton={starRg} language={language} score={score} gameIn="youtube" />;
         };
         // const loginComp2 = (context) => {
         //     const { state: { username, email } } = context;
