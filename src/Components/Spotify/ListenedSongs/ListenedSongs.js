@@ -29,8 +29,9 @@ const ListenedSongs = ({ save, reload, naming, adding, playlistName, language, u
         if (username) {
            
             return (
-                <Register buttonStyle={'suma-puntos-button'} score={score} buttonText={texts[language].keepPointsPlayMoreText}
-                 currentGame="spotify" language={language} />
+                <Link to="/" language={language} ><button onClick={() => context.addPoints(score, 'spotify','one')} className="suma-puntos-button">
+                {texts[language].keepPointsPlayMoreText}
+                </button></Link>
             );
         }
 

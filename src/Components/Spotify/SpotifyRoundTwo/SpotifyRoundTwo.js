@@ -303,6 +303,7 @@ class spotifyRoundTwo extends React.Component {
         } = this.state;
 
         console.log('paco', 'render again spotifyRound 2')
+        console.log(localStorage.AlbumId)
 
         const { language } = this.props;
 
