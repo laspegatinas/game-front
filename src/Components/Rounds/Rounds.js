@@ -99,7 +99,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
         };
         const loginCompR2S = (context) => {
             const { state: { username, email } } = context;
@@ -116,7 +116,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'btnRonda2'} regButton={regButton} language={language} score={score} gameIn="youtube" />;
         };
         // Rounds3
         const loginCompR3Y = (context) => {
@@ -131,7 +131,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="youtube" />;
         };
         const loginCompR3S = (context) => {
             const { state: { username, email } } = context;
@@ -147,7 +147,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'btnRonda3'} regButton={regButton3} language={language} score={score} gameIn="youtube" />;
         };
         // bonus
         const loginCompStarY = (context) => {
@@ -162,7 +162,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'star'} regButton={starRg} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'star'} regButton={starRg} language={language} score={score} gameIn="youtube" />;
         };
         const loginCompStarS = (context) => {
             const { state: { username, email } } = context;
@@ -176,7 +176,7 @@ class Rounds extends React.Component {
                 </DelayLink>
                 )
             };
-            return <UserForm nextButton={'star'} regButton={starRg} language={language} score={score} gameIn="youtube" />;
+            return <UserForm nextButton={pop?'hideGame':'star'} regButton={starRg} language={language} score={score} gameIn="youtube" />;
         };
 
 
