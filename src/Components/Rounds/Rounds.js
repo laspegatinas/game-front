@@ -157,7 +157,7 @@ class Rounds extends React.Component {
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
                     clickAction={this.popStart} to="memo" >
                     <PopUp language={language} src={star} btnRonda1={pop?'hideGame':'star'}
-                     todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
+                     todo={texts[language].popUp} instruct={texts[language].memoInstructions}
                         popButton={'star'} popText={texts[language].roundOneBtn} />
                 </DelayLink>
                 )
