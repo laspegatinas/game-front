@@ -1,0 +1,62 @@
+.HelpJuan{
+    padding: 60px 20px 0 20px;
+    position: relative;
+    background-image: url("../../img/games/helpJuan/AyudaJuan-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display : flex;
+    flex-direction: column;
+    & .questionMark{
+        cursor: pointer;
+    }
+    & .justifyCenter {
+        display: flex;
+        justify-content: center;
+    }
+
+    .timeAndActualNumber {
+        margin-bottom: 20px;
+        background-color: white;
+        border: 2px solid #DB8A74;
+        border-radius: 20px;
+        color: #444054;
+        width: 70vw;
+        padding: 10px 0;
+        margin: 0 auto;
+        
+        & .chronoText{
+        font-size: x-large;
+        font-weight: bold;
+        }
+    }
+    & .header-buttons{
+        position: absolute;
+          display: flex;
+          top: 0;
+          right: 10px;
+          
+        > div{
+            margin: 5px; 
+        }
+      }
+      
+
+    > img{
+        margin: 40px 0;
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+    }
+    .juan-header {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .juan-logo {
+        width: 30%;
+        margin-bottom: 50px;
+    }
+
+}
