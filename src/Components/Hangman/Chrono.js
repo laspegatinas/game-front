@@ -2,7 +2,7 @@ import React, {
     useState,
     useEffect
 } from 'react';
-import confetti from '../../../confetti';
+import confetti from '../Utils/confetti';
 
 let interval = null;
 const Chrono = ({ setTimerOn }) => {

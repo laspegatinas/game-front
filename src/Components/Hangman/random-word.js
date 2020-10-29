@@ -1,5 +1,5 @@
 //import words from 'an-array-of-english-words';
-import { HelpJuanWords } from '../../../Utils/HelpJuanWords';
+import { HelpJuanWords } from './HelpJuanWords';
 
 export default (language) => {
   const words = HelpJuanWords[language].words

@@ -169,7 +169,7 @@ class Rounds extends React.Component {
             if (username || email) {
                 return (
                     <DelayLink delay={5000} buttonStyle={'hideGame'}
-                    clickAction={this.popStart} to="memo" >
+                    clickAction={this.popStart} to="hangman" >
                     <PopUp language={language} src={star} btnRonda1={pop?'hideGame':'star'}
                      todo={texts[language].popUp} instruct={texts[language].youtubeInstructionsR2}
                         popButton={'star'} popText={texts[language].roundOneBtn} />

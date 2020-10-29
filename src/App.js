@@ -16,6 +16,7 @@ import MyProvider, { MyContext } from './context/MyProvider';
 import './App.css';
 import Voucher from './Components/Voucher/VoucherPage/Voucher';
 import VoucherReceived from './Components/Voucher/Received/VoucherReceived';
+import HelpJuan from './Components/Hangman/HelpJuan'
 
 // Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect"
 //  title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
@@ -142,6 +143,16 @@ render() {
                                     <div>	
                                         <Navbar pagein="game" />	
                                         <Memo language={selectedLanguage} {...props} />	
+                                    </div>	
+                                )}	
+                            />
+                            <PrivateRoute	
+                                authed={context.state.authed}	
+                                path="/hangman"	
+                                component={(props) => (	
+                                    <div>	
+                                        <Navbar pagein="game" />	
+                                        <HelpJuan language={selectedLanguage} {...props} />	
                                     </div>	
                                 )}	
                             />

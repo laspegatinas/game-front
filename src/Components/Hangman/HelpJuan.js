@@ -1,24 +1,24 @@
 import React, { useCallback, useContext, useState } from "react";
 import Chrono from "./Chrono";
-import { Context } from "../../../Context/Provider";
+import { MyContext } from "../../context/MyProvider";
 import gameFactory from "./game-state-factory";
 import { GAME_WON, GAME_STARTED, GAME_OVER } from "./game-states";
 import GameContainer from "./GameContainer";
-import Popup from "../Modal/Popup";
+// import Popup from "../Modal/Popup";
 import {Link} from 'react-router-dom';
-import confetti from '../../../confetti';
+import confetti from '../Utils/confetti';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import juanTitleEs from "../../img/games/helpJuan/Ayuda a Juan-es-title.png";
-import juanTitleEn from "../../img/games/helpJuan/Ayuda a Juan-eng-title.png";
-import MemoryFinalPopUp from '../MemoryGame/MemoryFinalPopUp'
+// import juanTitleEs from "../../img/games/helpJuan/Ayuda a Juan-es-title.png";
+// import juanTitleEn from "../../img/games/helpJuan/Ayuda a Juan-eng-title.png";
+// import MemoryFinalPopUp from '../MemoryGame/MemoryFinalPopUp'
 import randomWord from './random-word';
 
 import "./HelpJuan.scss";
 
 const HelpJuan = () => {
-  const context = useContext(Context);
+  const context = useContext(MyContext);
   const {
     state: { language },
   } = context;
@@ -106,7 +106,7 @@ const HelpJuan = () => {
   return (
     <div className="HelpJuan">
       <div className="header-buttons">
-        <div>
+        {/* <div>
           <span     
             className="questionMark" 
             onClick={toggleModal}      
@@ -114,18 +114,18 @@ const HelpJuan = () => {
           >
             <FontAwesomeIcon icon={faQuestionCircle} />
           </span>
-        </div>
-        <div>
-          <Link to="/games">
+        </div> */}
+        {/* <div>
+          <Link to="/">
             <span style={{ color: "#E5423A", fontSize: "2em" }}>
               <FontAwesomeIcon icon={faTimesCircle} />
             </span>
           </Link>
-        </div>
+        </div> */}
       </div>
-      <div className="juan-header">
+      {/* <div className="juan-header">
                  <img className="juan-logo" alt="juan-logo" src={context.state.language === 'spanish' ? juanTitleEs : juanTitleEn} />    
-            </div>
+            </div> */}
       <div className="row timeAndActualNumber">
         <div className="col-12 col-md-6 justifyCenter">
           <p className="chronoText">
@@ -139,7 +139,7 @@ const HelpJuan = () => {
         </div>
         <div className="col-12 col-md-6 justifyCenter">
           <p>
-          {context.state.texts[language].juan.hits}: &nbsp;&nbsp;&nbsp;{" "}
+          {hits}: &nbsp;&nbsp;&nbsp;{" "}
             <span style={{ fontWeight: "bold", fontSize: "x-large" }}>
               {hits}
             </span>
@@ -153,7 +153,7 @@ const HelpJuan = () => {
         {...state}
         hits={hits}
       />
-      <Popup
+      {/* <Popup
         className1=' all-modal all-modal-green'
         className="generalModalTitle generalModalTitle-green"
         description={context.state.texts[language].juan.popup_description}
@@ -163,7 +163,7 @@ const HelpJuan = () => {
         instruction4={context.state.texts[language].juan.instruction4}
         show={showModal}
         setShow={setShowModal}
-      />
+      /> */}
      
     </div>
   );
