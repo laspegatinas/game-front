@@ -16,12 +16,15 @@ import Navbar from '../Navbar/Navbar';
 import "./HelpJuan.scss";
 
 const HelpJuan = ({language}) => {
-  // const context = useContext(MyContext);
-  // const {
-  //   state: { language },
-  // } = context;
+  const context = useContext(MyContext);
+  console.log(context)
+//   addScore = (context, newPoints, gameName, roundIn) => {
+//     context.addPoints(newPoints, gameName, roundIn);
+   
+// }
 
   console.log(language)
+  const [points,setPoints] = useState(0)
   const [state, setState] = useState(gameFactory.newGame(language));
   const [timerOn, setTimerOn] = useState(false);
   const [hits, setHits] = useState(0);
@@ -81,6 +84,7 @@ const HelpJuan = ({language}) => {
     if (state.gameState === GAME_WON) {      
       const gameWord = randomWord(language);  
       setHits(hits + 1);
+      setPoints(points + 10)
       setState(gameFactory.newGame(gameWord));
     } else {
       if (!state.guesses) {
@@ -90,6 +94,7 @@ const HelpJuan = ({language}) => {
       }
     }
   }, [state]);
+  console.log(points)
 
   const onRestartClick = (e) => {
     e.preventDefault();
@@ -109,17 +114,16 @@ const endIt = () =>{
             <Navbar addedClass="fixTop" />
           
             <div className="instagram-game-over youtube-game-over">
-                {/* <h3>{`Has hecho ${ points } puntos`}</h3> */}
-                <h3>has hecho</h3>
+                <h3>{`Has hecho ${ points } puntos`}</h3>
 
-                    {/* <Link to="/" language={language} score={points}><button onClick={() => this.addScore(context, points, 'instagram', 'two')} className="suma-puntos-button">
+                  <Link to="/" language={language} score={points}><button onClick={() => context.addPoints(points, 'instagram', 'one')} className="suma-puntos-button">
+                      {texts[language].keepPointsPlayMoreText}
+                      </button>
+                  </Link>
+                           {/* <Link to="/" language={language} ><button  className="suma-puntos-button">
                       {texts[language].keepPointsPlayMoreText}
                       </button>
                     </Link> */}
-                           <Link to="/" language={language} ><button  className="suma-puntos-button">
-                      {texts[language].keepPointsPlayMoreText}
-                      </button>
-                    </Link>
             </div>
           
             <div className="social-media-follow-buttons">
