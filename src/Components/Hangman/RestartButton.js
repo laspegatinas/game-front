@@ -1,20 +1,16 @@
 import React from 'react';
-// import { Context } from "../../../Context/Provider";
+import texts from '../../texts.json';
 
 import { GAME_WON } from './game-states';
 
 import './RestartButton.css';
 
-const RestartButton = ({ onClick, gameState }) => {
-  // const context = React.useContext(Context);
-  // const {
-  //   state: { language },
-  // } = context;
+const RestartButton = ({ onClick, gameState, language }) => {
+
   return (
     <div className="App-Restart">
       <button onClick={onClick}>
-      start
-        {/* {gameState === GAME_WON ? context.state.texts[language].juan.start : context.state.texts[language].juan.start} */}
+      {texts[language].startHangman}
       </button>
     </div>
   );  

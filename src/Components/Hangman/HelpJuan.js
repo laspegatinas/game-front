@@ -1,27 +1,26 @@
 import React, { useCallback, useContext, useState } from "react";
 import Chrono from "./Chrono";
+import texts from '../../texts.json';
 import { MyContext } from "../../context/MyProvider";
 import gameFactory from "./game-state-factory";
 import { GAME_WON, GAME_STARTED, GAME_OVER } from "./game-states";
 import GameContainer from "./GameContainer";
-// import Popup from "../Modal/Popup";
 import {Link} from 'react-router-dom';
 import confetti from '../Utils/confetti';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-// import juanTitleEs from "../../img/games/helpJuan/Ayuda a Juan-es-title.png";
-// import juanTitleEn from "../../img/games/helpJuan/Ayuda a Juan-eng-title.png";
-// import MemoryFinalPopUp from '../MemoryGame/MemoryFinalPopUp'
 import randomWord from './random-word';
 
 import "./HelpJuan.scss";
 
-const HelpJuan = () => {
-  const context = useContext(MyContext);
-  const {
-    state: { language },
-  } = context;
+const HelpJuan = ({language}) => {
+  // const context = useContext(MyContext);
+  // const {
+  //   state: { language },
+  // } = context;
+
+  console.log(language)
   const [state, setState] = useState(gameFactory.newGame(language));
   const [timerOn, setTimerOn] = useState(false);
   const [hits, setHits] = useState(0);
@@ -133,13 +132,15 @@ const HelpJuan = () => {
               "00:00:00"
             ) : (
               <Chrono 
-              setTimerOn={setTimerOn} />
+              setTimerOn={setTimerOn}
+              language={language}
+               />
             )}
           </p>
         </div>
         <div className="col-12 col-md-6 justifyCenter">
           <p>
-          {hits}: &nbsp;&nbsp;&nbsp;{" "}
+          {texts[language].hitsHangman}: &nbsp;&nbsp;&nbsp;{" "}
             <span style={{ fontWeight: "bold", fontSize: "x-large" }}>
               {hits}
             </span>
@@ -152,6 +153,7 @@ const HelpJuan = () => {
         onRestartClick={onRestartClick}
         {...state}
         hits={hits}
+        language={language}
       />
       {/* <Popup
         className1=' all-modal all-modal-green'

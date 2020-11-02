@@ -97,7 +97,10 @@
 		"yourCode": "El teu codi per bescanviar:",
 		"continueRedeem": "Seguir canviant",
 		"continuePlay": "Seguir jugant",
-		"download": "Descarregar pdf"
+		"download": "Descarregar pdf",
+		"startHangman": "Inici",
+        "guessesHangman": "Intents restants",
+        "hitsHangman": "Èxits"
 		
 	},
 
@@ -200,7 +203,10 @@
 		"yourCode": "Tu código para canjear:",
 		"continueRedeem": "Seguir canjeando",
 		"continuePlay": "Seguir jugando",
-		"download": "Descargar pdf"
+		"download": "Descargar pdf",
+		"startHangman": "Comenzar",
+		"guessesHangman":"Intentos restantes",
+        "hitsHangman": "Aciertos"
 	},
 
 	"english": {
@@ -300,7 +306,10 @@
 		"yourCode": "You're code to redeem:",
 		"continueRedeem": "Continue redeeming",
 		"continuePlay": "Continue playing",
-		"download": "Download pdf"
+		"download": "Download pdf",
+		"startHangman": "Start",
+        "guessesHangman": "Remaining attempts",
+        "hitsHangman": "Hits"
 	},
 
 	"french": {
@@ -401,6 +410,9 @@
 		"yourCode": "Votre code à utiliser:",
 		"continueRedeem": "Continuer échanger de points",
 		"continuePlay": "Continuer jouer",
-		"download": "Télécharger pdf"
+		"download": "Télécharger pdf",
+		"startHangman": "Démarrer",
+        "guessesHangman": "Tentatives restantes",
+        "hitsHangman": "Hits"
 	}
 }

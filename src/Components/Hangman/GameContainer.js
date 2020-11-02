@@ -6,15 +6,16 @@ import Word from './Word';
 import RestartButton from './RestartButton';
 import VirtualKeyboard from './VirtualKeyboard';
 import hangmanAttempts from './HangmanAttempts';
+import texts from '../../texts.json';
 import { GAME_WON, GAME_OVER } from './game-states';
-// import HangmanFinalPopup from './HangmanFinalPopup';
 import confetti from '../Utils/confetti';
-// import GameEnded from '../'
+import GameEnded from '../GameEnded/GameEnded'
 
 
 import './GameContainer.scss';
 
-const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses, hits, onRestartClick, onLetterClick }) => {
+const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses,
+ hits, onRestartClick, onLetterClick, language }) => {
   
   const _renderInputPanel = () => {
     const hasAttemptsLeft = guesses > 0;
@@ -34,7 +35,9 @@ const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses, hits
       <div className="Game-InputPanel">
         {_renderWord()}
         <div className="Game-AttemptsLeft">
-          <AttemptsLeft attempts={guesses} />
+          <AttemptsLeft attempts={guesses}
+          language={language}
+           />
         </div>
         {content}
       </div>
@@ -47,7 +50,7 @@ const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses, hits
             setTimeout(() => {
               confetti.stop();
             }, 2000);
-            return
+            return 
         }
         return endIt()
       }
@@ -63,6 +66,7 @@ const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses, hits
         <RestartButton
           onClick={onRestartClick}
           gameState={gameState}
+          language={language}
         />
       </div>
     )
