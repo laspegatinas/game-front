@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-
 import AttemptsLeft from './AttemptsLeft';
 import Letter from './Letter';
 import Word from './Word';
@@ -9,7 +8,8 @@ import hangmanAttempts from './HangmanAttempts';
 import texts from '../../texts.json';
 import { GAME_WON, GAME_OVER } from './game-states';
 import confetti from '../Utils/confetti';
-import GameEnded from '../GameEnded/GameEnded'
+import GameEnded from '../GameEnded/GameEnded';
+
 
 
 import './GameContainer.scss';
@@ -44,25 +44,14 @@ const GameContainer = ({ timerOn, letters, pastGuesses, gameState, guesses,
     );
   }
 
-      const endIt = () =>{ 
-        if(GAME_OVER){ 
-            confetti.start();
-            setTimeout(() => {
-              confetti.stop();
-            }, 2000);
-            return 
-        }
-        return endIt()
-      }
+
 
 
   const _renderGameFinished = (message, cssClass) => {
     
     return (
       <div className={cssClass}>
-        {timerOn===false && hits !== 0 &&
-        endIt()
-      }
+
         <RestartButton
           onClick={onRestartClick}
           gameState={gameState}

@@ -5,12 +5,13 @@ import { MyContext } from "../../context/MyProvider";
 import gameFactory from "./game-state-factory";
 import { GAME_WON, GAME_STARTED, GAME_OVER } from "./game-states";
 import GameContainer from "./GameContainer";
-import {Link} from 'react-router-dom';
 import confetti from '../Utils/confetti';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import randomWord from './random-word';
+import { Link } from 'react-router-dom';
+import SocialMedia from '../SocialMedia/SocialMedia';
+import Navbar from '../Navbar/Navbar';
+
+
 
 import "./HelpJuan.scss";
 
@@ -97,34 +98,47 @@ const HelpJuan = ({language}) => {
     setTimerOn(true);
     setHits(0);
   };
+const endIt = () =>{ 
+        if(GAME_OVER){ 
+            confetti.start();
+            setTimeout(() => {
+              confetti.stop();
+            }, 2000);
+            return  (      
+            <div>
+            <Navbar addedClass="fixTop" />
+          
+            <div className="instagram-game-over youtube-game-over">
+                {/* <h3>{`Has hecho ${ points } puntos`}</h3> */}
+                <h3>has hecho</h3>
 
-  const toggleModal = () => {
-    setShowModal(!showModal)
-  }
+                    {/* <Link to="/" language={language} score={points}><button onClick={() => this.addScore(context, points, 'instagram', 'two')} className="suma-puntos-button">
+                      {texts[language].keepPointsPlayMoreText}
+                      </button>
+                    </Link> */}
+                           <Link to="/" language={language} ><button  className="suma-puntos-button">
+                      {texts[language].keepPointsPlayMoreText}
+                      </button>
+                    </Link>
+            </div>
+          
+            <div className="social-media-follow-buttons">
+                <SocialMedia
+                    language={'spanish'}
+                />
+            </div>
+        </div>
+            )
+        }
+        return endIt()
+      }
 
   return (
+    timerOn===false && hits !== 0 ?
+     endIt()
+     :(
     <div className="HelpJuan">
-      <div className="header-buttons">
-        {/* <div>
-          <span     
-            className="questionMark" 
-            onClick={toggleModal}      
-            style={{ color: "#E5423A", fontSize: "2em" }}
-          >
-            <FontAwesomeIcon icon={faQuestionCircle} />
-          </span>
-        </div> */}
-        {/* <div>
-          <Link to="/">
-            <span style={{ color: "#E5423A", fontSize: "2em" }}>
-              <FontAwesomeIcon icon={faTimesCircle} />
-            </span>
-          </Link>
-        </div> */}
-      </div>
-      {/* <div className="juan-header">
-                 <img className="juan-logo" alt="juan-logo" src={context.state.language === 'spanish' ? juanTitleEs : juanTitleEn} />    
-            </div> */}
+ 
       <div className="row timeAndActualNumber">
         <div className="col-12 col-md-6 justifyCenter">
           <p className="chronoText">
@@ -155,19 +169,9 @@ const HelpJuan = ({language}) => {
         hits={hits}
         language={language}
       />
-      {/* <Popup
-        className1=' all-modal all-modal-green'
-        className="generalModalTitle generalModalTitle-green"
-        description={context.state.texts[language].juan.popup_description}
-        instruction1={context.state.texts[language].juan.instruction1}
-        instruction2={context.state.texts[language].juan.instruction2}
-        instruction3={context.state.texts[language].juan.instruction3}
-        instruction4={context.state.texts[language].juan.instruction4}
-        show={showModal}
-        setShow={setShowModal}
-      /> */}
-     
     </div>
+     )
+     
   );
 };
 
