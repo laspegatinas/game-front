@@ -74,15 +74,16 @@ class spotifyRoundTwo extends React.Component {
 
         this.setState({
 
-            status: 'playing'
+            status: 'playing',
+            selectedAlbumID:localStorage.setItem('AlbumId', selectedAlbum)
         })
         // console.log(selectedAlbumID)
         // console.log(selectedAlbum)
     
     }
-    setSelectedAlbumId = (selectedAlbum) => {
-        localStorage.setItem('AlbumId', selectedAlbum);       
-    }
+    // setSelectedAlbumId = (selectedAlbum) => {
+    //     localStorage.setItem('AlbumId', selectedAlbum);       
+    // }
 
     /**
      * This fn returns an array with 4 song names randomly including the current song
