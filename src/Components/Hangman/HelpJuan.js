@@ -89,6 +89,7 @@ const HelpJuan = ({language}) => {
     } else {
       if (!state.guesses) {
         setTimerOn(false);
+        // setHits(hits)
         // endIt()
 
       }
@@ -101,7 +102,7 @@ const HelpJuan = ({language}) => {
     const gameWord = randomWord(language);  
     setState(gameFactory.newGame(gameWord));
     setTimerOn(true);
-    setHits(0);
+    // setHits(0);
   };
 const endIt = () =>{ 
         if(GAME_OVER){ 
