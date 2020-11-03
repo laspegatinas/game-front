@@ -100,7 +100,8 @@
 		"download": "Descarregar pdf",
 		"startHangman": "Inici",
         "guessesHangman": "Intents restants",
-        "hitsHangman": "Èxits"
+        "hitsHangman": "Èxits",
+		"album":"Àlbum"
 		
 	},
 
@@ -206,7 +207,8 @@
 		"download": "Descargar pdf",
 		"startHangman": "Comenzar",
 		"guessesHangman":"Intentos restantes",
-        "hitsHangman": "Aciertos"
+        "hitsHangman": "Aciertos",
+		"album":"Àlbum"
 	},
 
 	"english": {
@@ -309,7 +311,8 @@
 		"download": "Download pdf",
 		"startHangman": "Start",
         "guessesHangman": "Remaining attempts",
-        "hitsHangman": "Hits"
+        "hitsHangman": "Hits",
+		"album": "Album"
 	},
 
 	"french": {
@@ -413,6 +416,7 @@
 		"download": "Télécharger pdf",
 		"startHangman": "Démarrer",
         "guessesHangman": "Tentatives restantes",
-        "hitsHangman": "Hits"
+        "hitsHangman": "Hits",
+		"album": "Album"
 	}
 }

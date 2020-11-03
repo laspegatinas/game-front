@@ -111,7 +111,7 @@ class Rounds extends React.Component {
                     to={{ pathname: '/spotifyroundtwo',selectedAlbum: 'Un secreto a voces' }}
                     >
                     <PopUp  language={language} src={ronda2}
-                    btnRonda1={pop?'hideGame':'btnRonda2'} todo={texts[language].popUp} instruct={texts[language].spotifyRoundTwoQuestion}
+                    btnRonda1={pop?'hideGame':'btnRonda2'} todo={texts[language].popUp} instruct={texts[language].album +': Un secreto a voces'+' '+texts[language].spotifyRoundTwoQuestion}
                         popButton={'button2'} popText={texts[language].youtubeInstructionsR2} />
                 </DelayLink>
                 )
@@ -142,7 +142,7 @@ class Rounds extends React.Component {
                     
                     >
                     <PopUp src={ronda3} btnRonda1={pop?'hideGame':'btnRonda3'}
-                     language={language} todo={texts[language].popUp} instruct={texts[language].spotifyRoundTwoQuestion}
+                     language={language} todo={texts[language].popUp} instruct={texts[language].album +':Ahora o nunca'+' '+texts[language].spotifyRoundTwoQuestion}
                         popButton={'button3'} popText={texts[language].roundOneBtn} />
                 </DelayLink>
                 )
