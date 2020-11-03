@@ -6,12 +6,12 @@
   border-radius: 5px;
   padding: 5px;
   min-width: 1.2em;
-  color: #000;
+  color: white;
 }
 
 .LetterBlock:hover {
   text-decoration: none;
-  color: #fff;
+  color: #a26dcd;
   background: linear-gradient(to bottom, #000 0%, #000 100%);
 }
 

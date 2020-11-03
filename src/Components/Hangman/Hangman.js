@@ -3,12 +3,12 @@ import React from 'react';
 const styles = {
   character: {
     fill: 'none',
-    stroke: 'black',
+    stroke: 'white',
     strokeWidth: 3,
   },
   post: {
     fill: 'none',
-    stroke: 'black',
+    stroke: 'white',
     strokeWidth: 10,
   },
 };
@@ -16,7 +16,7 @@ const styles = {
 const Hangman = ({ body, leftArm, rightArm, leftLeg, rightLeg }) => {
   const _renderHead = () => {
     return body
-        ? <circle cx="242.246" cy="184.155" r="40" fill="black" transform="matrix(0.842089, 0, 0, 0.829211, 38.34655, 29.65666)"></circle>
+        ? <circle cx="242.246" cy="184.155" r="40" fill="white" transform="matrix(0.842089, 0, 0, 0.829211, 38.34655, 29.65666)"></circle>
         : null;
   }
 
