@@ -101,7 +101,8 @@
 		"startHangman": "Inici",
         "guessesHangman": "Intents restants",
         "hitsHangman": "Èxits",
-		"album":"Àlbum"
+		"album":"Àlbum",
+		"hangmanInstruct": "Endevina el nom de l'integrant de la banda!"
 		
 	},
 
@@ -208,7 +209,8 @@
 		"startHangman": "Comenzar",
 		"guessesHangman":"Intentos restantes",
         "hitsHangman": "Aciertos",
-		"album":"Àlbum"
+		"album":"Àlbum",
+		"hangmanInstruct":"Adivina el nombre del integrante de la banda!"
 	},
 
 	"english": {
@@ -312,7 +314,8 @@
 		"startHangman": "Start",
         "guessesHangman": "Remaining attempts",
         "hitsHangman": "Hits",
-		"album": "Album"
+		"album": "Album",
+		"hangmanInstruct": "Guess the name of the band member!"
 	},
 
 	"french": {
@@ -417,6 +420,7 @@
 		"startHangman": "Démarrer",
         "guessesHangman": "Tentatives restantes",
         "hitsHangman": "Hits",
-		"album": "Album"
+		"album": "Album",
+		"hangmanInstruct": "Devinez le nom du membre du groupe!"
 	}
 }
