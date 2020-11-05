@@ -15,7 +15,6 @@ import regButton from '../../Pictures/regButton (2).png';
 import regButton3 from '../../Pictures/regButton3 (1).png';
 import { MyContext } from '../../context/MyProvider';
 import UserForm from '../Register/User/UserForm/UserForm';
-import Register from '../Register/Register';
 import Spotify from '../Utils/Spotify';
 import  PopUp from '../Rounds/PopUp';
 import star from '../../Pictures/Star.png';

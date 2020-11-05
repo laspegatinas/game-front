@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React from 'react';
 import '../../App.css';
 import './Home.css';
 import logo from '../../Pictures/logo_la_pegatina_2018.png';
