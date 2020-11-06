@@ -37,8 +37,8 @@ const VirtualKeyboard = ({ onClick, excluded = [] }) => {
   );
 }
 
-VirtualKeyboard.FIRST_ROW = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
-VirtualKeyboard.SECOND_ROW = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-VirtualKeyboard.THIRD_ROW = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+VirtualKeyboard.FIRST_ROW = ['ó','q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
+VirtualKeyboard.SECOND_ROW = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l','í','ñ'];
+VirtualKeyboard.THIRD_ROW = ['z', 'x', 'c', 'v', 'b', 'n', 'm', 'à', 'é','⎵'];
 
 export default VirtualKeyboard;
